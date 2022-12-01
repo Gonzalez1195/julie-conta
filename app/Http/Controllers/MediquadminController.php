@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Recomendante;
-use App\Models\DatosGeneral;
 
 class MediquadminController extends Controller
 {
@@ -295,29 +293,7 @@ class MediquadminController extends Controller
         return view('form.element', compact('page_title', 'page_description','action'));
     }
 
-    public function datos_generales(){
-        $page_title = 'Datos Generales';
-        $page_description = 'Datos basicos de un paciente para una nueva cita';
-        $recomendantes = Recomendante::all();
-
-		//$action = "form_element";
-        $action = __FUNCTION__;
-
-        return view('perident.datos_generales', compact('page_title', 'page_description','recomendantes','action'));
-    }
-
-    public function citas(){
-        $page_title = 'Citas';
-        $page_description = 'Cracion de citas';
-        $datosGenerales = DatosGeneral::all();
-
-        $action = __FUNCTION__;
-
-        return view('perident.citas', compact('page_title', 'page_description', 'datosGenerales', 'action'));
-    }
-
-
-	    // Form Pickers
+	// Form Pickers
     public function form_pickers()
     {
         $page_title = 'From Pickers';

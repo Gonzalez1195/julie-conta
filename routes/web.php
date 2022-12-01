@@ -84,14 +84,3 @@ Route::get('/ui-tab', 'App\Http\Controllers\MediquadminController@ui_tab');
 Route::get('/ui-typography', 'App\Http\Controllers\MediquadminController@ui_typography');
 Route::get('/widget-basic', 'App\Http\Controllers\MediquadminController@widget_basic');
 
-/**
- * PERIDENT
- */
-Route::get('/datos_generales', 'App\Http\Controllers\MediquadminController@datos_generales');
-Route::get('/citas-add', 'App\Http\Controllers\MediquadminController@citas');
-
-Route::controller(DatosGeneralController::class)->group(function(){
-    Route::post('agregar-datos-generales', 'insertDatosGen');
-    Route::post('actualizar-datos-generales/{id}', 'updateDatosGen');
-    Route::post('eliminar-datos-generales/{id}', 'deleteDatoGeneral');
-});
