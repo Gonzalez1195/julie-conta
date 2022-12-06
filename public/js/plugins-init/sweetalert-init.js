@@ -21,7 +21,7 @@ Sweet-alert JS
             showCancelButton: !0,
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it !!",
-            closeOnConfirm: !1
+            closeOnConfirm: true
         }, function () {
             swal("Deleted !!", "Hey, your imaginary file has been deleted !!", "success")
         })

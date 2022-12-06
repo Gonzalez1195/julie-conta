@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DatosGeneralController;
+use App\Http\Controllers\MediquadminController;
+use App\Http\Controllers\DatosGeneralesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,4 +84,21 @@ Route::get('/ui-progressbar', 'App\Http\Controllers\MediquadminController@ui_pro
 Route::get('/ui-tab', 'App\Http\Controllers\MediquadminController@ui_tab');
 Route::get('/ui-typography', 'App\Http\Controllers\MediquadminController@ui_typography');
 Route::get('/widget-basic', 'App\Http\Controllers\MediquadminController@widget_basic');
+
+
+
+// Rutas de Julie-conta
+
+Route::controller(MediquadminController::class)->group(function() {
+    Route::get('/usuarios', 'view_usuarios');
+    Route::get('/agregar-usuario', 'form_usuarios');
+    Route::get('/editar-usuario/{id}', 'editar_usuarios');
+
+});
+
+Route::controller(DatosGeneralesController::class)->group(function() {
+    Route::post('/crear-usuario', 'addDatosGen');
+    Route::post('/update-usuario/{id}', 'updateDatosGen');
+    Route::get('/eliminar-usuario/{id}', 'eliminar');
+});
 

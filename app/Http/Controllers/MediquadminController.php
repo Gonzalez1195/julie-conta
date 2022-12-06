@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DatosGenerales;
 
 class MediquadminController extends Controller
 {
@@ -814,4 +815,45 @@ class MediquadminController extends Controller
 
         return view('widget.metro_widget_basic', compact('page_title', 'page_description','action'));
     }
+
+    // Elementos para Julie-Conta
+    public function form_usuarios()
+    {
+        $page_title = 'Formulario Usuarios';
+        $page_description = 'Formulario para crear un nuevo usuario.';
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.registroUser', compact('page_title', 'page_description','action'));
+    }
+
+    public function view_usuarios()
+    {
+        $page_title = 'Usuarios';
+        $page_description = 'Tabla de todos los usuarios registrados.';
+        $usuarios = DatosGenerales::where('estado', '=', '1')->get();
+        foreach ($usuarios as $key => $usu) {
+            $usu->usuario;
+        }
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.viewUsers', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
+    public function editar_usuarios($id)
+    {
+        $page_title = 'Formulario Usuarios Editar';
+        $page_description = 'Formulario para editar un usuario.';
+        $usuarios = DatosGenerales::where('id', '=', $id)->get();
+        foreach ($usuarios as $usu) {
+            $usu->usuario;
+        }
+
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.registroUser', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
 }
