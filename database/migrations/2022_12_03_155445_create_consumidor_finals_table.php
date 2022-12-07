@@ -36,6 +36,7 @@ class CreateConsumidorFinalsTable extends Migration
             $table->float('ventas_cuenta_terc_no_domiciliados', 8, 2)->default('0.00');
             $table->float('total_ventas', 8, 2)->default('0.00');
             $table->char('numero_anexo', 8, 2)->default('2');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

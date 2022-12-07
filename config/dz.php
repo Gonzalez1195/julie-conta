@@ -229,6 +229,9 @@ return [
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
+                'form_consumidor_final' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
 
 			],
 			'js' => [
@@ -714,6 +717,15 @@ return [
                         'js/deznav-init.js',
                     ],
 
+                    'form_consumidor_final' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
 
 
 			]

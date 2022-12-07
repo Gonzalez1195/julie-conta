@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
-use App\Http\Controllers\DatosGeneralesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,12 +93,13 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/usuarios', 'view_usuarios');
     Route::get('/agregar-usuario', 'form_usuarios');
     Route::get('/editar-usuario/{id}', 'editar_usuarios');
+    Route::get('/consumidor-final', 'form_consumidor_final');
 
 });
 
-Route::controller(DatosGeneralesController::class)->group(function() {
-    Route::post('/crear-usuario', 'addDatosGen');
-    Route::post('/update-usuario/{id}', 'updateDatosGen');
-    Route::get('/eliminar-usuario/{id}', 'eliminar');
+Route::controller(UserController::class)->group(function() {
+    Route::post('/crear-usuario', 'addUser');
+    Route::post('/update-usuario/{id}', 'updateUser');
+    Route::get('/eliminar-usuario/{id}', 'eliminarUser');
 });
 

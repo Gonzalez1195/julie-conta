@@ -856,4 +856,14 @@ class MediquadminController extends Controller
         return view('julie_conta.registroUser', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
+    public function form_consumidor_final()
+    {
+        $page_title = 'Formulario Consumidor Final';
+        $page_description = 'Formulario para crear un anexo de consumidor final.';
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.consumidorFinal', compact('page_title', 'page_description', 'action'));
+    }
+
 }
