@@ -36,18 +36,18 @@
                                         @foreach ($usuarios as $usu)
                                             <form class="form-usuarios-edit" method="POST">
                                                 @csrf
-                                                <input type="hidden" value="{{ $usu->usuario->id }}" id="id-usu">
+                                                <input type="hidden" value="{{ $usu->id }}" id="id-usu">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="name">Nombre <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="text" class="form-control" name="name" id="name" value="{{ $usu->usuario->name }}">
+                                                            <input type="text" class="form-control" name="name" id="name" value="{{ $usu->name }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="email">Email <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="email" class="form-control" placeholder="example@hotmail.com" name="email" id="email" value="{{ $usu->usuario->email }}">
+                                                            <input type="email" class="form-control" placeholder="example@hotmail.com" name="email" id="email" value="{{ $usu->email }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">

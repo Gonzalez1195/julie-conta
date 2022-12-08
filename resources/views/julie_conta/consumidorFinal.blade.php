@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
-                                        <form class="form-usuarios" method="POST">
+                                        <form class="form-consumidor-final" method="POST">
                                             @csrf
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
@@ -273,12 +273,12 @@
 
     <script>
 
-        $( ".form-usuarios" ).submit(function( event ) {
+        $( ".form-consumidor-final" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('crear-usuario') }}",
+                url: "{{ url('crear-consumidor-final') }}",
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -291,33 +291,33 @@
             return this;
         });
 
-        $( ".form-usuarios-edit" ).submit(function( event ) {
-            event.preventDefault();
-            var form = $(this);
-            let id = $("#id-usu").val();
-            $.ajax({
-                type: 'POST',
-                url: "{{ url('update-usuario') }}/"+id,
-                data: form.serialize()
-            }).done(function(data) {
-                if (data === true) {
+        // $( ".form-usuarios-edit" ).submit(function( event ) {
+        //     event.preventDefault();
+        //     var form = $(this);
+        //     let id = $("#id-usu").val();
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: "{{ url('update-usuario') }}/"+id,
+        //         data: form.serialize()
+        //     }).done(function(data) {
+        //         if (data === true) {
 
-                    Swal.fire({
-                        title: 'Datos guardados correctamente!!',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location = "../usuarios";
-                        }
-                    })
+        //             Swal.fire({
+        //                 title: 'Datos guardados correctamente!!',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'OK',
+        //             }).then((result) => {
+        //                 if (result.isConfirmed) {
+        //                     window.location = "../usuarios";
+        //                 }
+        //             })
 
-                }
-                }).fail(function(data) {
-                    sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
-            });
-            return this;
-        });
+        //         }
+        //         }).fail(function(data) {
+        //             sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+        //     });
+        //     return this;
+        // });
 
     </script>
 

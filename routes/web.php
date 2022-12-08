@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
 use App\Http\Controllers\UserController;
+use App\Models\ConsumidorFinal;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,7 +94,7 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/usuarios', 'view_usuarios');
     Route::get('/agregar-usuario', 'form_usuarios');
     Route::get('/editar-usuario/{id}', 'editar_usuarios');
-    Route::get('/consumidor-final', 'form_consumidor_final');
+    Route::get('/agregar-consumidor-final', 'form_consumidor_final');
 
 });
 
@@ -101,5 +102,9 @@ Route::controller(UserController::class)->group(function() {
     Route::post('/crear-usuario', 'addUser');
     Route::post('/update-usuario/{id}', 'updateUser');
     Route::get('/eliminar-usuario/{id}', 'eliminarUser');
+});
+
+Route::controller(ConsumidorFinal::class)->group(function() {
+    Route::post('/crear-consumidor-final', 'addConsumidorFinal');
 });
 

@@ -46,13 +46,13 @@
                                             @foreach ($usuarios as $usuario)
 
                                                 <tr>
-                                                    <td>{{ $usuario->usuario->name }}</td>
-                                                    <td>{{ $usuario->usuario->email }}</td>
+                                                    <td>{{ $usuario->name }}</td>
+                                                    <td>{{ $usuario->email }}</td>
                                                     <td>{{ $usuario->telefono }}</td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a href="{{ url('/editar-usuario/'.$usuario->user_id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                            <a href="#" onclick="eliminar({{ $usuario->user_id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                            <a href="{{ url('/editar-usuario/'.$usuario->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                            <a href="#" onclick="eliminar({{ $usuario->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>

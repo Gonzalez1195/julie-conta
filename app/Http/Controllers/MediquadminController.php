@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\DatosGenerales;
+use App\Models\User;
 
 class MediquadminController extends Controller
 {
@@ -831,10 +831,7 @@ class MediquadminController extends Controller
     {
         $page_title = 'Usuarios';
         $page_description = 'Tabla de todos los usuarios registrados.';
-        $usuarios = DatosGenerales::where('estado', '=', '1')->get();
-        foreach ($usuarios as $key => $usu) {
-            $usu->usuario;
-        }
+        $usuarios = User::all();
 
 		$action = __FUNCTION__;
 
@@ -845,11 +842,7 @@ class MediquadminController extends Controller
     {
         $page_title = 'Formulario Usuarios Editar';
         $page_description = 'Formulario para editar un usuario.';
-        $usuarios = DatosGenerales::where('id', '=', $id)->get();
-        foreach ($usuarios as $usu) {
-            $usu->usuario;
-        }
-
+        $usuarios = User::where('id', '=', $id)->get();
 
 		$action = __FUNCTION__;
 
