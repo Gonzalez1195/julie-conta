@@ -44,6 +44,7 @@ class AnexoContribuyentesController extends Controller
     public function updateAnexoContribuyentes(Request $request, $id)
     {
         try {
+            $anexo_contribuyentes = AnexoContribuyentes::find($id);
             $anexo_contribuyentes->fecha_emision = $request->fecha_emision;
             $anexo_contribuyentes->clase_documento = $request->clase_documento;
             $anexo_contribuyentes->tipo_documento = $request->tipo_documento;
