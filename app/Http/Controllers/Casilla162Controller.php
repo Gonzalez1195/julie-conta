@@ -35,7 +35,7 @@ class Casilla162sController extends Controller
     public function updateCasilla162s(Request $request, $id)
     {
         try {
-            $casilla161s = Casilla162s::find($id);
+            $casilla162s = Casilla162s::find($id);
             $casilla162s->nit_agente = $request->nit_agente;
             $casilla162s->fecha_emision = $request->fecha_emision;
             $casilla162s->tipo_documento = $request->tipo_documento;
