@@ -44,6 +44,7 @@ class Casilla162sController extends Controller
             $casilla162s->monto_sujeto = $request->monto_sujeto;
             $casilla162s->monto_retencion = $request->monto_retencion;
             $casilla162s->dui_agente = $request->dui_agente;
+            $casilla162s->numero_anexo = $request->numero_anexo;
             $result = $casilla162s->save();
 
             return response()->json($result, 200);
