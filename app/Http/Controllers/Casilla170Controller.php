@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class Casilla170Controller extends Controller
 {
     //
-}
     public function addCasilla170(Request $request)
     {
         try {
@@ -25,7 +24,7 @@ class Casilla170Controller extends Controller
             $casilla170s->dui_sujeto = $request->dui_sujeto;
             $casilla170s->numero_anexo = $request->numero_anexo;
             $casilla170s->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $result = $casilla169s->save();
+            $result = $casilla170s->save();
 
             return response()->json($result, 200);
 
