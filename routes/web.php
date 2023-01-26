@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DatosGeneralController;
+use App\Http\Controllers\MediquadminController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ConsumidorFinalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,4 +85,30 @@ Route::get('/ui-progressbar', 'App\Http\Controllers\MediquadminController@ui_pro
 Route::get('/ui-tab', 'App\Http\Controllers\MediquadminController@ui_tab');
 Route::get('/ui-typography', 'App\Http\Controllers\MediquadminController@ui_typography');
 Route::get('/widget-basic', 'App\Http\Controllers\MediquadminController@widget_basic');
+
+
+
+// Rutas de Julie-conta
+
+Route::controller(MediquadminController::class)->group(function() {
+    Route::get('/usuarios', 'view_usuarios');
+    Route::get('/agregar-usuario', 'form_usuarios');
+    Route::get('/editar-usuario/{id}', 'editar_usuarios');
+    Route::get('/agregar-consumidor-final', 'form_consumidor_final');
+    Route::get('/consumidor-final', 'view_consumidorFinal');
+    Route::get('/editar-cf/{id}', 'form_consumidor_final_edit');
+
+});
+
+Route::controller(UserController::class)->group(function() {
+    Route::post('/crear-usuario', 'addUser');
+    Route::post('/update-usuario/{id}', 'updateUser');
+    Route::get('/eliminar-usuario/{id}', 'eliminarUser');
+});
+
+Route::controller(ConsumidorFinalController::class)->group(function() {
+    Route::post('/crear-consumidor-final', 'addConsumidorFinal');
+    Route::post('/edit-consumidor-final/{id}', 'updateConsumidorFinal');
+    Route::get('/eliminar-cf/{id}', 'deleteConsumidorFinal');
+});
 

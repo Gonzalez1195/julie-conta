@@ -30,7 +30,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="#" method="post">
+                                    <form class="form-usuarios" action="#" method="post">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
@@ -214,5 +214,5 @@
                     </div>
                 </div>
             </div>
-			
+
 @endsection

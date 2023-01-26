@@ -2,7 +2,7 @@
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Citas</span>
 						</a>
@@ -150,15 +150,34 @@
                             </li>
                             <li><a href="{!! url('./page-lock-screen'); !!}">Lock Screen</a></li>
                         </ul>
+                    </li> --}}
+
+                    <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
+							<i class="flaticon-381-user-4"></i>
+							<span class="nav-text">Usuarios</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{!! url('./usuarios'); !!}">Usuarios</a></li>
+                            <li><a href="{!! url('./agregar-usuario'); !!}">Registrar Usuario</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
+							<i class="flaticon-381-folder"></i>
+							<span class="nav-text">Plantillas</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Agregar Consumidor Final</a></li>
+                            <li><a href="{!! url('./consumidor-final'); !!}">Consumidor Final</a></li>
+                        </ul>
                     </li>
                 </ul>
-            
-				<div class="plus-box">
+
+				{{-- <div class="plus-box">
 					<p>Create new appointment</p>
 				</div>
 				<div class="copyright">
 					<p><strong>Mediqu Hospital Admin Dashboard</strong> © 2020 All Rights Reserved</p>
 					<p>Made with <i class="fa fa-heart"></i> by DexignZone</p>
-				</div>
+				</div> --}}
 			</div>
         </div>

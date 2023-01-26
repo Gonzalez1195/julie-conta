@@ -140,3 +140,107 @@ jQuery(".form-valide-with-icon").validate({
 
 
 });
+
+// Validacion del form usuarios Julie-Conta
+jQuery(".form-usuarios").validate({
+    rules: {
+        "name": {
+            required: !0
+        },
+        "email": {
+            required: !0,
+            email: !0
+        },
+        "password": {
+            required: !0,
+            minlength: 8
+        },
+        "passwordConfi": {
+            required: !0,
+            minlength: 8,
+            equalTo: "#password"
+        }
+    },
+    messages: {
+        "name": {
+            required: "Debe ingresar un nombre por favor."
+        },
+        "email": {
+            required: "Debe ingresar un email por favor.",
+            email: "Debe ingresar un correo valido"
+        },
+        "password": {
+            required: "Debe ingresar una contraseña por favor.",
+            minlength: "La contrasena debe tener minimo 8 coracteres."
+        },
+        "passwordConfi": {
+            required: "Debe confirmar la contraseña por favor.",
+            minlength: "La contrasena debe tener minimo 8 coracteres.",
+            equalTo: "Las contraseñas no coinciden."
+        },
+    },
+
+    ignore: [],
+    errorClass: "invalid-feedback animated fadeInUp",
+    errorElement: "div",
+    errorPlacement: function(e, a) {
+        jQuery(a).parents(".form-group > div").append(e)
+    },
+    highlight: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+    },
+    success: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+    },
+
+});
+
+jQuery(".form-usuarios-edit").validate({
+    rules: {
+        "name": {
+            required: !0
+        },
+        "email": {
+            required: !0,
+            email: !0
+        },
+        "password": {
+            minlength: 8
+        },
+        "passwordConfi": {
+            minlength: 8,
+            equalTo: "#password"
+        }
+    },
+    messages: {
+        "name": {
+            required: "Debe ingresar un nombre por favor."
+        },
+        "email": {
+            required: "Debe ingresar un email por favor.",
+            email: "Debe ingresar un correo valido"
+        },
+        "password": {
+            minlength: "La contrasena debe tener minimo 8 coracteres."
+        },
+        "passwordConfi": {
+            minlength: "La contrasena debe tener minimo 8 coracteres.",
+            equalTo: "Las contraseñas no coinciden."
+        },
+    },
+
+    ignore: [],
+    errorClass: "invalid-feedback animated fadeInUp",
+    errorElement: "div",
+    errorPlacement: function(e, a) {
+        jQuery(a).parents(".form-group > div").append(e)
+    },
+    highlight: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+    },
+    success: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+    },
+
+});
+
