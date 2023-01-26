@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Casilla163s;
+use App\Models\Casilla163;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class Casilla163sController extends Controller
     public function addCasilla163s(Request $request)
     {
         try {
-            $casilla163s = new Casilla163s();
+            $casilla163s = new Casilla163();
             $casilla163s->nit_agente = $request->nit_agente;
             $casilla163s->fecha_emision = $request->fecha_emision;
             $casilla163s->tipo_documento = $request->tipo_documento;
@@ -35,7 +35,7 @@ class Casilla163sController extends Controller
     public function updateCasilla163s(Request $request, $id)
     {
         try {
-            $casilla163s = Casilla163s::find($id);
+            $casilla163s = Casilla163::find($id);
             $casilla163s->nit_agente = $request->nit_agente;
             $casilla163s->fecha_emision = $request->fecha_emision;
             $casilla163s->tipo_documento = $request->tipo_documento;
@@ -57,7 +57,7 @@ class Casilla163sController extends Controller
     public function deleteCasilla163s($id)
     {
         try {
-            $casilla163s = Casilla163s::find($id);
+            $casilla163s = Casilla163::find($id);
             $result = $casilla163s->delete();
 
             return response()->json($result, 200);

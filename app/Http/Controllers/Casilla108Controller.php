@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Casilla108s;
+use App\Models\Casilla108;
 use Exception;
 use Illuminate\Http\Request;
 
-class Casilla108sController extends Controller
+class Casilla108Controller extends Controller
 {
     //
     public function addCasilla108s(Request $request)
     {
         try {
-            $casilla108s = new Casilla108s();
+            $casilla108s = new Casilla108();
             $casilla108s->nit_nrc_mandante = $request->nit_nrc_mandante;
             $casilla108s->nombre_razon_social_denominacion = $request->nombre_razon_social_denominacion;
             $casilla108s->fecha_emision = $request->fecha_emision;
@@ -41,7 +41,7 @@ class Casilla108sController extends Controller
     public function updateCasilla108s(Request $request, $id)
     {
         try {
-            $casilla108s = Casilla108s::find($id);
+            $casilla108s = Casilla108::find($id);
             $casilla108s->nit_nrc_mandante = $request->nit_nrc_mandante;
             $casilla108s->nombre_razon_social_denominacion = $request->nombre_razon_social_denominacion;
             $casilla108s->fecha_emision = $request->fecha_emision;
@@ -69,7 +69,7 @@ class Casilla108sController extends Controller
     public function deleteCasilla108s($id)
     {
         try {
-            $casilla108s = Casilla108s::find($id);
+            $casilla108s = Casilla108::find($id);
             $result = $casilla108s->delete();
 
             return response()->json($result, 200);

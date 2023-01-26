@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Casilla162s;
+use App\Models\Casilla162;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class Casilla162sController extends Controller
     public function addCasilla162s(Request $request)
     {
         try {
-            $casilla162s = new Casilla162s();
+            $casilla162s = new Casilla162();
             $casilla162s->nit_agente = $request->nit_agente;
             $casilla162s->fecha_emision = $request->fecha_emision;
             $casilla162s->tipo_documento = $request->tipo_documento;
@@ -35,7 +35,7 @@ class Casilla162sController extends Controller
     public function updateCasilla162s(Request $request, $id)
     {
         try {
-            $casilla162s = Casilla162s::find($id);
+            $casilla162s = Casilla162::find($id);
             $casilla162s->nit_agente = $request->nit_agente;
             $casilla162s->fecha_emision = $request->fecha_emision;
             $casilla162s->tipo_documento = $request->tipo_documento;
@@ -57,7 +57,7 @@ class Casilla162sController extends Controller
     public function deleteCasilla162s($id)
     {
         try {
-            $casilla162s = Casilla162s::find($id);
+            $casilla162s = Casilla162::find($id);
             $result = $casilla162s->delete();
 
             return response()->json($result, 200);

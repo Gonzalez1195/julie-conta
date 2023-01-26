@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnexoContribuyentes;
+use App\Models\AnexoContribuyente;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class AnexoContribuyentesController extends Controller
     public function addAnexoContribuyentes(Request $request)
     {
         try {
-            $anexo_contribuyentes = new AnexoContribuyentes();
+            $anexo_contribuyentes = new AnexoContribuyente();
             $anexo_contribuyentes->fecha_emision = $request->fecha_emision;
             $anexo_contribuyentes->clase_documento = $request->clase_documento;
             $anexo_contribuyentes->tipo_documento = $request->tipo_documento;
@@ -44,7 +44,7 @@ class AnexoContribuyentesController extends Controller
     public function updateAnexoContribuyentes(Request $request, $id)
     {
         try {
-            $anexo_contribuyentes = AnexoContribuyentes::find($id);
+            $anexo_contribuyentes = AnexoContribuyente::find($id);
             $anexo_contribuyentes->fecha_emision = $request->fecha_emision;
             $anexo_contribuyentes->clase_documento = $request->clase_documento;
             $anexo_contribuyentes->tipo_documento = $request->tipo_documento;
@@ -75,7 +75,7 @@ class AnexoContribuyentesController extends Controller
     public function deleteAnexoContribuyentes($id)
     {
         try {
-            $anexo_contribuyentes = AnexoContribuyentes::find($id);
+            $anexo_contribuyentes = AnexoContribuyente::find($id);
             $result = $anexo_contribuyentes->delete();
 
             return response()->json($result, 200);

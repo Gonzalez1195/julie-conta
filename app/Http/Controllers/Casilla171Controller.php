@@ -36,7 +36,7 @@ class Casilla171Controller extends Controller
     public function updateCasilla171(Request $request, $id)
     {
         try {
-            $casilla170s = Casilla171::find($id);
+            $casilla171s = Casilla171::find($id);
             $casilla171s->nit_sujeto = $request->nit_sujeto;
             $casilla171s->fecha_emision = $request->fecha_emision;
             $casilla171s->tipo_documento = $request->tipo_documento;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Casilla161s;
+use App\Models\Casilla161;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class Casilla161sController extends Controller
     public function addCasilla161s(Request $request)
     {
         try {
-            $casilla161s = new Casilla161s();
+            $casilla161s = new Casilla161();
             $casilla161s->nit_agente_efectuo_anticipo_cuenta = $request->nit_agente_efectuo_anticipo_cuenta;
             $casilla161s->fecha_emision_documento = $request->fecha_emision_documento;
             $casilla161s->serie_documento = $request->serie_documento;
@@ -34,7 +34,7 @@ class Casilla161sController extends Controller
     public function updateCasilla161s(Request $request, $id)
     {
         try {
-            $casilla161s = Casilla161s::find($id);
+            $casilla161s = Casilla161::find($id);
             $casilla161s->nit_agente_efectuo_anticipo_cuenta = $request->nit_agente_efectuo_anticipo_cuenta;
             $casilla161s->fecha_emision_documento = $request->fecha_emision_documento;
             $casilla161s->serie_documento = $request->serie_documento;
@@ -55,7 +55,7 @@ class Casilla161sController extends Controller
     public function deleteCasilla161s($id)
     {
         try {
-            $casilla161s = Casilla161s::find($id);
+            $casilla161s = Casilla161::find($id);
             $result = $casilla161s->delete();
 
             return response()->json($result, 200);

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Casilla66s;
+use App\Models\Casilla66;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class Casilla66sController extends Controller
     public function addCasilla66s(Request $request)
     {
         try {
-            $casilla66s = new Casilla66s();
+            $casilla66s = new Casilla66();
             $casilla66s->tipo_documento = $request->tipo_documento;
             $casilla66s->numero_nit_dui_otro = $request->numero_nit_dui_otro;
             $casilla66s->tipo_documento = $request->nombre_razonsocial_denominacion;
@@ -36,7 +36,7 @@ class Casilla66sController extends Controller
     public function updateCasilla66s(Request $request, $id)
     {
         try {
-            $casilla66s = Casilla66s::find($id);
+            $casilla66s = Casilla66::find($id);
             $casilla66s->tipo_documento = $request->tipo_documento;
             $casilla66s->numero_nit_dui_otro = $request->numero_nit_dui_otro;
             $casilla66s->tipo_documento = $request->nombre_razonsocial_denominacion;
@@ -59,7 +59,7 @@ class Casilla66sController extends Controller
     public function deleteCasilla66s($id)
     {
         try {
-            $casilla66s = Casilla66s::find($id);
+            $casilla66s = Casilla66::find($id);
             $result = $casilla66s->delete();
 
             return response()->json($result, 200);
