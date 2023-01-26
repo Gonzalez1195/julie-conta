@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\ConsumidorFinal;
 
 class MediquadminController extends Controller
 {
@@ -824,7 +825,7 @@ class MediquadminController extends Controller
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.registroUser', compact('page_title', 'page_description','action'));
+        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description','action'));
     }
 
     public function view_usuarios()
@@ -835,7 +836,7 @@ class MediquadminController extends Controller
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.viewUsers', compact('page_title', 'page_description', 'usuarios', 'action'));
+        return view('julie_conta.usuarios.viewUsers', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function editar_usuarios($id)
@@ -846,7 +847,7 @@ class MediquadminController extends Controller
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.registroUser', compact('page_title', 'page_description', 'usuarios', 'action'));
+        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function form_consumidor_final()
@@ -856,7 +857,29 @@ class MediquadminController extends Controller
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.consumidorFinal', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.consumidorFinal', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function view_consumidorFinal()
+    {
+        $page_title = 'Consumidor Final';
+        $page_description = 'Tabla con los datos de la plantilla "Consumidor Final"';
+        $consumidores = ConsumidorFinal::all();
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allConsumidorFinal', compact('page_title', 'page_description', 'consumidores', 'action'));
+    }
+
+    public function form_consumidor_final_edit($id)
+    {
+        $page_title = 'Formulario Consumidor Final para Editar';
+        $page_description = 'Formulario para editar un anexo de "Consumidor Final"';
+        $consumidor = ConsumidorFinal::where("id", "=", $id)->get();
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.anexos.consumidorFinal', compact('page_title', 'page_description', 'consumidor', 'action'));
     }
 
 }

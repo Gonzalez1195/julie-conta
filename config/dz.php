@@ -233,6 +233,15 @@ return [
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
+                'view_consumidorFinal' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_consumidor_final_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
 			],
 			'js' => [
 				'dashboard_1' => [
@@ -718,6 +727,26 @@ return [
                     ],
 
                     'form_consumidor_final' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'view_consumidorFinal' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_consumidor_final_edit' => [
                         'vendor/chart.js/Chart.bundle.min.js',
                         'vendor/apexchart/apexchart.js',
                         'vendor/jquery-validation/jquery.validate.min.js',
