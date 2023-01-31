@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsumidorFinalController;
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,16 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/agregar-consumidor-final', 'form_consumidor_final');
     Route::get('/consumidor-final', 'view_consumidorFinal');
     Route::get('/editar-cf/{id}', 'form_consumidor_final_edit');
+    Route::get('/anexo-contribuyentes', 'form_anexo_contribuyentes');
+    Route::get('/anexo-contribuyentes_editar/{id}', 'form_anexo_contribuyentes_edit');
+    Route::get('/anexo-compras', 'form_anexo_compras');
+    Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
+    Route::get('/anexo-ventas-gctd', 'form_casilla_108');
+    Route::get('/anexo-ventas-gctd-editar/{id}', 'form_casilla_108_edit');
+    Route::get('/anexo-compras-se', 'form_casilla_66');
+    Route::get('/anexo-compras-se-editar/{id}', 'form_casilla_66_edit');
+    Route::get('/anexo-anticipo-ed', 'form_casilla_161');
+    Route::get('/anexo-anticipo-ed-editar/{id}', 'form_casilla_161_edit');
 
 });
 

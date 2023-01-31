@@ -163,10 +163,15 @@
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
 							<i class="flaticon-381-folder"></i>
-							<span class="nav-text">Plantillas</span>
+							<span class="nav-text">Anexos</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Agregar Consumidor Final</a></li>
+                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
+                            <li><a href="{!! url('./anexo-contribuyentes'); !!}">Anexo de Ventas a Contribuyentes</a></li>
+                            <li><a href="{!! url('./anexo-compras'); !!}">Anexo de Compras</a></li>
+                            <li><a href="{!! url('./anexo-ventas-gctd'); !!}">Ventas Gravadas por Cuenta de Terceros Domiciliados</a></li>
+                            <li><a href="{!! url('./anexo-compras-se'); !!}">Compra a Sujetos Excluídos</a></li>
+                            <li><a href="{!! url('./anexo-anticipo-ed'); !!}">Anticipo a Cuenta de IVA del 2% Efectuada al Declarante</a></li>
                             <li><a href="{!! url('./consumidor-final'); !!}">Consumidor Final</a></li>
                         </ul>
                     </li>
