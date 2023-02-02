@@ -30,6 +30,11 @@
                                 <h4 class="card-title">Anexo Consumidor Final</h4>
                             </div>
                             <div class="card-body">
+                                <select id="select-usuario">
+                                    @foreach ($usuarios as $usuario)
+                                        <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                    @endforeach
+                                </select>
                                 <div class="table-responsive">
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
@@ -140,6 +145,9 @@
                     }
                 })
             }
+
+
+
         </script>
 
 @endsection

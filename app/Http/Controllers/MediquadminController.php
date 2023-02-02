@@ -876,10 +876,11 @@ class MediquadminController extends Controller
         $page_title = 'Consumidor Final';
         $page_description = 'Tabla con los datos de la plantilla "Consumidor Final"';
         $consumidores = ConsumidorFinal::all();
+        $usuarios = User::all();
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.anexos.allConsumidorFinal', compact('page_title', 'page_description', 'consumidores', 'action'));
+        return view('julie_conta.anexos.allConsumidorFinal', compact('page_title', 'page_description', 'consumidores', 'usuarios', 'action'));
     }
 
     public function form_consumidor_final_edit($id)
