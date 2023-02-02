@@ -282,6 +282,56 @@ return [
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
+                'form_casilla_162' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_162_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_163' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_163_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_169' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_169_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_170' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_170_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_171' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_171_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_172' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_casilla_172_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+
+
 			],
 			'js' => [
 				'dashboard_1' => [
@@ -895,6 +945,127 @@ return [
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
+
+                    'form_casilla_162' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_162_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_163' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_163_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_169' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_169_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_170' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_170_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_171' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_171_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_172' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_casilla_172_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
 
 
 			]

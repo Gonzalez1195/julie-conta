@@ -108,6 +108,18 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/anexo-compras-se-editar/{id}', 'form_casilla_66_edit');
     Route::get('/anexo-anticipo-ed', 'form_casilla_161');
     Route::get('/anexo-anticipo-ed-editar/{id}', 'form_casilla_161_edit');
+    Route::get('/anexo-retencion-iva-ed', 'form_casilla_162');
+    Route::get('/anexo-retencion-iva-ed-editar/{id}', 'form_casilla_162_edit');
+    Route::get('/anexo-percepcion-iva-ed', 'form_casilla_163');
+    Route::get('/anexo-percepcion-iva-ed-editar/{id}', 'form_casilla_163_edit');
+    Route::get('/anexo-casilla-169', 'form_casilla_169');
+    Route::get('/anexo-casilla-169-editar/{id}', 'form_casilla_169_edit');
+    Route::get('/anexo-casilla-170', 'form_casilla_170');
+    Route::get('/anexo-casilla-170-editar/{id}', 'form_casilla_170_edit');
+    Route::get('/anexo-casilla-171', 'form_casilla_171');
+    Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
+    Route::get('/anexo-casilla-172', 'form_casilla_172');
+    Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
 
 });
 

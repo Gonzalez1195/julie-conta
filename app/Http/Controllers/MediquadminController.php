@@ -10,6 +10,12 @@ use App\Models\AnexoCompra;
 use App\Models\Casilla108;
 use App\Models\Casilla66;
 use App\Models\Casilla161;
+use App\Models\Casilla162;
+use App\Models\Casilla163;
+use App\Models\Casilla169;
+use App\Models\Casilla170;
+use App\Models\Casilla171;
+use App\Models\Casilla172;
 
 class MediquadminController extends Controller
 {
@@ -991,6 +997,134 @@ class MediquadminController extends Controller
 
         return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'anticipos', 'action'));
     }
+
+    public function form_casilla_162()
+    {
+        $page_title = 'Formulario para agregar Retención de IVA 1% Efectuada al Declarante';
+        $page_description = 'Formulario para crear un registro de Retención de IVA 1% Efectuada al Declarante';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_162_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención de IVA 1% Efectuada al Declarante';
+        $page_description = 'Formulario para editar un registro de Retención de IVA 1% Efectuada al Declarante';
+        $retenciones = Casilla162::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+    public function form_casilla_163()
+    {
+        $page_title = 'Formulario para agregar Percepción de IVA 1% Efectuada al Declarante.';
+        $page_description = 'Formulario para crear un registro de Percepción de IVA 1% Efectuada al Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_163_edit($id)
+    {
+        $page_title = 'Formulario para editar Percepción de IVA 1% Efectuada al Declarante.';
+        $page_description = 'Formulario para editar un registro de Percepción de IVA 1% Efectuada al Declarante.';
+        $percepciones = Casilla163::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'percepciones', 'action'));
+    }
+
+    public function form_casilla_169()
+    {
+        $page_title = 'Formulario para agregar Percepción de IVA 1% Efectuada por Declarante.';
+        $page_description = 'Formulario para crear un registro de Percepción de IVA 1% Efectuada por Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla169', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_169_edit($id)
+    {
+        $page_title = 'Formulario para editar Percepción de IVA 1% Efectuada por Declarante.';
+        $page_description = 'Formulario para editar un registro de Percepción de IVA 1% Efectuada por Declarante.';
+        $percepciones = Casilla169::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla169', compact('page_title', 'page_description', 'percepciones', 'action'));
+    }
+
+    public function form_casilla_170()
+    {
+        $page_title = 'Formulario para agregar Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $page_description = 'Formulario para crear un registro de Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla170', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_170_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $page_description = 'Formulario para editar un registro de Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $retenciones = Casilla170::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla170', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+    public function form_casilla_171()
+    {
+        $page_title = 'Formulario para agregar Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $page_description = 'Formulario para crear un registro de Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla171', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_171_edit($id)
+    {
+        $page_title = 'Formulario para editar Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $page_description = 'Formulario para editar un registro de Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $anticipos = Casilla171::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla171', compact('page_title', 'page_description', 'anticipos', 'action'));
+    }
+
+    public function form_casilla_172()
+    {
+        $page_title = 'Formulario para agregar Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $page_description = 'Formulario para crear un registro de Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla172', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_172_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $page_description = 'Formulario para editar un registro de Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $retenciones = Casilla172::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla172', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+
 
 
 }
