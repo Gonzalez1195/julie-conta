@@ -133,5 +133,6 @@ Route::controller(ConsumidorFinalController::class)->group(function() {
     Route::post('/crear-consumidor-final', 'addConsumidorFinal');
     Route::post('/edit-consumidor-final/{id}', 'updateConsumidorFinal');
     Route::get('/eliminar-cf/{id}', 'deleteConsumidorFinal');
+    Route::get('/buscar-cf-usuario', 'busquedaUsuarioCf');
 });
 

@@ -146,7 +146,20 @@
                 })
             }
 
+            $( "#select-usuario" ).change(function() {
+                let idUsu = $( this ).val();
 
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ url("buscar-cf-usuario") }}',
+                    data: { 'id': idUsu },
+                }).done(function(data) {
+                    console.log(data);
+                }).fail(function(data) {
+                    console.log(data);
+                });
+
+            });
 
         </script>
 

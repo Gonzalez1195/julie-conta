@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ConsumidorFinal;
 use Exception;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ConsumidorFinalController extends Controller
 {
@@ -89,6 +90,17 @@ class ConsumidorFinalController extends Controller
 
             return response()->json($result, 200);
         } catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function busquedaUsuarioCf(Request $request)
+    {
+        try{
+            $consumidores = ConsumidorFinal::where("user_id", "=", $request->id)->get();
+
+            return response()->json($consumidores, 200);
+        }catch (Exception $e) {
             return response()->json($e->getMessage(), 403);
         }
     }
