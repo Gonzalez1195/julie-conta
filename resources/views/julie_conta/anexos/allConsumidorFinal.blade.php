@@ -30,11 +30,34 @@
                                 <h4 class="card-title">Anexo Consumidor Final</h4>
                             </div>
                             <div class="card-body">
-                                <select id="select-usuario">
-                                    @foreach ($usuarios as $usuario)
-                                        <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
-                                    @endforeach
-                                </select>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body border-5 pb-5">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label>Usuario</label>
+                                                        <select id="select-usuario" class="form-control">
+                                                            @foreach ($usuarios as $usuario)
+                                                                <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label>Desde</label>
+                                                        <input type="date" name="filterDesde" id="filterDesde" class="form-control">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label>Hasta</label>
+                                                        <input type="date" name="filterHasta" id="filterHasta" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <div class="table-responsive">
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
@@ -63,7 +86,7 @@
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="cf-table">
 
                                             @foreach ($consumidores as $consumidor)
 
@@ -160,6 +183,21 @@
                 });
 
             });
+
+            $("#filterHasta").change(function() {
+                let dateHasta = $( this ).val();
+                let dateDesde = $( "#filterDesde" ).val();
+
+                let d = new Date(dateDesde);
+                let h = new Date(dateHasta);
+
+                let d2 = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+                let h2 = new Date(h.getFullYear(), h.getMonth(), h.getDate());
+
+                alert(d2 > h2);
+            });
+
+
 
         </script>
 
