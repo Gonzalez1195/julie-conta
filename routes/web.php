@@ -134,5 +134,6 @@ Route::controller(ConsumidorFinalController::class)->group(function() {
     Route::post('/edit-consumidor-final/{id}', 'updateConsumidorFinal');
     Route::get('/eliminar-cf/{id}', 'deleteConsumidorFinal');
     Route::get('/buscar-cf-usuario', 'busquedaUsuarioCf');
+    Route::get('/buscar-cf-fecha', 'BusquedaFechaUsu');
 });
 

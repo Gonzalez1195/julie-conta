@@ -38,6 +38,7 @@
                                                     <div class="form-group col-md-6">
                                                         <label>Usuario</label>
                                                         <select id="select-usuario" class="form-control">
+                                                            <option value="null">Seleccione un usuario...</option>
                                                             @foreach ($usuarios as $usuario)
                                                                 <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
                                                             @endforeach
@@ -171,15 +172,75 @@
 
             $( "#select-usuario" ).change(function() {
                 let idUsu = $( this ).val();
+                let dateHasta = document.getElementById( "filterHasta" );
+                let dateDesde = document.getElementById( "filterDesde" );
+                let table = document.querySelector(".cf-table");
+                let conten = "";
+
+                dateHasta.value = "";
+                dateDesde.value = "";
+                if (dateHasta.type === 'date') {
+                    dateHasta.type = 'text';
+                    dateHasta.type = 'date';
+                }
+
+                if (dateDesde.type === 'date') {
+                    dateDesde.type = 'text';
+                    dateDesde.type = 'date';
+                }
 
                 $.ajax({
                     type: 'GET',
                     url: '{{ url("buscar-cf-usuario") }}',
                     data: { 'id': idUsu },
                 }).done(function(data) {
-                    console.log(data);
+
+                    table.innerHTML = "";
+                    if (data.length > 0) {
+                        data.forEach(element => {
+                            conten += "<tr>"
+                            conten += "<td>"+element.fecha_emision+"</td>"
+                            conten += "<td>"+element.clase_documento+"</td>"
+                            conten += "<td>"+element.tipo_documento+"</td>"
+                            conten += "<td>"+element.numero_resolucion+"</td>"
+                            conten += "<td>"+element.serie_documento+"</td>"
+                            conten += "<td>"+element.num_cont_int_del+"</td>"
+                            conten += "<td>"+element.num_cont_int_al+"</td>"
+                            conten += "<td>"+element.num_documento_del+"</td>"
+                            conten += "<td>"+element.num_documento_al+"</td>"
+                            conten += "<td>"+element.num_maquina_registradora+"</td>"
+                            conten += "<td>"+element.ventas_exentas+"</td>"
+                            conten += "<td>"+element.ventas_int_exentas_no_suj_proporcionalidad+"</td>"
+                            conten += "<td>"+element.ventas_no_sujetas+"</td>"
+                            conten += "<td>"+element.ventas_gravadas_locales+"</td>"
+                            conten += "<td>"+element.exp_adentro_area_ca+"</td>"
+                            conten += "<td>"+element.exp_fuera_area_ca+"</td>"
+                            conten += "<td>"+element.exp_servicio+"</td>"
+                            conten += "<td>"+element.ventas_zonas_francas_dpa+"</td>"
+                            conten += "<td>"+element.ventas_cuenta_terc_no_domiciliados+"</td>"
+                            conten += "<td>"+element.total_ventas+"</td>"
+                            conten += "<td>"+element.numero_anexo+"</td>"
+                            conten += `<td><div class='d-flex'>
+                                            <a href="{{ url('/editar-cf/'.$consumidor->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" onclick="eliminar({{ $consumidor->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                        </div></td>`
+                            conten += "</tr>"
+                        });
+
+                    }else{
+                        conten += "<tr>"
+                        conten += "<td colspan='22' class='text-center'>No se encontraron registros...<td>"
+                            conten += "</tr>"
+                    }
+
+                    table.insertAdjacentHTML("beforeend", conten);
+
                 }).fail(function(data) {
-                    console.log(data);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: data
+                    })
                 });
 
             });
@@ -187,6 +248,10 @@
             $("#filterHasta").change(function() {
                 let dateHasta = $( this ).val();
                 let dateDesde = $( "#filterDesde" ).val();
+                let usuario = $("#select-usuario").val();
+                let table = document.querySelector(".cf-table");
+                let conten = "";
+                table.innerHTML = "";
 
                 let d = new Date(dateDesde);
                 let h = new Date(dateHasta);
@@ -194,8 +259,73 @@
                 let d2 = new Date(d.getFullYear(), d.getMonth(), d.getDate());
                 let h2 = new Date(h.getFullYear(), h.getMonth(), h.getDate());
 
-                alert(d2 > h2);
+                if ( d2 <= h2 ) {
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '{{ url("buscar-cf-fecha") }}',
+                        data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
+                    }).done(function(data) {
+
+                        table.innerHTML = "";
+                        if (data.length > 0) {
+                            data.forEach(element => {
+                                conten += "<tr>"
+                                conten += "<td>"+element.fecha_emision+"</td>"
+                                conten += "<td>"+element.clase_documento+"</td>"
+                                conten += "<td>"+element.tipo_documento+"</td>"
+                                conten += "<td>"+element.numero_resolucion+"</td>"
+                                conten += "<td>"+element.serie_documento+"</td>"
+                                conten += "<td>"+element.num_cont_int_del+"</td>"
+                                conten += "<td>"+element.num_cont_int_al+"</td>"
+                                conten += "<td>"+element.num_documento_del+"</td>"
+                                conten += "<td>"+element.num_documento_al+"</td>"
+                                conten += "<td>"+element.num_maquina_registradora+"</td>"
+                                conten += "<td>"+element.ventas_exentas+"</td>"
+                                conten += "<td>"+element.ventas_int_exentas_no_suj_proporcionalidad+"</td>"
+                                conten += "<td>"+element.ventas_no_sujetas+"</td>"
+                                conten += "<td>"+element.ventas_gravadas_locales+"</td>"
+                                conten += "<td>"+element.exp_adentro_area_ca+"</td>"
+                                conten += "<td>"+element.exp_fuera_area_ca+"</td>"
+                                conten += "<td>"+element.exp_servicio+"</td>"
+                                conten += "<td>"+element.ventas_zonas_francas_dpa+"</td>"
+                                conten += "<td>"+element.ventas_cuenta_terc_no_domiciliados+"</td>"
+                                conten += "<td>"+element.total_ventas+"</td>"
+                                conten += "<td>"+element.numero_anexo+"</td>"
+                                conten += `<td><div class='d-flex'>
+                                                <a href="{{ url('/editar-cf/'.$consumidor->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" onclick="eliminar({{ $consumidor->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div></td>`
+                                conten += "</tr>"
+                            });
+
+                        }else{
+                            conten += "<tr>"
+                            conten += "<td colspan='22' class='text-center'>No se encontraron registros...<td>"
+                                conten += "</tr>"
+                        }
+
+                        table.insertAdjacentHTML("beforeend", conten);
+
+                    }).fail(function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: data
+                        })
+                    });
+
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'El campo "Hasta" debe ser mayor que el campo "Desde"'
+                    })
+                }
+
             });
+
+
 
 
 
