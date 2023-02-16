@@ -19,8 +19,8 @@ class CreateCasilla161sTable extends Migration
             $table->date('fecha_emision_documento')->nullable();
             $table->string('serie_documento', 100)->nullable();
             $table->string('numero_documento', 100)->nullable();
-            $table->float('monto_sujeto', 8, 2)->default('0.00');
-            $table->float('monto_anticipo_cuenta_iva', 8, 2)->default('0.00');
+            $table->float('monto_sujeto', 8, 2)->nullable();
+            $table->float('monto_anticipo_cuenta_iva', 8, 2)->nullable();
             $table->string('dui_agente', 9)->nullable();
             $table->char('numero_anexo')->default('6');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

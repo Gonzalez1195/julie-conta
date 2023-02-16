@@ -373,6 +373,7 @@
                     form[0].reset();
                 }
             }).fail(function(data) {
+                console.log(data);
                     sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;

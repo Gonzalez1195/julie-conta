@@ -21,8 +21,8 @@ class CreateCasilla66sTable extends Migration
             $table->date('fecha_emision_documento')->nullable();
             $table->string('numero_serie_documento')->nullable();
             $table->string('numero_documento', 100)->nullable();
-            $table->float('monto_operacion', 8, 2)->default('0.00');
-            $table->float('monto_retencion_iva', 8, 2)->default('0.00');
+            $table->float('monto_operacion', 8, 2)->nullable();
+            $table->float('monto_retencion_iva', 8, 2)->nullable();
             $table->char('numero_anexo')->default('5');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();

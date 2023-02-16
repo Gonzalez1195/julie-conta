@@ -9,7 +9,7 @@
 
 	<meta name="description" content="@yield('page_description', $page_description ?? '')"/>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/ico" sizes="16x16" href="{{ asset('images/facebook_profile_image.ico') }}">
 
 
 
@@ -55,10 +55,8 @@
         ***********************************-->
         <div class="nav-header">
             <a href="{!! url('/index'); !!}" class="brand-logo">
-			{{-- @if(!empty($logo)) --}}
-				{{-- <img class="logo-abbr" src="{{ asset($logo) }}" alt=""> --}}
-			{{-- @else
-                <img class="logo-abbr" src="{{ asset('images/logo-perident.png') }}" alt="">
+			{{-- @if(!empty($logo))
+				<img class="logo-abbr" src="{{ asset($logo) }}" alt="">
 			@endif --}}
 			{{-- @if(!empty($logoText))
                 <img class="logo-compact" src="{{ asset($logoText) }}" alt="">

@@ -25,10 +25,10 @@ class MediquadminController extends Controller
     {
 
 
-        $page_title = 'Dashboard-1';
+        $page_title = 'Inicio';
         $page_description = 'Some description for the page';
         $logo = "images/logo.png";
-        $logoText = "images/logo-text.png";
+        $logoText = "images/banner.png";
         $action = __FUNCTION__;
 
         return view('dashboard.index', compact('page_title', 'page_description','action','logo','logoText'));
@@ -1125,7 +1125,17 @@ class MediquadminController extends Controller
         return view('julie_conta.anexos.casilla172', compact('page_title', 'page_description', 'retenciones', 'action'));
     }
 
+    public function viewAnexoCompras()
+    {
+        $page_title = 'Vista de los registros del anexo de compras.';
+        $page_description = 'Todos los registros de anexo de compras.';
+        $compras = AnexoCompra::all();
+        $usuarios = User::all();
 
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allAnexoCompras', compact('page_title', 'page_description', 'compras', 'usuarios', 'action'));
+    }
 
 
 }

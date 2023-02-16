@@ -37,7 +37,7 @@ class ConsumidorFinalController extends Controller
             $consumidorFinal->total_ventas = isset($request->total_ventas) ? $request->total_ventas : 0.00;
             $consumidorFinal->numero_anexo = $request->numero_anexo;
             // $consumidorFinal->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $consumidorFinal->user_id = 2;
+            $consumidorFinal->user_id = 3;
             $result = $consumidorFinal->save();
 
             return response()->json($result, 200);

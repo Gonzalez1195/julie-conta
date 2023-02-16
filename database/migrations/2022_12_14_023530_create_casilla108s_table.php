@@ -22,8 +22,8 @@ class CreateCasilla108sTable extends Migration
             $table->string('serie_documento')->nullable();
             $table->string('numero_resolucion', 100)->nullable();
             $table->string('numero_documento', 100)->nullable();
-            $table->float('monto_operacion', 8, 2)->default('0.00');
-            $table->float('iva_operacion', 8, 2)->default('0.00');
+            $table->float('monto_operacion', 8, 2)->nullable();
+            $table->float('iva_operacion', 8, 2)->nullable();
             $table->string('num_serie_comprobante_liquidacion', 100)->nullable();
             $table->string('num_resolucion_comprobante_liquidacion', 100)->nullable();
             $table->string('num_comprobante_liquidacion', 100)->nullable();
