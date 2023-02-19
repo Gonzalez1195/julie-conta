@@ -85,36 +85,42 @@
                                         </thead>
                                         <tbody class="cf-table">
 
-                                            @foreach ($compras as $compra)
+                                            @if (isset($compras))
+                                                @foreach ($compras as $compra)
 
+                                                    <tr>
+                                                        <td>{{ $compra->fecha_emision }}</td>
+                                                        <td>{{ $compra->clase_documento }}</td>
+                                                        <td>{{ $compra->tipo_documento }}</td>
+                                                        <td>{{ $compra->numero_documento }}</td>
+                                                        <td>{{ $compra->nit_nrc_proveedor }}</td>
+                                                        <td>{{ $compra->nombre_proveedor }}</td>
+                                                        <td>{{ number_format($compra->compras_internas_exentas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->internaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->compras_internas_gravadas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->internaciones_gravadas_bienes, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_gravadas_bienes, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_gravadas_servicioscredito_fiscal, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->credito_fiscal, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->total_compras, 2, '.', ',') }}</td>
+                                                        <td>{{ $compra->dui_proveedor }}</td>
+                                                        <td>{{ $compra->numero_anexo }}</td>
+
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <a href="{{ url('/editar-cf/'.$compra->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                                <a href="#" onclick="eliminar({{ $compra->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                @endforeach
+                                            @else
                                                 <tr>
-                                                    <td>{{ $compra->fecha_emision }}</td>
-                                                    <td>{{ $compra->clase_documento }}</td>
-                                                    <td>{{ $compra->tipo_documento }}</td>
-                                                    <td>{{ $compra->numero_documento }}</td>
-                                                    <td>{{ $compra->nit_nrc_proveedor }}</td>
-                                                    <td>{{ $compra->nombre_proveedor }}</td>
-                                                    <td>{{ number_format($compra->compras_internas_exentas, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->internaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->importaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->compras_internas_gravadas, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->internaciones_gravadas_bienes, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->importaciones_gravadas_bienes, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->importaciones_gravadas_servicioscredito_fiscal, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->credito_fiscal, 2, '.', ',') }}</td>
-                                                    <td>{{ number_format($compra->total_compras, 2, '.', ',') }}</td>
-                                                    <td>{{ $compra->dui_proveedor }}</td>
-                                                    <td>{{ $compra->numero_anexo }}</td>
-
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ url('/editar-cf/'.$compra->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                            <a href="#" onclick="eliminar({{ $compra->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                                        </div>
-                                                    </td>
+                                                    <td colspan='22' class='text-center'>No se encontraron registros...<td>
                                                 </tr>
-
-                                            @endforeach
+                                            @endif
 
                                         </tbody>
                                     </table>
@@ -187,6 +193,7 @@
                     data: { 'id': idUsu },
                 }).done(function(data) {
 
+                    const url = "<?php echo url('/editar-cf/'); ?>";
                     table.innerHTML = "";
                     if (data.length > 0) {
                         data.forEach(element => {
@@ -209,8 +216,8 @@
                             conten += "<td>"+element.dui_proveedor+"</td>"
                             conten += "<td>"+element.numero_anexo+"</td>"
                             conten += `<td><div class='d-flex'>
-                                            <a href="{{ url('/editar-cf/'.$compra->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="#" onclick="eliminar({{ $compra->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" onclick="eliminar(${element.id})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div></td>`
                             conten += "</tr>"
                         });
@@ -218,7 +225,7 @@
                     }else{
                         conten += "<tr>"
                         conten += "<td colspan='22' class='text-center'>No se encontraron registros...<td>"
-                            conten += "</tr>"
+                        conten += "</tr>"
                     }
 
                     table.insertAdjacentHTML("beforeend", conten);
@@ -255,6 +262,7 @@
                         data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
                     }).done(function(data) {
 
+                        const url = "<?php echo url('/editar-cf/'); ?>";
                         table.innerHTML = "";
                         if (data.length > 0) {
                             data.forEach(element => {
@@ -277,8 +285,8 @@
                                 conten += "<td>"+element.dui_proveedor+"</td>"
                                 conten += "<td>"+element.numero_anexo+"</td>"
                                 conten += `<td><div class='d-flex'>
-                                                <a href="{{ url('/editar-cf/'.$compra->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" onclick="eliminar({{ $compra->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" onclick="eliminar(${element.id})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div></td>`
                                 conten += "</tr>"
                             });
@@ -286,7 +294,7 @@
                         }else{
                             conten += "<tr>"
                             conten += "<td colspan='22' class='text-center'>No se encontraron registros...<td>"
-                                conten += "</tr>"
+                            conten += "</tr>"
                         }
 
                         table.insertAdjacentHTML("beforeend", conten);

@@ -120,6 +120,7 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
     Route::get('/anexo-casilla-172', 'form_casilla_172');
     Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
+    Route::get('/anexo-compras-mostrar', 'viewAnexoCompras');
 
 });
 
