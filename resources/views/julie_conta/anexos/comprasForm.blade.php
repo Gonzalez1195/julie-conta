@@ -30,9 +30,9 @@
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
                                         @foreach ($anexoCompras as $compras)
-                                            <form class="form-consumidor-final-edit" method="POST">
+                                            <form class="form-anexo-compral-edit" method="POST">
                                                 @csrf
-                                                <input type="hidden" name="id_cf" id="id_cf" value="{{ $consu->id }}">
+                                                <input type="hidden" name="id_anexo_compra" id="id_anexo_compra" value="{{ $compras->id }}">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="fecha_emision">Fecha de emisión del documento<span class="text-danger">*</span></label>
@@ -44,7 +44,7 @@
                                                         <label>Clase de documento <span class="text-danger">*</span></label>
                                                         <select id="clase_documento" class="form-control" name="clase_documento">
                                                             <option {{ ($compras->clase_documento) == "" ? "selected" : "" }} >Seleccione...</option>
-                                                            <option value="Impreso por imprenta o tiques" {{ ($compras->clase_documento) == "Impreso por imprenta o tiques" ? "selected" : "" }} >1. IMPRESO POR IMPRENTA O TIQUETES</option>
+                                                            <option value="Impreso por imprenta o tiquetes" {{ ($compras->clase_documento) == "Impreso por imprenta o tiquetes" ? "selected" : "" }} >1. IMPRESO POR IMPRENTA O TIQUETES</option>
                                                             <option value="Formulario unico" {{ ($compras->clase_documento) == "" ? "selected" : "Formulario unico" }} >2. FORMULARIO UNICO</option>
                                                             <option value="Otros" {{ ($compras->clase_documento) == "" ? "selected" : "Otros" }} >3. OTROS</option>
                                                             <option value="Documento Tributario electronico (DTE)" {{ ($compras->clase_documento) == "Documento Tributario electronico (DTE)" ? "selected" : "" }} > 4. DOCUMENTO TRIBUTARIO ELECTRONICO (DTE)/option>
@@ -54,12 +54,12 @@
                                                         <label>Tipo de documento <span class="text-danger">*</span></label>
                                                         <select id="tipo_documento" class="form-control" name="tipo_documento">
                                                             <option {{ ($compras->tipo_documento) == "" ? "selected" : "" }} >Seleccione...</option>
-                                                            <option value="Comprobante de credito fiscal" {{ ($compras->tipo_documento) == "Factura" ? "selected" : "" }} >03. COMPROBANTE DE CRÉDITO FISCAL</option>
-                                                            <option value="Nota de credito" {{ ($compras->tipo_documento) == "Factura de venta simplificada" ? "selected" : "" }} >05. NOTA DE CRÉDITO</option>
-                                                            <option value="Nota de debito" {{ ($compras->tipo_documento) == "Tiquetes de maquina registradora" ? "selected" : "" }} >06. NOTA DE DÉBITO</option>
+                                                            <option value="Comprobante de crédito fiscal" {{ ($compras->tipo_documento) == "Comprobante de crédito fiscal" ? "selected" : "" }} >03. COMPROBANTE DE CRÉDITO FISCAL</option>
+                                                            <option value="Nota de crédito" {{ ($compras->tipo_documento) == "Nota de crédito" ? "selected" : "" }} >05. NOTA DE CRÉDITO</option>
+                                                            <option value="Nota de débito" {{ ($compras->tipo_documento) == "Nota de débito" ? "selected" : "" }} >06. NOTA DE DÉBITO</option>
                                                             <option value="Factura de exportacion" {{ ($compras->tipo_documento) == "Factura de exportacion" ? "selected" : "" }} >11. FACTURA DE EXPORTACIÓN</option>
-                                                            <option value="Declaracion de mercancias" {{ ($compras->tipo_documento) == "Factura de exportacion" ? "selected" : "" }} >12. DECLARACIÓN DE MERCANCÍAS</option>
-                                                            <option value="Mandamiento de ingreso" {{ ($compras->tipo_documento) == "Factura de exportacion" ? "selected" : "" }} >13. MANDAMIENTO DE INGRESO</option>
+                                                            <option value="Declaracion de mercancias" {{ ($compras->tipo_documento) == "Declaracion de mercancias" ? "selected" : "" }} >12. DECLARACIÓN DE MERCANCÍAS</option>
+                                                            <option value="Mandamiento de ingreso" {{ ($compras->tipo_documento) == "Mandamiento de ingreso" ? "selected" : "" }} >13. MANDAMIENTO DE INGRESO</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
@@ -143,7 +143,7 @@
                                                     <div class="form-group col-md-6">
                                                         <label>Número del Anexo <span class="text-danger">*</span></label>
                                                         <select id="numero_anexo" class="form-control" name="numero_anexo">
-                                                            <option value="3" selected>1</option>
+                                                            <option value="3" selected>3</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -315,32 +315,33 @@
 
     <script>
 
-        $( "." ).submit(function( event ) {
+        $( ".form-anexocompra" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('') }}",
+                url: "{{ url('crear-anexo-compras') }}",
                 data: form.serialize()
             }).done(function(data) {
-                console.log(data);
+
                 if (data === true) {
-                    swal("Exito!!", "Datos guardados correctamente!!", "success")
+                    swal.fire("Exito!!", "Datos guardados correctamente!!", "success")
                     form[0].reset();
                 }
             }).fail(function(data) {
-                    sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+
+                sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });
 
-        $( "." ).submit(function( event ) {
+        $( ".form-anexo-compral-edit" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
-            let id = $("#").val();
+            let id = $("#id_anexo_compra").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ url('') }}/"+id,
+                url: "{{ url('edit-anexo-compras') }}/"+id,
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -352,7 +353,7 @@
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-                            window.location = "../";
+                            window.location = "../anexo-compras-mostrar";
                         }
                     })
 

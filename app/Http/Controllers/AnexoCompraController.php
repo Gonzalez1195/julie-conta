@@ -25,12 +25,13 @@ class AnexoCompraController extends Controller
             $anexo_compras->compras_internas_gravadas = $request->compras_internas_gravadas;
             $anexo_compras->internaciones_gravadas_bienes = $request->internaciones_gravadas_bienes;
             $anexo_compras->importaciones_gravadas_bienes = $request->importaciones_gravadas_bienes;
-            $anexo_compras->importaciones_gravadas_servicioscredito_fiscal = $request->importaciones_gravadas_servicioscredito_fiscal;
+            $anexo_compras->importaciones_gravadas_servicios = $request->importaciones_gravadas_servicioscredito_fiscal;
             $anexo_compras->credito_fiscal = $request->credito_fiscal;
             $anexo_compras->total_compras = $request->total_compras;
             $anexo_compras->dui_proveedor = $request->dui_proveedor;
             $anexo_compras->numero_anexo = $request->numero_anexo;
-            $anexo_compras->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
+            // $anexo_compras->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
+            $anexo_compras->user_id = 1;
             $result = $anexo_compras->save();
 
             return response()->json($result, 200);
@@ -56,7 +57,7 @@ class AnexoCompraController extends Controller
             $anexo_compras->compras_internas_gravadas = $request->compras_internas_gravadas;
             $anexo_compras->internaciones_gravadas_bienes = $request->internaciones_gravadas_bienes;
             $anexo_compras->importaciones_gravadas_bienes = $request->importaciones_gravadas_bienes;
-            $anexo_compras->importaciones_gravadas_servicioscredito_fiscal = $request->importaciones_gravadas_servicioscredito_fiscal;
+            $anexo_compras->importaciones_gravadas_servicios = $request->importaciones_gravadas_servicioscredito_fiscal;
             $anexo_compras->credito_fiscal = $request->credito_fiscal;
             $anexo_compras->total_compras = $request->total_compras;
             $anexo_compras->dui_proveedor = $request->dui_proveedor;
