@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -59,6 +61,21 @@ class UserController extends Controller
             return response()->json($result, 200);
         } catch (Exception $e) {
             return response()->json(false, 403);
+        }
+    }
+
+    public function createTypeUsuario(Request $request)
+    {
+        try {
+            $type = $request->tipo;
+
+            $role = Role::create([
+                'name' => $type
+            ]);
+
+            return response()->json($role, 200);
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
         }
     }
 
