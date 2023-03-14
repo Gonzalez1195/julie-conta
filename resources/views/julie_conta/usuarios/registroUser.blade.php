@@ -69,10 +69,10 @@
                                                     <div class="form-group col-md-4">
                                                         <label>Tipo de usuario</label>
                                                         <select id="inputState" class="form-control" name="tipoUsu">
-                                                            <option selected>Choose...</option>
-                                                            <option>Option 1</option>
-                                                            <option>Option 2</option>
-                                                            <option>Option 3</option>
+                                                            <option selected>Seleccione...</option>
+                                                            @foreach ($roles as $rol)
+                                                                <option value=""{{ $rol->id }}>{{ $rol->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -144,10 +144,10 @@
                                                 <div class="form-group col-md-4">
                                                     <label>Tipo de usuario</label>
                                                     <select id="inputState" class="form-control" name="tipoUsu">
-                                                        <option selected>Choose...</option>
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
+                                                        <option selected>Seleccione...</option>
+                                                        @foreach ($roles as $rol)
+                                                            <option value=""{{ $rol->name }}>{{ $rol->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AnexoCompraController;
+use App\Http\Controllers\AnexoContribuyentesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsumidorFinalController;
+use App\Http\Controllers\LibroCompraController;
 use Illuminate\Routing\Router;
 
 /*
@@ -123,6 +125,7 @@ Route::controller(MediquadminController::class)->group(function() {
     Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
     Route::get('/anexo-compras-mostrar', 'viewAnexoCompras');
     Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
+    Route::get('/libro-compra', 'viewLibroCompras');
 
 });
 
@@ -143,5 +146,14 @@ Route::controller(ConsumidorFinalController::class)->group(function() {
 Route::controller(AnexoCompraController::class)->group(function(){
     Route::post('/crear-anexo-compras', 'addAnexoCompra');
     Route::post('edit-anexo-compras/{id}', 'updateAnexoCompra');
+});
+
+Route::controller(LibroCompraController::class)->group(function () {
+    Route::post('/libro-compra-agregar', 'generarRegistros');
+});
+
+Route::controller(AnexoContribuyentesController::class)->group(function () {
+    Route::post('/add-anexo-contribuyente', 'addAnexoContribuyentes');
+    Route::post('/update-anexo-contribuyente/{id}', 'updateAnexoContribuyentes');
 });
 

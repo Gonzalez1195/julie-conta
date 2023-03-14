@@ -101,7 +101,7 @@
                                                         <td>{{ number_format($compra->compras_internas_gravadas, 2, '.', ',') }}</td>
                                                         <td>{{ number_format($compra->internaciones_gravadas_bienes, 2, '.', ',') }}</td>
                                                         <td>{{ number_format($compra->importaciones_gravadas_bienes, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($compra->importaciones_gravadas_servicioscredito_fiscal, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_gravadas_servicios, 2, '.', ',') }}</td>
                                                         <td>{{ number_format($compra->credito_fiscal, 2, '.', ',') }}</td>
                                                         <td>{{ number_format($compra->total_compras, 2, '.', ',') }}</td>
                                                         <td>{{ $compra->dui_proveedor }}</td>
@@ -210,7 +210,7 @@
                             conten += "<td>"+element.compras_internas_gravadas+"</td>"
                             conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
                             conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
-                            conten += "<td>"+element.importaciones_gravadas_servicioscredito_fiscal+"</td>"
+                            conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
                             conten += "<td>"+element.credito_fiscal+"</td>"
                             conten += "<td>"+element.total_compras+"</td>"
                             conten += "<td>"+element.dui_proveedor+"</td>"
@@ -279,7 +279,7 @@
                                 conten += "<td>"+element.compras_internas_gravadas+"</td>"
                                 conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
                                 conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
-                                conten += "<td>"+element.importaciones_gravadas_servicioscredito_fiscal+"</td>"
+                                conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
                                 conten += "<td>"+element.credito_fiscal+"</td>"
                                 conten += "<td>"+element.total_compras+"</td>"
                                 conten += "<td>"+element.dui_proveedor+"</td>"

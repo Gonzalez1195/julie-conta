@@ -24,6 +24,9 @@ class UserController extends Controller
             $user->estado = '1';
             $result = $user->save();
 
+            // Asignando rol
+            $user->assignRole($request->rol);
+
             return response()->json($result, 200);
 
         } catch (Exception $e) {

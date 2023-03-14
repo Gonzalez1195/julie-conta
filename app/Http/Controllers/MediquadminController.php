@@ -16,6 +16,7 @@ use App\Models\Casilla169;
 use App\Models\Casilla170;
 use App\Models\Casilla171;
 use App\Models\Casilla172;
+use Spatie\Permission\Models\Role;
 
 class MediquadminController extends Controller
 {
@@ -833,10 +834,11 @@ class MediquadminController extends Controller
     {
         $page_title = 'Formulario Usuarios';
         $page_description = 'Formulario para crear un nuevo usuario.';
+        $roles = Role::all();
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description','action'));
+        return view('julie_conta.usuarios.registroUser', compact('page_title', 'roles', 'page_description','action'));
     }
 
     public function view_usuarios()
@@ -1135,6 +1137,17 @@ class MediquadminController extends Controller
         $action = __FUNCTION__;
 
         return view('julie_conta.anexos.allAnexoCompras', compact('page_title', 'page_description', 'compras', 'usuarios', 'action'));
+    }
+
+    public function viewLibroCompras()
+    {
+        $page_title = 'Vista de los registros del Libro de compras.';
+        $page_description = 'Genera los registros del libro de compras.';
+        $usuarios = User::all();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.libroCompras', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
 

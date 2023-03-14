@@ -117,12 +117,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="importaciones_gravadas_servicioscredito_fiscal">Importaciones gravadas de servicios </label>
+                                                        <label for="importaciones_gravadas_servicios">Importaciones gravadas de servicios </label>
                                                         <div>
-                                                            <input type="text" name="importaciones_gravadas_servicioscredito_fiscal" class="form-control" id="importaciones_gravadas_servicioscredito_fiscal" value="{{ $compras->importaciones_gravadas_servicioscredito_fiscal }}">
+                                                            <input type="text" name="importaciones_gravadas_servicios" class="form-control" id="importaciones_gravadas_servicios" value="{{ $compras->importaciones_gravadas_servicioscredito_fiscal }}">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-6">
+                                                    {{-- <div class="form-group col-md-6">
                                                         <label for="credito_fiscal">Crédito fiscal </label>
                                                         <div>
                                                             <input type="text" name="credito_fiscal" class="form-control" id="credito_fiscal" value="{{ $compras->credito_fiscal }}">
@@ -133,7 +133,7 @@
                                                         <div>
                                                             <input type="text" name="total_compras" class="form-control" id="total_compras" value="{{ $compras->total_compras }}">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="form-group col-md-6">
                                                         <label for="dui_proveedor">DUI del proveedor </label>
                                                         <div>
@@ -267,12 +267,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="importaciones_gravadas_servicioscredito_fiscal">Importaciones gravadas de servicios </label>
+                                                    <label for="importaciones_gravadas_servicios">Importaciones gravadas de servicios </label>
                                                     <div>
-                                                        <input type="text" name="importaciones_gravadas_servicioscredito_fiscal" class="form-control" id="importaciones_gravadas_servicioscredito_fiscal">
+                                                        <input type="text" name="importaciones_gravadas_servicios" class="form-control" id="importaciones_gravadas_servicios">
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-6">
+                                                {{-- <div class="form-group col-md-6">
                                                     <label for="credito_fiscal">Crédito fiscal</label>
                                                     <div>
                                                         <input type="text" name="credito_fiscal" class="form-control" id="credito_fiscal">
@@ -283,7 +283,7 @@
                                                     <div>
                                                         <input type="text" name="total_compras" class="form-control" id="total_compras">
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="form-group col-md-6">
                                                     <label for="dui_proveedor">DUI del proveedor </label>
