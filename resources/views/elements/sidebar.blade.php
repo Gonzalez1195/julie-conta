@@ -163,11 +163,24 @@
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
 							<i class="flaticon-381-folder"></i>
-							<span class="nav-text">Plantillas</span>
+							<span class="nav-text">Anexos</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Agregar Consumidor Final</a></li>
+                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
+                            <li><a href="{!! url('./anexo-contribuyentes'); !!}">Anexo de Ventas a Contribuyentes</a></li>
+                            <li><a href="{!! url('./anexo-compras'); !!}">Anexo de Compras</a></li>
+                            <li><a href="{!! url('./anexo-ventas-gctd'); !!}">Ventas Gravadas por Cuenta de Terceros Domiciliados</a></li>
+                            <li><a href="{!! url('./anexo-compras-se'); !!}">Compra a Sujetos Excluídos</a></li>
+                            <li><a href="{!! url('./anexo-anticipo-ed'); !!}">Anticipo a Cuenta de IVA del 2% Efectuada al Declarante</a></li>
+                            <li><a href="{!! url('./anexo-retencion-iva-ed'); !!}">Retención de IVA del 1% Efectuada al Declarante</a></li>
+                            <li><a href="{!! url('./anexo-percepcion-iva-ed'); !!}">Percepción de IVA del 1% Efectuada al Declarante</a></li>
+                            <li><a href="{!! url('./anexo-casilla-169'); !!}">Percepción de IVA del 1% Efectuada por el Declarante</a></li>
+                            <li><a href="{!! url('./anexo-casilla-170'); !!}">Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li>
+                            <li><a href="{!! url('./anexo-casilla-171'); !!}">Anticipo a Cuenta del 2% Efectuada por el Declarante</a></li>
+                            <li><a href="{!! url('./anexo-casilla-172'); !!}">Retención 13% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li>
+
                             <li><a href="{!! url('./consumidor-final'); !!}">Consumidor Final</a></li>
+                            <li><a href="{!! url('./libro-compra'); !!}">Libro de compras</a></li>
                         </ul>
                     </li>
                 </ul>

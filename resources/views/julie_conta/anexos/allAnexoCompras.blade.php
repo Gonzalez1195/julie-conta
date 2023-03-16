@@ -10,13 +10,13 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Anexo de Ventas a Consumidor Final </h4>
+                            <h4>Anexo de compras </h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Anexo</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Consumidor Final</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Compras</a></li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
 					<div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Anexo Consumidor Final</h4>
+                                <h4 class="card-title">Anexo de Compras</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -63,69 +63,63 @@
                                     <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>Fecha de Emisión</th>
+                                                <th>Fecha de Emisión del documento</th>
                                                 <th>Clase de documento</th>
                                                 <th>Tipo de documento</th>
-                                                <th>Número de resolución</th>
-                                                <th>Serie del documento</th>
-                                                <th>Número de control interno DEL</th>
-                                                <th>Número de control interno AL</th>
-                                                <th>Número de documento (DEL)</th>
-                                                <th>Número de documento (AL)</th>
-                                                <th>Número de maquina registradora</th>
-                                                <th>Ventas exentas</th>
-                                                <th>Ventas internas exentas no sujetas a proporcionalidad</th>
-                                                <th>Ventas no sujetas</th>
-                                                <th>Ventas gravadas locales</th>
-                                                <th>Exportaciones dentro del área de Centroamérica</th>
-                                                <th>Exportaciones fuera del área de Centroamérica</th>
-                                                <th>Exportaciones de servicio</th>
-                                                <th>Ventas a zonas francas y DPA (Tasa cero)</th>
-                                                <th>Ventas a cuenta de terceros no domiciliados</th>
-                                                <th>Total de ventas</th>
+                                                <th>Número de documento</th>
+                                                <th>NIT o NRC del proveedor</th>
+                                                <th>Nombre del proveedor</th>
+                                                <th>Compras internas exentas</th>
+                                                <th>Internaciones exentas y/o no sujetas</th>
+                                                <th>Importaciones exentas y/o no sujetas</th>
+                                                <th>Compras internas gravadas</th>
+                                                <th>Internaciones gravadas de bienes</th>
+                                                <th>Importaciones gravadas de bienes</th>
+                                                <th>Importaciones gravadas de servicio</th>
+                                                <th>Crédito Fiscal</th>
+                                                <th>Total de compras</th>
+                                                <th>DUI del proveedor</th>
                                                 <th>Numero del anexo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody class="cf-table">
 
-                                            @if (isset($consumidores))
-                                                @foreach ($consumidores as $consumidor)
+                                            @if (isset($compras))
+                                                @foreach ($compras as $compra)
 
                                                     <tr>
-                                                        <td>{{ $consumidor->fecha_emision }}</td>
-                                                        <td>{{ $consumidor->clase_documento }}</td>
-                                                        <td>{{ $consumidor->tipo_documento }}</td>
-                                                        <td>{{ $consumidor->numero_resolucion }}</td>
-                                                        <td>{{ $consumidor->serie_documento }}</td>
-                                                        <td>{{ $consumidor->num_cont_int_del }}</td>
-                                                        <td>{{ $consumidor->num_cont_int_al }}</td>
-                                                        <td>{{ $consumidor->num_documento_del }}</td>
-                                                        <td>{{ $consumidor->num_documento_al }}</td>
-                                                        <td>{{ $consumidor->num_maquina_registradora }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_exentas, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_int_exentas_no_suj_proporcionalidad, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_no_sujetas, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_gravadas_locales, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_adentro_area_ca, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_fuera_area_ca, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_servicio, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_zonas_francas_dpa, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_cuenta_terc_no_domiciliados, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->total_ventas, 2, '.', ',') }}</td>
-                                                        <td>{{ $consumidor->numero_anexo }}</td>
+                                                        <td>{{ $compra->fecha_emision }}</td>
+                                                        <td>{{ $compra->clase_documento }}</td>
+                                                        <td>{{ $compra->tipo_documento }}</td>
+                                                        <td>{{ $compra->numero_documento }}</td>
+                                                        <td>{{ $compra->nit_nrc_proveedor }}</td>
+                                                        <td>{{ $compra->nombre_proveedor }}</td>
+                                                        <td>{{ number_format($compra->compras_internas_exentas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->internaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_exentas_no_sujetas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->compras_internas_gravadas, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->internaciones_gravadas_bienes, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_gravadas_bienes, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->importaciones_gravadas_servicios, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->credito_fiscal, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($compra->total_compras, 2, '.', ',') }}</td>
+                                                        <td>{{ $compra->dui_proveedor }}</td>
+                                                        <td>{{ $compra->numero_anexo }}</td>
 
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ url('/editar-cf/'.$consumidor->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                                <a href="#" onclick="eliminar({{ $consumidor->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                                <a href="{{ url('/anexo-compras-editar/'.$compra->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                                <a href="#" onclick="eliminar({{ $compra->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                             </div>
                                                         </td>
                                                     </tr>
 
                                                 @endforeach
                                             @else
-                                                <td colspan='22' class='text-center'>No se encontraron registros...<td>
+                                                <tr>
+                                                    <td colspan='22' class='text-center'>No se encontraron registros...<td>
+                                                </tr>
                                             @endif
 
                                         </tbody>
@@ -207,23 +201,19 @@
                             conten += "<td>"+element.fecha_emision+"</td>"
                             conten += "<td>"+element.clase_documento+"</td>"
                             conten += "<td>"+element.tipo_documento+"</td>"
-                            conten += "<td>"+element.numero_resolucion+"</td>"
-                            conten += "<td>"+element.serie_documento+"</td>"
-                            conten += "<td>"+element.num_cont_int_del+"</td>"
-                            conten += "<td>"+element.num_cont_int_al+"</td>"
-                            conten += "<td>"+element.num_documento_del+"</td>"
-                            conten += "<td>"+element.num_documento_al+"</td>"
-                            conten += "<td>"+element.num_maquina_registradora+"</td>"
-                            conten += "<td>"+Number(element.ventas_exentas).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_int_exentas_no_suj_proporcionalidad).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_no_sujetas).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_gravadas_locales).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_adentro_area_ca).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_fuera_area_ca).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_servicio).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_zonas_francas_dpa).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_cuenta_terc_no_domiciliados).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.total_ventas).toFixed(2)+"</td>"
+                            conten += "<td>"+element.numero_documento+"</td>"
+                            conten += "<td>"+element.nit_nrc_proveedor+"</td>"
+                            conten += "<td>"+element.nombre_proveedor+"</td>"
+                            conten += "<td>"+element.compras_internas_exentas+"</td>"
+                            conten += "<td>"+element.internaciones_exentas_no_sujetas+"</td>"
+                            conten += "<td>"+element.importaciones_exentas_no_sujetas+"</td>"
+                            conten += "<td>"+element.compras_internas_gravadas+"</td>"
+                            conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
+                            conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
+                            conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
+                            conten += "<td>"+element.credito_fiscal+"</td>"
+                            conten += "<td>"+element.total_compras+"</td>"
+                            conten += "<td>"+element.dui_proveedor+"</td>"
                             conten += "<td>"+element.numero_anexo+"</td>"
                             conten += `<td><div class='d-flex'>
                                             <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
@@ -280,27 +270,23 @@
                                 conten += "<td>"+element.fecha_emision+"</td>"
                                 conten += "<td>"+element.clase_documento+"</td>"
                                 conten += "<td>"+element.tipo_documento+"</td>"
-                                conten += "<td>"+element.numero_resolucion+"</td>"
-                                conten += "<td>"+element.serie_documento+"</td>"
-                                conten += "<td>"+element.num_cont_int_del+"</td>"
-                                conten += "<td>"+element.num_cont_int_al+"</td>"
-                                conten += "<td>"+element.num_documento_del+"</td>"
-                                conten += "<td>"+element.num_documento_al+"</td>"
-                                conten += "<td>"+element.num_maquina_registradora+"</td>"
-                                conten += "<td>"+Number(element.ventas_exentas).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_int_exentas_no_suj_proporcionalidad).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_no_sujetas).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_gravadas_locales).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_adentro_area_ca).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_fuera_area_ca).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_servicio).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_zonas_francas_dpa).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_cuenta_terc_no_domiciliados).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.total_ventas).toFixed(2)+"</td>"
+                                conten += "<td>"+element.numero_documento+"</td>"
+                                conten += "<td>"+element.nit_nrc_proveedor+"</td>"
+                                conten += "<td>"+element.nombre_proveedor+"</td>"
+                                conten += "<td>"+element.compras_internas_exentas+"</td>"
+                                conten += "<td>"+element.internaciones_exentas_no_sujetas+"</td>"
+                                conten += "<td>"+element.importaciones_exentas_no_sujetas+"</td>"
+                                conten += "<td>"+element.compras_internas_gravadas+"</td>"
+                                conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
+                                conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
+                                conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
+                                conten += "<td>"+element.credito_fiscal+"</td>"
+                                conten += "<td>"+element.total_compras+"</td>"
+                                conten += "<td>"+element.dui_proveedor+"</td>"
                                 conten += "<td>"+element.numero_anexo+"</td>"
                                 conten += `<td><div class='d-flex'>
-                                            <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="#" onclick="eliminar(${element.id})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" onclick="eliminar(${element.id})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div></td>`
                                 conten += "</tr>"
                             });

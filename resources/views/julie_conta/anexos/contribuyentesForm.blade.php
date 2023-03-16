@@ -1,24 +1,22 @@
 {{-- Extends layout --}}
 @extends('layout.default')
 
-
-
 {{-- Content --}}
 @section('content')
 
-            @if (isset($consumidor))
-
-                <div class="container-fluid">
+    @if ( isset($contribuyente) )
+        {{-- Formulario para editar --}}
+        <div class="container-fluid">
                     <div class="row page-titles mx-0">
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
-                                <h4>Editar Consumidor Final</h4>
+                                <h4>Editar Contribuyente Registro</h4>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Editar</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Consumidor Final</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Contribuyente Registro</a></li>
                             </ol>
                         </div>
                     </div>
@@ -31,145 +29,125 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
-                                        @foreach ($consumidor as $consu)
-                                            <form class="form-consumidor-final-edit" method="POST">
+                                        @foreach ($contribuyente as $contri)
+                                            <form class="form-contribuyente-edit" method="POST">
                                                 @csrf
-                                                <input type="hidden" name="id_cf" id="id_cf" value="{{ $consu->id }}">
+                                                <input type="hidden" name="id_contri" id="id_contri" value="{{ $contri->id }}">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
-                                                        <label for="fecha_emision">Fecha de emisión <span class="text-danger">*</span></label>
+                                                        <label for="fecha_emision">Fecha de emisión del documento<span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="date" name="fecha_emision" class="form-control" id="fecha_emision" value="{{ $consu->fecha_emision }}">
+                                                            <input type="date" name="fecha_emision" class="form-control" id="fecha_emision" value="{{ $contri->fecha_emision }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Clase de documento <span class="text-danger">*</span></label>
                                                         <select id="clase_documento" class="form-control" name="clase_documento">
-                                                            <option {{ ($consu->clase_documento) == "" ? "selected" : "" }} >Seleccione...</option>
-                                                            <option value="Impreso por imprenta o tiquetes" {{ ($consu->clase_documento) == "Impreso por imprenta o tiquetes" ? "selected" : "" }} >1. IMPRESO POR IMPRENTA O TIQUETES</option>
-                                                            <option value="Formulario unico" {{ ($consu->clase_documento) == "Formulario unico" ? "selected" : "" }} >2. FORMULARIO UNICO</option>
+                                                            <option {{ ($contri->clase_documento) == "" ? "selected" : "" }} >Seleccione...</option>
+                                                            <option value="Impreso por imprenta o tiquetes" {{ ($contri->clase_documento) == "Impreso por imprenta o tiquetes" ? "selected" : "" }} >1. IMPRESO POR IMPRENTA O TIQUETES</option>
+                                                            <option value="Formulario unico" {{ ($contri->clase_documento) == "Formulario unico" ? "selected" : "" }} >2. FORMULARIO UNICO</option>
+                                                            <option value="Documento tributario electronico (DTE)" {{ ($contri->clase_documento) == "Documento tributario electronico (DTE)" ? "selected" : "" }} >4. DOCUMENTO TRIBUTARIO ELECTRONICO (DTE)</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label>Clase de documento <span class="text-danger">*</span></label>
+                                                        <label>Tipo de documento <span class="text-danger">*</span></label>
                                                         <select id="tipo_documento" class="form-control" name="tipo_documento">
-                                                            <option {{ ($consu->tipo_documento) == "" ? "selected" : "" }} >Seleccione...</option>
-                                                            <option value="Factura" {{ ($consu->tipo_documento) == "Factura" ? "selected" : "" }} >01. FACTURA</option>
-                                                            <option value="Factura de venta simplificada" {{ ($consu->tipo_documento) == "Factura de venta simplificada" ? "selected" : "" }} >02. FACTURA DE VENTA SIMPLIFICADA</option>
-                                                            <option value="Tiquetes de maquina registradora" {{ ($consu->tipo_documento) == "Tiquetes de maquina registradora" ? "selected" : "" }} >10. TIQUETES DE MAQUINA REGISTRADORA</option>
-                                                            <option value="Factura de exportacion" {{ ($consu->tipo_documento) == "Factura de exportacion" ? "selected" : "" }} >11. FACTURA DE EXPORTACIÓN</option>
+                                                            <option {{ ($contri->tipo_documento) == "" ? "selected" : "" }} >Seleccione...</option>
+                                                            <option value="Comprobante de crédito fiscal" {{ ($contri->tipo_documento) == "Comprobante de crédito fiscal" ? "selected" : "" }} >03. COMPROBANTE DE CRÉDITO FISCAL</option>
+                                                            <option value="Nota de crédito" {{ ($contri->tipo_documento) == "Nota de crédito" ? "selected" : "" }} >05 NOTA DE CRÉDITO</option>
+                                                            <option value="Nota de débito" {{ ($contri->tipo_documento) == "Nota de débito" ? "selected" : "" }} >06. NOTA DE DÉBITO</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="numero_resolucion">Número de Resolución <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion" value="{{ $consu->numero_resolucion }}">
+                                                            <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion" value="{{ $contri->numero_resolucion }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="serie_documento">Serie del documento <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="text" name="serie_documento" class="form-control" id="serie_documento" value="{{ $consu->serie_documento }}">
+                                                            <input type="text" name="serie_documento" class="form-control" id="serie_documento" value="{{ $contri->serie_documento }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="num_cont_int_del">Número de control interno DEL <span class="text-danger">*</span></label>
+                                                        <label for="num_cont_int_del">Número de documento <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="text" name="num_cont_int_del" class="form-control" id="num_cont_int_del" value="{{ $consu->num_cont_int_del }}">
+                                                            <input type="text" name="num_cont_int_del" class="form-control" id="num_cont_int_del" value="{{ $contri->num_cont_int_del }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="num_cont_int_al">Número de control interno AL <span class="text-danger">*</span></label>
+                                                        <label for="num_cont_int_al">Número de control interno <span class="text-danger">*</span></label>
                                                         <div>
-                                                            <input type="text" name="num_cont_int_al" class="form-control" id="num_cont_int_al" value="{{ $consu->num_cont_int_al }}">
+                                                            <input type="text" name="num_cont_int_al" class="form-control" id="num_cont_int_al" value="{{ $contri->num_cont_int_al }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="num_documento_del">Número de documento (DEL) <span class="text-danger">*</span></label>
+                                                        <label for="nit_nrc_cliente">NIT o NRC del cliente </label>
                                                         <div>
-                                                            <input type="text" name="num_documento_del" class="form-control" id="num_documento_del" value="{{ $consu->num_documento_del }}">
+                                                            <input type="text" name="nit_nrc_cliente" class="form-control" id="nit_nrc_cliente" value="{{ $contri->nit_nrc_cliente }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="num_documento_al">Número de documento (AL) <span class="text-danger">*</span></label>
+                                                        <label for="nombre_razonsocial_denominacion">Nombre razón social o denominación </label>
                                                         <div>
-                                                            <input type="text" name="num_documento_al" class="form-control" id="num_documento_al" value="{{ $consu->num_documento_al }}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="num_maquina_registradora">Número de maquina registradora </label>
-                                                        <div>
-                                                            <input type="text" name="num_maquina_registradora" class="form-control" id="num_maquina_registradora" value="{{ $consu->num_maquina_registradora }}">
+                                                            <input type="text" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion" value="{{ $contri->nombre_razonsocial_denominacion }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_exentas">Ventas exentas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas" value="{{ $consu->ventas_exentas }}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="ventas_int_exentas_no_suj_proporcionalidad">Ventas internas exentas no sujetas a proporcionalidad </label>
-                                                        <div>
-                                                            <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control" id="ventas_int_exentas_no_suj_proporcionalidad" value="{{ $consu->ventas_int_exentas_no_suj_proporcionalidad }}">
+                                                            <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas" value="{{ $contri->ventas_exentas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_no_sujetas">Ventas no sujetas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas" value="{{ $consu->ventas_no_sujetas }}">
+                                                            <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas" value="{{ $contri->ventas_no_sujetas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_gravadas_locales">Ventas gravadas locales </label>
                                                         <div>
-                                                            <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales" value="{{ $consu->ventas_gravadas_locales }}">
+                                                            <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales" value="{{ $contri->ventas_gravadas_locales }}">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="exp_adentro_area_ca">Exportaciones dentro del área de Centroamérica </label>
+                                                    {{-- <div class="form-group col-md-6">
+                                                        <label for="debito_fiscal">Débito fiscal </label>
                                                         <div>
-                                                            <input type="text" name="exp_adentro_area_ca" class="form-control" id="exp_adentro_area_ca" value="{{ $consu->exp_adentro_area_ca }}">
+                                                            <input type="text" name="debito_fiscal" class="form-control" id="debito_fiscal" value="{{ $contri->debito_fiscal }}">
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="exp_fuera_area_ca">Exportaciones fuera del área de Centroamérica </label>
-                                                        <div>
-                                                            <input type="text" name="exp_fuera_area_ca" class="form-control" id="exp_fuera_area_ca" value="{{ $consu->exp_fuera_area_ca }}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="exp_servicio">Exportaciones de servicio </label>
-                                                        <div>
-                                                            <input type="text" name="exp_servicio" class="form-control" id="exp_servicio" value="{{ $consu->exp_servicio }}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label for="ventas_zonas_francas_dpa">Ventas a zonas francas y DPA (Tasa Cero) </label>
-                                                        <div>
-                                                            <input type="text" name="ventas_zonas_francas_dpa" class="form-control" id="ventas_zonas_francas_dpa" value="{{ $consu->ventas_zonas_francas_dpa }}">
-                                                        </div>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                         <div>
-                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados" value="{{ $consu->ventas_cuenta_terc_no_domiciliados }}">
+                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados" value="{{ $contri->ventas_cuenta_terc_no_domiciliados }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
+                                                        <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuentas de terceros </label>
+                                                        <div>
+                                                            <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros" value="{{ $contri->debito_fiscal_ventas_a_cuenta_terceros }}">
+                                                        </div>
+                                                    </div>
+                                                    {{-- <div class="form-group col-md-6">
                                                         <label for="total_ventas">Total de ventas </label>
                                                         <div>
-                                                            <input type="text" name="total_ventas" class="form-control" id="total_ventas" value="{{ $consu->total_ventas }}">
+                                                            <input type="text" name="total_ventas" class="form-control" id="total_ventas" value="{{ $contri->total_ventas }}">
+                                                        </div>
+                                                    </div> --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="dui_cliente">Número de DUI del cliente </label>
+                                                        <div>
+                                                            <input type="text" name="dui_cliente" class="form-control" id="dui_cliente" value="{{ $contri->dui_cliente }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Número del Anexo <span class="text-danger">*</span></label>
                                                         <select id="numero_anexo" class="form-control" name="numero_anexo">
-                                                            <option value="2" selected>2</option>
+                                                            <option value="1" selected>1</option>
                                                         </select>
                                                     </div>
-
-
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Agregar</button>
                                             </form>
@@ -180,18 +158,19 @@
                         </div>
 					</div>
                 </div>
-            @else
-                <div class="container-fluid">
+    @else
+        {{-- Formulario para crear --}}
+         <div class="container-fluid">
                     <div class="row page-titles mx-0">
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
-                                <h4>Nuevo Consumidor Final</h4>
+                                <h4>Nuevo Contribuyente registro</h4>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Anexos</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar Consumidor Final</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar Contribuyente</a></li>
                             </ol>
                         </div>
                     </div>
@@ -200,15 +179,15 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Crear Consumidor Final</h4>
+                                    <h4 class="card-title">Crear Contribuyente</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
-                                        <form class="form-consumidor-final" method="POST">
+                                        <form class="form-contribuyente" method="POST">
                                             @csrf
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="fecha_emision">Fecha de emisión <span class="text-danger">*</span></label>
+                                                    <label for="fecha_emision">Fecha de emisión del documento <span class="text-danger">*</span></label>
                                                     <div>
                                                         <input type="date" name="fecha_emision" class="form-control" id="fecha_emision">
                                                     </div>
@@ -219,20 +198,20 @@
                                                         <option selected>Seleccione...</option>
                                                         <option value="Impreso por imprenta o tiquetes">1. IMPRESO POR IMPRENTA O TIQUETES</option>
                                                         <option value="Formulario unico">2. FORMULARIO UNICO</option>
+                                                        <option value="Documento tributario electronico (DTE)">4. DOCUMENTO TRIBUTARIO ELECTRONICO (DTE)</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label>Clase de documento <span class="text-danger">*</span></label>
+                                                    <label>Tipo de documento <span class="text-danger">*</span></label>
                                                     <select id="tipo_documento" class="form-control" name="tipo_documento">
                                                         <option selected>Seleccione...</option>
-                                                        <option value="Factura">01. FACTURA</option>
-                                                        <option value="Factura de venta simplificada">02. FACTURA DE VENTA SIMPLIFICADA</option>
-                                                        <option value="Tiquetes de maquina registradora">10. TIQUETES DE MAQUINA REGISTRADORA</option>
-                                                        <option value="Factura de exportacion">11. FACTURA DE EXPORTACIÓN</option>
+                                                        <option value="Comprobante de crédito fiscal">03. COMPROBANTE DE CRÉDITO FISCAL</option>
+                                                        <option value="Nota de crédito">05 NOTA DE CRÉDITO</option>
+                                                        <option value="Nota de Débito">06. NOTA DE DÉBITO</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="numero_resolucion">Número de Resolución <span class="text-danger">*</span></label>
+                                                    <label for="numero_resolucion">Número de resolución <span class="text-danger">*</span></label>
                                                     <div>
                                                         <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion">
                                                     </div>
@@ -244,45 +223,35 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="num_cont_int_del">Número de control interno DEL <span class="text-danger">*</span></label>
+                                                    <label for="num_cont_int_del">Número de documento <span class="text-danger">*</span></label>
                                                     <div>
                                                         <input type="text" name="num_cont_int_del" class="form-control" id="num_cont_int_del">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="num_cont_int_al">Número de control interno AL <span class="text-danger">*</span></label>
+                                                    <label for="num_cont_int_al">Número de control interno </label>
                                                     <div>
                                                         <input type="text" name="num_cont_int_al" class="form-control" id="num_cont_int_al">
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group col-md-6">
-                                                    <label for="num_documento_del">Número de documento (DEL) <span class="text-danger">*</span></label>
+                                                    <label for="nit_nrc_cliente">NIT o NRC del cliente </label>
                                                     <div>
-                                                        <input type="text" name="num_documento_del" class="form-control" id="num_documento_del">
+                                                        <input type="text" name="nit_nrc_cliente" class="form-control" id="nit_nrc_cliente">
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group col-md-6">
-                                                    <label for="num_documento_al">Número de documento (AL) <span class="text-danger">*</span></label>
+                                                    <label for="nombre_razonsocial_denominacion">Nombre razón social o denominación </label>
                                                     <div>
-                                                        <input type="text" name="num_documento_al" class="form-control" id="num_documento_al">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="num_maquina_registradora">Número de maquina registradora </label>
-                                                    <div>
-                                                        <input type="text" name="num_maquina_registradora" class="form-control" id="num_maquina_registradora">
+                                                        <input type="text" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_exentas">Ventas exentas </label>
                                                     <div>
                                                         <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="ventas_int_exentas_no_suj_proporcionalidad">Ventas internas exentas no sujetas a proporcionalidad </label>
-                                                    <div>
-                                                        <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control" id="ventas_int_exentas_no_suj_proporcionalidad">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -297,30 +266,12 @@
                                                         <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales">
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="exp_adentro_area_ca">Exportaciones dentro del área de Centroamérica </label>
+                                                {{-- <div class="form-group col-md-6">
+                                                    <label for="debito_fiscal">Débito fiscal </label>
                                                     <div>
-                                                        <input type="text" name="exp_adentro_area_ca" class="form-control" id="exp_adentro_area_ca">
+                                                        <input type="text" name="debito_fiscal" class="form-control" id="debito_fiscal">
                                                     </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="exp_fuera_area_ca">Exportaciones fuera del área de Centroamérica </label>
-                                                    <div>
-                                                        <input type="text" name="exp_fuera_area_ca" class="form-control" id="exp_fuera_area_ca">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="exp_servicio">Exportaciones de servicio </label>
-                                                    <div>
-                                                        <input type="text" name="exp_servicio" class="form-control" id="exp_servicio">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="ventas_zonas_francas_dpa">Ventas a zonas francas y DPA (Tasa Cero) </label>
-                                                    <div>
-                                                        <input type="text" name="ventas_zonas_francas_dpa" class="form-control" id="ventas_zonas_francas_dpa">
-                                                    </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                     <div>
@@ -328,15 +279,27 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
+                                                    <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuenta de terceros </label>
+                                                    <div>
+                                                        <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros">
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="form-group col-md-6">
                                                     <label for="total_ventas">Total de ventas </label>
                                                     <div>
                                                         <input type="text" name="total_ventas" class="form-control" id="total_ventas">
                                                     </div>
+                                                </div> --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="dui_cliente">Número de DUI del cliente </label>
+                                                    <div>
+                                                        <input type="text" name="dui_cliente" class="form-control" id="dui_cliente">
+                                                    </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label>Número del Anexo <span class="text-danger">*</span></label>
+                                                    <label>Número del anexo <span class="text-danger">*</span></label>
                                                     <select id="numero_anexo" class="form-control" name="numero_anexo">
-                                                        <option value="2">2</option>
+                                                        <option value="1">1</option>
                                                     </select>
                                                 </div>
 
@@ -350,42 +313,40 @@
                         </div>
                     </div>
                 </div>
-            @endif
-
-
+    @endif
 
 @endsection
 @section('scripts')
 
     <script>
 
-        $( ".form-consumidor-final" ).submit(function( event ) {
+        $( ".form-contribuyente" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('crear-consumidor-final') }}",
+                url: "{{ url('add-anexo-contribuyente') }}",
                 data: form.serialize()
             }).done(function(data) {
                 console.log(data);
                 if (data === true) {
-                    swal("Exito!!", "Datos guardados correctamente!!", "success")
+                    swal.fire("Exito!!", "Datos guardados correctamente!!", "success")
                     form[0].reset();
                 }
             }).fail(function(data) {
-                console.log(data);
+                    console.log(data);
                     sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });
 
-        $( ".form-consumidor-final-edit" ).submit(function( event ) {
+        $( ".form-contribuyente-edit" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
-            let id = $("#id_cf").val();
+            let id = $("#id_contri").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ url('edit-consumidor-final') }}/"+id,
+                url: "{{ url('update-anexo-contribuyente') }}/"+id,
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -397,7 +358,7 @@
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-                            window.location = "../consumidor-final";
+                            window.location = "../";
                         }
                     })
 
@@ -411,5 +372,3 @@
     </script>
 
 @endsection
-
-

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ConsumidorFinal;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ConsumidorFinalController extends Controller
 {
@@ -35,7 +37,7 @@ class ConsumidorFinalController extends Controller
             $consumidorFinal->total_ventas = isset($request->total_ventas) ? $request->total_ventas : 0.00;
             $consumidorFinal->numero_anexo = $request->numero_anexo;
             // $consumidorFinal->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $consumidorFinal->user_id = 1;
+            $consumidorFinal->user_id = 3;
             $result = $consumidorFinal->save();
 
             return response()->json($result, 200);
@@ -89,6 +91,42 @@ class ConsumidorFinalController extends Controller
 
             return response()->json($result, 200);
         } catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function busquedaUsuarioCf(Request $request)
+    {
+        try{
+            if($request->id != 'null'){
+                $consumidores = ConsumidorFinal::where("user_id", "=", $request->id)->get();
+            }else{
+                $consumidores = ConsumidorFinal::all();
+            }
+
+            return response()->json($consumidores, 200);
+        }catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function BusquedaFechaUsu(Request $request)
+    {
+        try{
+            $usu = $request->usuario;
+
+            if(isset($usu)){
+                $cf = DB::table('consumidor_finals')
+                    ->whereBetween('fecha_emision', [$request->fecha1, $request->fecha2])
+                    ->where('user_id', '=', $usu)
+                    ->get();
+            }else{
+                $cf = DB::table('consumidor_finals')->whereBetween('fecha_emision', [$request->fecha1, $request->fecha2])->get();
+            }
+
+            return response()->json($cf, 200);
+
+        }catch(Exception $e){
             return response()->json($e->getMessage(), 403);
         }
     }

@@ -5,6 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\ConsumidorFinal;
+use App\Models\AnexoContribuyente;
+use App\Models\AnexoCompra;
+use App\Models\Casilla108;
+use App\Models\Casilla66;
+use App\Models\Casilla161;
+use App\Models\Casilla162;
+use App\Models\Casilla163;
+use App\Models\Casilla169;
+use App\Models\Casilla170;
+use App\Models\Casilla171;
+use App\Models\Casilla172;
+use Spatie\Permission\Models\Role;
 
 class MediquadminController extends Controller
 {
@@ -14,10 +26,10 @@ class MediquadminController extends Controller
     {
 
 
-        $page_title = 'Dashboard-1';
+        $page_title = 'Inicio';
         $page_description = 'Some description for the page';
         $logo = "images/logo.png";
-        $logoText = "images/logo-text.png";
+        $logoText = "images/banner.png";
         $action = __FUNCTION__;
 
         return view('dashboard.index', compact('page_title', 'page_description','action','logo','logoText'));
@@ -822,17 +834,18 @@ class MediquadminController extends Controller
     {
         $page_title = 'Formulario Usuarios';
         $page_description = 'Formulario para crear un nuevo usuario.';
+        $roles = Role::all();
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description','action'));
+        return view('julie_conta.usuarios.registroUser', compact('page_title', 'roles', 'page_description','action'));
     }
 
     public function view_usuarios()
     {
         $page_title = 'Usuarios';
         $page_description = 'Tabla de todos los usuarios registrados.';
-        $usuarios = User::all();
+        $usuarios = User::where('estado', '1')->get();
 
 		$action = __FUNCTION__;
 
@@ -865,10 +878,11 @@ class MediquadminController extends Controller
         $page_title = 'Consumidor Final';
         $page_description = 'Tabla con los datos de la plantilla "Consumidor Final"';
         $consumidores = ConsumidorFinal::all();
+        $usuarios = User::all();
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.anexos.allConsumidorFinal', compact('page_title', 'page_description', 'consumidores', 'action'));
+        return view('julie_conta.anexos.allConsumidorFinal', compact('page_title', 'page_description', 'consumidores', 'usuarios', 'action'));
     }
 
     public function form_consumidor_final_edit($id)
@@ -881,5 +895,270 @@ class MediquadminController extends Controller
 
         return view('julie_conta.anexos.consumidorFinal', compact('page_title', 'page_description', 'consumidor', 'action'));
     }
+
+    public function form_anexo_contribuyentes()
+    {
+        $page_title = 'Formulario para agregar Anexos Contribuyentes';
+        $page_description = 'Formulario para crear un registro en el anexo de contribuyentes.';
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.anexos.contribuyentesForm', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_anexo_contribuyentes_edit($id)
+    {
+        $page_title = 'Formulario para editar Anexo Contribuyentes';
+        $page_description = 'Formulario para Editar un registro en el anexo de contribuyentes.';
+        $contribuyente = AnexoContribuyente::where("id", "=", $id)->get();
+
+		$action = __FUNCTION__;
+
+        return view('julie_conta.anexos.contribuyentesForm', compact('page_title', 'page_description', 'contribuyente', 'action'));
+    }
+
+    public function form_anexo_compras()
+    {
+        $page_title = 'Formulario para agregar Anexos Compras';
+        $page_description = 'Formulario para crear un registro en el anexo de compras.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.comprasForm', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_anexo_compras_edit($id)
+    {
+        $page_title = 'Formulario para editar Anexo Compras';
+        $page_description = 'Formulario para editar un registro en el anexo de compras.';
+        $anexoCompras = AnexoCompra::where("id", "=", $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.comprasForm', compact('page_title', 'page_description', 'anexoCompras', 'action'));
+    }
+
+    public function form_casilla_108()
+    {
+        $page_title = 'Formulario para agregar Ventas gravadas por cuenta de terceros domiciliados.';
+        $page_description = 'Formulario para crear un registro de Ventas gravadas por cuenta de terceros domiciliados.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_108_edit($id)
+    {
+        $page_title = 'Formulario para editar Ventas gravadas por cuenta de terceros domiciliados.';
+        $page_description = 'Formulario para editar un registro de Ventas gravadas por cuenta de terceros domiciliados.';
+        $ventas = Casilla108::where("id", "=", $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'ventas', 'action'));
+    }
+
+    public function form_casilla_66()
+    {
+        $page_title = 'Formulario para agregar Compras a Sujetos Excluidos.';
+        $page_description = 'Formulario para crear un registro de Compras a Sujetos Excluidos.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla66', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_66_edit($id)
+    {
+        $page_title = 'Formulario para editar Compras a Sujetos Excluidos.';
+        $page_description = 'Formulario para editar un registro de Compras a Sujetos Excluidos.';
+        $compras = Casilla66::where("id", "=", $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla66', compact('page_title', 'page_description', 'compras', 'action'));
+    }
+
+    public function form_casilla_161()
+    {
+        $page_title = 'Formulario para agregar Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
+        $page_description = 'Formulario para crear un registro de Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_161_edit($id)
+    {
+        $page_title = 'Formulario para editar Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
+        $page_description = 'Formulario para editar un registro de Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
+        $anticipos = Casilla161::where("id", "=", $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'anticipos', 'action'));
+    }
+
+    public function form_casilla_162()
+    {
+        $page_title = 'Formulario para agregar Retención de IVA 1% Efectuada al Declarante';
+        $page_description = 'Formulario para crear un registro de Retención de IVA 1% Efectuada al Declarante';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_162_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención de IVA 1% Efectuada al Declarante';
+        $page_description = 'Formulario para editar un registro de Retención de IVA 1% Efectuada al Declarante';
+        $retenciones = Casilla162::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+    public function form_casilla_163()
+    {
+        $page_title = 'Formulario para agregar Percepción de IVA 1% Efectuada al Declarante.';
+        $page_description = 'Formulario para crear un registro de Percepción de IVA 1% Efectuada al Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_163_edit($id)
+    {
+        $page_title = 'Formulario para editar Percepción de IVA 1% Efectuada al Declarante.';
+        $page_description = 'Formulario para editar un registro de Percepción de IVA 1% Efectuada al Declarante.';
+        $percepciones = Casilla163::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'percepciones', 'action'));
+    }
+
+    public function form_casilla_169()
+    {
+        $page_title = 'Formulario para agregar Percepción de IVA 1% Efectuada por Declarante.';
+        $page_description = 'Formulario para crear un registro de Percepción de IVA 1% Efectuada por Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla169', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_169_edit($id)
+    {
+        $page_title = 'Formulario para editar Percepción de IVA 1% Efectuada por Declarante.';
+        $page_description = 'Formulario para editar un registro de Percepción de IVA 1% Efectuada por Declarante.';
+        $percepciones = Casilla169::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla169', compact('page_title', 'page_description', 'percepciones', 'action'));
+    }
+
+    public function form_casilla_170()
+    {
+        $page_title = 'Formulario para agregar Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $page_description = 'Formulario para crear un registro de Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla170', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_170_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $page_description = 'Formulario para editar un registro de Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante';
+        $retenciones = Casilla170::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla170', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+    public function form_casilla_171()
+    {
+        $page_title = 'Formulario para agregar Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $page_description = 'Formulario para crear un registro de Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla171', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_171_edit($id)
+    {
+        $page_title = 'Formulario para editar Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $page_description = 'Formulario para editar un registro de Anticipo a Cuenta de IVA 2% Efectuadas por el Declarante.';
+        $anticipos = Casilla171::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla171', compact('page_title', 'page_description', 'anticipos', 'action'));
+    }
+
+    public function form_casilla_172()
+    {
+        $page_title = 'Formulario para agregar Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $page_description = 'Formulario para crear un registro de Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla172', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_casilla_172_edit($id)
+    {
+        $page_title = 'Formulario para editar Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $page_description = 'Formulario para editar un registro de Retención 13% IVA a Terceros Domiciliados Efectuados por el Declarante.';
+        $retenciones = Casilla172::where('id', '=', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.casilla172', compact('page_title', 'page_description', 'retenciones', 'action'));
+    }
+
+    public function viewAnexoCompras()
+    {
+        $page_title = 'Vista de los registros del anexo de compras.';
+        $page_description = 'Todos los registros de anexo de compras.';
+        $compras = AnexoCompra::all();
+        $usuarios = User::all();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allAnexoCompras', compact('page_title', 'page_description', 'compras', 'usuarios', 'action'));
+    }
+
+    public function viewLibroCompras()
+    {
+        $page_title = 'Vista de los registros del Libro de compras.';
+        $page_description = 'Genera los registros del libro de compras.';
+        $usuarios = User::all();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.libroCompras', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
+    public function Login()
+    {
+        $page_title = 'Vista del Login.';
+        $page_description = 'Login de acceso de usuarios.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.usuarios.login', compact('page_title', 'page_description', 'action'));
+    }
+
 
 }
