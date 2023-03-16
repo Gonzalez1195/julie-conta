@@ -1110,6 +1110,11 @@ return [
                         'js/deznav-init.js',
                     ],
 
+                    'Login' => [
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
 
 
 			]

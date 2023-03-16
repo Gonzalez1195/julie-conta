@@ -71,7 +71,7 @@
                                                         <select id="inputState" class="form-control" name="tipoUsu">
                                                             <option selected>Seleccione...</option>
                                                             @foreach ($roles as $rol)
-                                                                <option value=""{{ $rol->id }}>{{ $rol->name }}</option>
+                                                                <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -146,7 +146,7 @@
                                                     <select id="inputState" class="form-control" name="tipoUsu">
                                                         <option selected>Seleccione...</option>
                                                         @foreach ($roles as $rol)
-                                                            <option value=""{{ $rol->name }}>{{ $rol->name }}</option>
+                                                            <option value="{{ $rol->name }}">{{ $rol->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -181,7 +181,7 @@
                     form[0].reset();
                 }
             }).fail(function(data) {
-                    sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+                sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });

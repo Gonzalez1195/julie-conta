@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use DB;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
             $result = $user->save();
 
             // Asignando rol
-            $user->assignRole($request->rol);
+            $user->assignRole($request->tipoUsu);
 
             return response()->json($result, 200);
 
@@ -46,6 +47,10 @@ class UserController extends Controller
             }
             $user->telefono = $request->telefono;
             $result = $user->save();
+
+            // Asignando rol
+            DB::table('model_has_roles')->where('model_id',$id)->delete();
+            $user->assignRole($request->tipoUsu);
 
             return response()->json($result, 200);
 

@@ -845,7 +845,7 @@ class MediquadminController extends Controller
     {
         $page_title = 'Usuarios';
         $page_description = 'Tabla de todos los usuarios registrados.';
-        $usuarios = User::all();
+        $usuarios = User::where('estado', '1')->get();
 
 		$action = __FUNCTION__;
 
@@ -1148,6 +1148,16 @@ class MediquadminController extends Controller
         $action = __FUNCTION__;
 
         return view('julie_conta.anexos.libroCompras', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
+    public function Login()
+    {
+        $page_title = 'Vista del Login.';
+        $page_description = 'Login de acceso de usuarios.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.usuarios.login', compact('page_title', 'page_description', 'action'));
     }
 
 

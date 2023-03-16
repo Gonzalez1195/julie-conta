@@ -180,6 +180,7 @@
                             <li><a href="{!! url('./anexo-casilla-172'); !!}">Retención 13% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li>
 
                             <li><a href="{!! url('./consumidor-final'); !!}">Consumidor Final</a></li>
+                            <li><a href="{!! url('./libro-compra'); !!}">Libro de compras</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -36,6 +36,7 @@
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Email</th>
+                                                <th>Rol</th>
                                                 <th>Telefono</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -47,6 +48,7 @@
                                                 <tr>
                                                     <td>{{ $usuario->name }}</td>
                                                     <td>{{ $usuario->email }}</td>
+                                                    <td>{{ $usuario->roles()->first()->name }}</td>
                                                     <td>{{ $usuario->telefono }}</td>
                                                     <td>
                                                         <div class="d-flex">
