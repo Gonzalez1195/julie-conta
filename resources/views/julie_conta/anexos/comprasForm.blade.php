@@ -146,6 +146,16 @@
                                                             <option value="3" selected>3</option>
                                                         </select>
                                                     </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>Cliente</label>
+                                                        <select id="select-usuario" class="form-control" name="user_id" disabled>
+                                                            @foreach ($usuarios as $usuario)
+                                                                @if ( $usuario->id == $compras->user_id )
+                                                                    <option value="{{ $usuario->id }}" selected>{{ $usuario->name }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Agregar</button>
                                             </form>
@@ -295,6 +305,15 @@
                                                     <label>Número del anexo <span class="text-danger">*</span></label>
                                                     <select id="numero_anexo" class="form-control" name="numero_anexo">
                                                         <option value="3">1</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Cliente</label>
+                                                    <select id="select-usuario" class="form-control" name="user_id">
+                                                        <option value="null">Seleccione un usuario...</option>
+                                                        @foreach ($usuarios as $usuario)
+                                                            <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
 

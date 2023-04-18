@@ -231,6 +231,7 @@ return [
                 ],
 
                 'form_consumidor_final' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
@@ -241,22 +242,27 @@ return [
                 ],
 
                 'form_consumidor_final_edit' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
                 'form_anexo_contribuyentes' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
                 'form_anexo_contribuyentes_edit' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
                 'form_anexo_compras' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
                 'form_anexo_compras_edit' => [
+                    'vendor/select2/css/select2.min.css',
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
@@ -840,6 +846,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -862,6 +870,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -872,6 +882,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -882,6 +894,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -892,6 +906,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -902,6 +918,8 @@ return [
                         'vendor/jquery-validation/jquery.validate.min.js',
                         'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/plugins-init/jquery.validate-init.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],

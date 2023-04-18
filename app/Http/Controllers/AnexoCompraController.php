@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnexoCompra;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnexoCompraController extends Controller
 {
@@ -42,8 +43,13 @@ class AnexoCompraController extends Controller
             $anexo_compras->total_compras = $totalCompras;
             $anexo_compras->dui_proveedor = $request->dui_proveedor;
             $anexo_compras->numero_anexo = $request->numero_anexo;
-            // $anexo_compras->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $anexo_compras->user_id = 1;
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $anexo_compras->user_id = $request->user_id;
+            }else {
+                $anexo_compras->user_id = auth()->id();
+            }
+
             $result = $anexo_compras->save();
 
             return response()->json($result, 200);
@@ -86,6 +92,13 @@ class AnexoCompraController extends Controller
             $anexo_compras->total_compras = $totalCompras;
             $anexo_compras->dui_proveedor = $request->dui_proveedor;
             $anexo_compras->numero_anexo = $request->numero_anexo;
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $anexo_compras->user_id = $request->user_id;
+            }else {
+                $anexo_compras->user_id = auth()->id();
+            }
+
             $result = $anexo_compras->save();
 
             return response()->json($result, 200);
@@ -103,6 +116,46 @@ class AnexoCompraController extends Controller
 
             return response()->json($result, 200);
         } catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function busquedaUsuario(Request $request)
+    {
+        try{
+            if($request->id != 'null'){
+                $consumidores = AnexoCompra::where("user_id", "=", $request->id)->get();
+            }else{
+                $consumidores = AnexoCompra::all();
+            }
+
+            return response()->json($consumidores, 200);
+        }catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function BusquedaFechaUsu(Request $request)
+    {
+        try{
+            $usu = $request->usuario;
+
+            if( $usu != 'null'){
+                $cf = DB::table('anexo_compras')
+                    ->whereBetween('fecha_emision', [$request->fecha1, $request->fecha2])
+                    ->where('user_id', '=', $usu)
+                    ->get();
+            }else{
+                $cf = DB::table('anexo_compras')
+                        ->join('users', 'users.id', '=', 'anexo_compras.user_id')
+                        ->where('users.estado', 1)
+                        ->whereBetween('anexo_compras.fecha_emision', [$request->fecha1, $request->fecha2])
+                        ->get();
+            }
+
+            return response()->json($cf, 200);
+
+        }catch(Exception $e){
             return response()->json($e->getMessage(), 403);
         }
     }

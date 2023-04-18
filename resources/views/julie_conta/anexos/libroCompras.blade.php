@@ -68,7 +68,7 @@
 
 
                                 <div class="table-responsive">
-                                    <table id="example3" class="display" style="min-width: 845px">
+                                    <table id="example3" class="display" style="min-width: 845px; font-size: 13px;">
                                         <thead>
                                             <tr>
                                                 <th>Fecha de Emisión del documento</th>
@@ -153,25 +153,42 @@
 
                     if (data.length > 0) {
                         data.forEach(element => {
+
+                            let num_doc = "";
+                            let nit_nrc_proveedor = "";
+                            let nom_proveedor = "";
+
+                            if ( element.numero_documento != null && element.numero_documento != "" ) {
+                                num_doc = element.numero_documento;
+                            }
+
+                            if ( element.nit_nrc_proveedor != null && element.nit_nrc_proveedor != "" ) {
+                                nit_nrc_proveedor = element.nit_nrc_proveedor;
+                            }
+
+                            if ( element.nombre_proveedor != null && element.nombre_proveedor != "" ) {
+                                nom_proveedor = element.nombre_proveedor;
+                            }
+
                             conten += "<tr>"
                             conten += "<td>"+element.fecha_emision+"</td>"
-                            conten += "<td>"+element.numero_documento+"</td>"
-                            conten += "<td>"+element.nit_nrc_proveedor+"</td>"
-                            conten += "<td>"+element.nombre_proveedor+"</td>"
-                            conten += "<td>"+element.compras_internas_exentas+"</td>"
+                            conten += "<td>"+num_doc+"</td>"
+                            conten += "<td>"+nit_nrc_proveedor+"</td>"
+                            conten += "<td>"+nom_proveedor+"</td>"
+                            conten += "<td>"+Number(element.compras_internas_exentas).toFixed(2)+"</td>"
 
                             let ImpIntExentas = (element.internaciones_exentas_no_sujetas + element.importaciones_exentas_no_sujetas)
 
-                            conten += "<td>"+ImpIntExentas+"</td>"
-                            conten += "<td>"+element.compras_internas_gravadas+"</td>"
+                            conten += "<td>"+Number(ImpIntExentas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.compras_internas_gravadas).toFixed(2)+"</td>"
 
                             let ImpIntGravadas = (element.internaciones_gravadas_bienes + element.importaciones_gravadas_bienes)
 
-                            conten += "<td>"+ImpIntGravadas+"</td>"
-                            conten += "<td>"+element.credito_fiscal+"</td>"
-                            conten += "<td>"+0.00+"</td>"
-                            conten += "<td>"+element.total_compras+"</td>"
-                            conten += "<td>"+0.00+"</td>"
+                            conten += "<td>"+Number(ImpIntGravadas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.credito_fiscal).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(0.00).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.total_compras).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(0.00).toFixed(2)+"</td>"
                             conten += "</tr>"
                         });
                         table.insertAdjacentHTML("beforeend", conten);

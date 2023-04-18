@@ -104,9 +104,7 @@ Route::controller(MediquadminController::class)->group(function() {
         Route::get('/agregar-consumidor-final', 'form_consumidor_final');
         Route::get('/consumidor-final', 'view_consumidorFinal');
         Route::get('/editar-cf/{id}', 'form_consumidor_final_edit');
-        Route::get('/anexo-contribuyentes', 'form_anexo_contribuyentes');
         Route::get('/anexo-contribuyentes_editar/{id}', 'form_anexo_contribuyentes_edit');
-        Route::get('/anexo-compras', 'form_anexo_compras');
         Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
         Route::get('/anexo-ventas-gctd', 'form_casilla_108');
         Route::get('/anexo-ventas-gctd-editar/{id}', 'form_casilla_108_edit');
@@ -126,9 +124,12 @@ Route::controller(MediquadminController::class)->group(function() {
         Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
         Route::get('/anexo-casilla-172', 'form_casilla_172');
         Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
-        Route::get('/anexo-compras-mostrar', 'viewAnexoCompras');
         Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
         Route::get('/libro-compra', 'viewLibroCompras');
+
+        Route::get('/anexo-contribuyentes-agregar', 'form_anexo_contribuyentes');
+        Route::get('/anexo-compras-agregar', 'form_anexo_compras');
+        Route::get('/anexo-compras', 'viewAnexoCompras');
     });
     Route::get('/index', 'Login')->name('index');
 });
@@ -155,6 +156,8 @@ Route::controller(AnexoCompraController::class)->group(function(){
     Route::middleware('auth')->group(function () {
         Route::post('/crear-anexo-compras', 'addAnexoCompra');
         Route::post('edit-anexo-compras/{id}', 'updateAnexoCompra');
+        Route::get('/buscar-ac-usuario', 'busquedaUsuario');
+        Route::get('/buscar-ac-fechas', 'BusquedaFechaUsu');
     });
 });
 

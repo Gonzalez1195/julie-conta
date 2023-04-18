@@ -27,7 +27,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Editar Usuario</h4>
+                                    <h4 class="card-title">Editar Consumidor Final</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
@@ -166,6 +166,16 @@
                                                         <label>Número del Anexo <span class="text-danger">*</span></label>
                                                         <select id="numero_anexo" class="form-control" name="numero_anexo">
                                                             <option value="2" selected>2</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>Cliente</label>
+                                                        <select id="select-usuario" class="form-control" name="user_id" disabled>
+                                                            @foreach ($usuarios as $usuario)
+                                                                @if ( $usuario->id == $consu->user_id )
+                                                                    <option value="{{ $usuario->id }}" selected>{{ $usuario->name }}</option>
+                                                                @endif
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
@@ -337,6 +347,15 @@
                                                     <label>Número del Anexo <span class="text-danger">*</span></label>
                                                     <select id="numero_anexo" class="form-control" name="numero_anexo">
                                                         <option value="2">2</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Cliente</label>
+                                                    <select id="select-usuario" class="form-control" name="user_id">
+                                                        <option value="null">Seleccione un usuario...</option>
+                                                        @foreach ($usuarios as $usuario)
+                                                            <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
 

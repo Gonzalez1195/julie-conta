@@ -60,7 +60,7 @@
 
 
                                 <div class="table-responsive">
-                                    <table id="example3" class="display" style="min-width: 845px">
+                                    <table id="example3" class="display" style="min-width: 845px; font-size: 13px;">
                                         <thead>
                                             <tr>
                                                 <th>Fecha de Emisión del documento</th>
@@ -189,7 +189,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '{{ url("buscar-cf-usuario") }}',
+                    url: '{{ url("buscar-ac-usuario") }}',
                     data: { 'id': idUsu },
                 }).done(function(data) {
 
@@ -197,23 +197,34 @@
                     table.innerHTML = "";
                     if (data.length > 0) {
                         data.forEach(element => {
+
+                            let nitProveedor = "";
+                            let duiProveedor = "";
+                            if ( element.nit_nrc_proveedor != null && element.nit_nrc_proveedor != "" ) {
+                                nitProveedor = element.nit_nrc_proveedor;
+                            }
+
+                            if ( element.dui_proveedor != null && element.dui_proveedor != "" ) {
+                                duiProveedor = element.dui_proveedor;
+                            }
+
                             conten += "<tr>"
                             conten += "<td>"+element.fecha_emision+"</td>"
                             conten += "<td>"+element.clase_documento+"</td>"
                             conten += "<td>"+element.tipo_documento+"</td>"
                             conten += "<td>"+element.numero_documento+"</td>"
-                            conten += "<td>"+element.nit_nrc_proveedor+"</td>"
+                            conten += "<td>"+nitProveedor+"</td>"
                             conten += "<td>"+element.nombre_proveedor+"</td>"
-                            conten += "<td>"+element.compras_internas_exentas+"</td>"
-                            conten += "<td>"+element.internaciones_exentas_no_sujetas+"</td>"
-                            conten += "<td>"+element.importaciones_exentas_no_sujetas+"</td>"
-                            conten += "<td>"+element.compras_internas_gravadas+"</td>"
-                            conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
-                            conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
-                            conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
-                            conten += "<td>"+element.credito_fiscal+"</td>"
-                            conten += "<td>"+element.total_compras+"</td>"
-                            conten += "<td>"+element.dui_proveedor+"</td>"
+                            conten += "<td>"+Number(element.compras_internas_exentas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.internaciones_exentas_no_sujetas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.importaciones_exentas_no_sujetas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.compras_internas_gravadas).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.internaciones_gravadas_bienes).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.importaciones_gravadas_bienes).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.importaciones_gravadas_servicios).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.credito_fiscal).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.total_compras).toFixed(2)+"</td>"
+                            conten += "<td>"+duiProveedor+"</td>"
                             conten += "<td>"+element.numero_anexo+"</td>"
                             conten += `<td><div class='d-flex'>
                                             <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
@@ -258,7 +269,7 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: '{{ url("buscar-cf-fecha") }}',
+                        url: '{{ url("buscar-ac-fechas") }}',
                         data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
                     }).done(function(data) {
 
@@ -266,23 +277,34 @@
                         table.innerHTML = "";
                         if (data.length > 0) {
                             data.forEach(element => {
+
+                                let nitProveedor = "";
+                                let duiProveedor = "";
+                                if ( element.nit_nrc_proveedor != null && element.nit_nrc_proveedor != "" ) {
+                                    nitProveedor = element.nit_nrc_proveedor;
+                                }
+
+                                if ( element.dui_proveedor != null && element.dui_proveedor != "" ) {
+                                    duiProveedor = element.dui_proveedor;
+                                }
+
                                 conten += "<tr>"
                                 conten += "<td>"+element.fecha_emision+"</td>"
                                 conten += "<td>"+element.clase_documento+"</td>"
                                 conten += "<td>"+element.tipo_documento+"</td>"
                                 conten += "<td>"+element.numero_documento+"</td>"
-                                conten += "<td>"+element.nit_nrc_proveedor+"</td>"
+                                conten += "<td>"+nitProveedor+"</td>"
                                 conten += "<td>"+element.nombre_proveedor+"</td>"
-                                conten += "<td>"+element.compras_internas_exentas+"</td>"
-                                conten += "<td>"+element.internaciones_exentas_no_sujetas+"</td>"
-                                conten += "<td>"+element.importaciones_exentas_no_sujetas+"</td>"
-                                conten += "<td>"+element.compras_internas_gravadas+"</td>"
-                                conten += "<td>"+element.internaciones_gravadas_bienes+"</td>"
-                                conten += "<td>"+element.importaciones_gravadas_bienes+"</td>"
-                                conten += "<td>"+element.importaciones_gravadas_servicios+"</td>"
-                                conten += "<td>"+element.credito_fiscal+"</td>"
-                                conten += "<td>"+element.total_compras+"</td>"
-                                conten += "<td>"+element.dui_proveedor+"</td>"
+                                conten += "<td>"+Number(element.compras_internas_exentas).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.internaciones_exentas_no_sujetas).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.importaciones_exentas_no_sujetas).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.compras_internas_gravadas).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.internaciones_gravadas_bienes).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.importaciones_gravadas_bienes).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.importaciones_gravadas_servicios).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.credito_fiscal).toFixed(2)+"</td>"
+                                conten += "<td>"+Number(element.total_compras).toFixed(2)+"</td>"
+                                conten += "<td>"+duiProveedor+"</td>"
                                 conten += "<td>"+element.numero_anexo+"</td>"
                                 conten += `<td><div class='d-flex'>
                                                 <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>

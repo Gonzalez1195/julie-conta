@@ -6,6 +6,7 @@ use App\Models\AnexoCompra;
 use Exception;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LibroCompraController extends Controller
 {
@@ -29,7 +30,11 @@ class LibroCompraController extends Controller
 
                 return response()->json($compras, 200);
             }elseif ( $usuario == 'null' && $dateD != null ) {
-                $compras = AnexoCompra::whereBetween('fecha_emision', [$dateD, $dateH])->get();
+                $compras = DB::table('anexo_compras')
+                            ->join('users', 'users.id', '=', 'anexo_compras.user_id')
+                            ->where('users.estado', 1)
+                            ->whereBetween('anexo_compras.fecha_emision', [$dateD, $dateH])
+                            ->get();
 
                 return response()->json($compras, 200);
             }
