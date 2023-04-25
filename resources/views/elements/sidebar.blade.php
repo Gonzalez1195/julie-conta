@@ -167,9 +167,10 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="{!! url('./agregar-consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
-                            <li><a href="{!! url('./anexo-contribuyentes'); !!}">Anexo de Ventas a Contribuyentes</a></li>
-                            <li><a href="{!! url('./anexo-compras'); !!}">Anexo de Compras</a></li>
-                            <li><a href="{!! url('./anexo-ventas-gctd'); !!}">Ventas Gravadas por Cuenta de Terceros Domiciliados</a></li>
+                            <li><a href="{!! url('./anexo-contribuyentes-agregar'); !!}">Anexo de Ventas a Contribuyentes</a></li>
+                            <li><a href="{!! url('./anexo-compras-agregar'); !!}">Anexo de Compras</a></li>
+
+                            {{-- <li><a href="{!! url('./anexo-ventas-gctd'); !!}">Ventas Gravadas por Cuenta de Terceros Domiciliados</a></li>
                             <li><a href="{!! url('./anexo-compras-se'); !!}">Compra a Sujetos Excluídos</a></li>
                             <li><a href="{!! url('./anexo-anticipo-ed'); !!}">Anticipo a Cuenta de IVA del 2% Efectuada al Declarante</a></li>
                             <li><a href="{!! url('./anexo-retencion-iva-ed'); !!}">Retención de IVA del 1% Efectuada al Declarante</a></li>
@@ -177,12 +178,41 @@
                             <li><a href="{!! url('./anexo-casilla-169'); !!}">Percepción de IVA del 1% Efectuada por el Declarante</a></li>
                             <li><a href="{!! url('./anexo-casilla-170'); !!}">Retención 1% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li>
                             <li><a href="{!! url('./anexo-casilla-171'); !!}">Anticipo a Cuenta del 2% Efectuada por el Declarante</a></li>
-                            <li><a href="{!! url('./anexo-casilla-172'); !!}">Retención 13% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li>
+                            <li><a href="{!! url('./anexo-casilla-172'); !!}">Retención 13% IVA a Terceros Domiciliados Efectuadas por el Declarante</a></li> --}}
 
-                            <li><a href="{!! url('./consumidor-final'); !!}">Consumidor Final</a></li>
-                            <li><a href="{!! url('./libro-compra'); !!}">Libro de compras</a></li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
+							<i class="flaticon-381-menu"></i>
+							<span class="nav-text">Listados y Libros</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Listados</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="{!! url('./consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
+                                    <li><a href="{!! url('./anexo-contribuyentes'); !!}">Anexo de Ventas a Contribuyentes</a></li>
+                                    <li><a href="{!! url('./anexo-compras'); !!}">Anexo de Compras</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Libros</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="{!! url('./libro-compra'); !!}">Libro de Compras</a></li>
+                                    <li><a href="{!! url('./libro-ventas-contribuyentes'); !!}">Libro de Ventas a Contribuyentes</a></li>
+                                    <li><a href="{!! url('./libro-ventas-consumidores'); !!}">Libro de Ventas a Consumidor Final</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
+							<i class="flaticon-381-id-card-2"></i>
+							<span class="nav-text">Contribuyentes</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{!! url('./contribuyentes-agregar'); !!}">Agregar Contribuyente</a></li>
+                            <li><a href="{!! url('./contribuyentes'); !!}">Contribuyentes</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
 
 				{{-- <div class="plus-box">

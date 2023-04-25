@@ -17,7 +17,7 @@ class AnexoContribuyentesController extends Controller
             $ventasGravLocales = isset($request->ventas_gravadas_locales) ? $request->ventas_gravadas_locales : 0.00;
             $debitoFiscal = ($ventasGravLocales * 0.13);
             $ventasCuentTercNoDom = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
-            $debitoFisVentasCuentTerc = isset($request->debito_fiscal_ventas_a_cuenta_terceros) ? $request->debito_fiscal_ventas_a_cuenta_terceros : 0.00;
+            $debitoFisVentasCuentTerc = ($ventasCuentTercNoDom * 0.13);
             $totalVentas = ($ventasExentas + $ventasNoSujetas + $ventasGravLocales + $debitoFiscal + $ventasCuentTercNoDom + $debitoFisVentasCuentTerc);
 
             $anexo_contribuyentes = new AnexoContribuyente();
@@ -39,8 +39,13 @@ class AnexoContribuyentesController extends Controller
             $anexo_contribuyentes->total_ventas = $totalVentas;
             $anexo_contribuyentes->dui_cliente = $request->dui_cliente;
             $anexo_contribuyentes->numero_anexo = $request->numero_anexo;
-            // $anexo_contribuyentes->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $anexo_contribuyentes->user_id = 1; // Datos de la sesion del usuario logeado.
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $anexo_contribuyentes->user_id = $request->user_id;
+            }else {
+                $anexo_contribuyentes->user_id = auth()->id();
+            }
+
             $result = $anexo_contribuyentes->save();
 
             return response()->json($result, 200);
@@ -58,7 +63,7 @@ class AnexoContribuyentesController extends Controller
             $ventasGravLocales = isset($request->ventas_gravadas_locales) ? $request->ventas_gravadas_locales : 0.00;
             $debitoFiscal = ($ventasGravLocales * 0.13);
             $ventasCuentTercNoDom = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
-            $debitoFisVentasCuentTerc = isset($request->debito_fiscal_ventas_a_cuenta_terceros) ? $request->debito_fiscal_ventas_a_cuenta_terceros : 0.00;
+            $debitoFisVentasCuentTerc = ($ventasCuentTercNoDom * 0.13);
             $totalVentas = ($ventasExentas + $ventasNoSujetas + $ventasGravLocales + $debitoFiscal + $ventasCuentTercNoDom + $debitoFisVentasCuentTerc);
 
             $anexo_contribuyentes = AnexoContribuyente::find($id);
@@ -97,6 +102,46 @@ class AnexoContribuyentesController extends Controller
 
             return response()->json($result, 200);
         } catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function busquedaUsuario(Request $request)
+    {
+        try{
+            if($request->id != 'null'){
+                $contribuyentes = AnexoContribuyente::where("user_id", "=", $request->id)->get();
+            }else{
+                $contribuyentes = AnexoContribuyente::all();
+            }
+
+            return response()->json($contribuyentes, 200);
+        }catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function BusquedaFechaUsu(Request $request)
+    {
+        try{
+            $usu = $request->usuario;
+
+            if( $usu != 'null'){
+                $contribuyentes = DB::table('anexo_contribuyentes')
+                    ->whereBetween('fecha_emision', [$request->fecha1, $request->fecha2])
+                    ->where('user_id', '=', $usu)
+                    ->get();
+            }else{
+                $contribuyentes = DB::table('anexo_contribuyentes')
+                        ->join('users', 'users.id', '=', 'anexo_contribuyentes.user_id')
+                        ->where('users.estado', 1)
+                        ->whereBetween('anexo_contribuyentes.fecha_emision', [$request->fecha1, $request->fecha2])
+                        ->get();
+            }
+
+            return response()->json($contribuyentes, 200);
+
+        }catch(Exception $e){
             return response()->json($e->getMessage(), 403);
         }
     }

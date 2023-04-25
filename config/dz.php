@@ -350,11 +350,49 @@ return [
                     'vendor/select2/css/select2.min.css',
                 ],
 
+                'viewAnexoContribuyentes' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                    'vendor/select2/css/select2.min.css',
+                ],
+
+                'viewLibroContribuyentes' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                    'vendor/select2/css/select2.min.css',
+                ],
+
+                'viewLibroCF' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                    'vendor/select2/css/select2.min.css',
+                ],
+
+                'form_contribuyentes' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'form_contribuyentes_edit' => [
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewContribuyentes' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'inicio' => [
+                    'vendor/jqvmap/css/jqvmap.min.css',
+                    'vendor/chartist/css/chartist.min.css',
+                    'https://cdn.lineicons.com/2.0/LineIcons.css',
+                ],
+
+
 
 
 			],
 			'js' => [
-				'dashboard_1' => [
+                'dashboard_1' => [
                     'vendor/apexchart/apexchart.js',
                     'js/dashboard/dashboard-1.js',
                     'js/custom.min.js',
@@ -1133,9 +1171,83 @@ return [
                         'js/deznav-init.js',
                     ],
 
+                    'viewAnexoContribuyentes' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewLibroContribuyentes' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewLibroCF' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'vendor/select2/js/select2.full.min.js',
+                        'js/plugins-init/select2-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_contribuyentes' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'form_contribuyentes_edit' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/jquery-validation/jquery.validate.min.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/plugins-init/jquery.validate-init.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewContribuyentes' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'inicio' => [
+                        'vendor/apexchart/apexchart.js',
+                        'js/dashboard/dashboard-1.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
 
 
-			]
-		],
-	]
-];
+
+
+                    ]
+                ],
+                ]
+            ];

@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AnexoContribuyente extends Model
+class Contribuyente extends Model
 {
     use HasFactory;
-    protected $table = "anexo_contribuyentes";
 }

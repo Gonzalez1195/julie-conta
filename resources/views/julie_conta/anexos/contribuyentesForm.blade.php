@@ -124,12 +124,12 @@
                                                             <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados" value="{{ $contri->ventas_cuenta_terc_no_domiciliados }}">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-6">
+                                                    {{-- <div class="form-group col-md-6">
                                                         <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuentas de terceros </label>
                                                         <div>
                                                             <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros" value="{{ $contri->debito_fiscal_ventas_a_cuenta_terceros }}">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                     {{-- <div class="form-group col-md-6">
                                                         <label for="total_ventas">Total de ventas </label>
                                                         <div>
@@ -288,12 +288,12 @@
                                                         <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados">
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-6">
+                                                {{-- <div class="form-group col-md-6">
                                                     <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuenta de terceros </label>
                                                     <div>
                                                         <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 {{-- <div class="form-group col-md-6">
                                                     <label for="total_ventas">Total de ventas </label>
                                                     <div>

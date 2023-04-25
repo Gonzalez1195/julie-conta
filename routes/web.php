@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsumidorFinalController;
+use App\Http\Controllers\ContribuyenteController;
 use App\Http\Controllers\LibroCompraController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LibroContribuyenteController;
+use App\Http\Controllers\LibroConsumidorFinalController;
 use Illuminate\Routing\Router;
 
 /*
@@ -130,6 +133,13 @@ Route::controller(MediquadminController::class)->group(function() {
         Route::get('/anexo-contribuyentes-agregar', 'form_anexo_contribuyentes');
         Route::get('/anexo-compras-agregar', 'form_anexo_compras');
         Route::get('/anexo-compras', 'viewAnexoCompras');
+        Route::get('/anexo-contribuyentes', 'viewAnexoContribuyentes');
+        Route::get('/libro-ventas-contribuyentes', 'viewLibroContribuyentes');
+        Route::get('/libro-ventas-consumidores', 'viewLibroCF');
+        Route::get('/contribuyentes-agregar', 'form_contribuyentes');
+        Route::get('/contribuyentes-editar/{id}', 'form_contribuyentes_edit');
+        Route::get('/contribuyentes', 'viewContribuyentes');
+        Route::get('/inicio', 'inicio');
     });
     Route::get('/index', 'Login')->name('index');
 });
@@ -158,6 +168,7 @@ Route::controller(AnexoCompraController::class)->group(function(){
         Route::post('edit-anexo-compras/{id}', 'updateAnexoCompra');
         Route::get('/buscar-ac-usuario', 'busquedaUsuario');
         Route::get('/buscar-ac-fechas', 'BusquedaFechaUsu');
+        Route::get('/eliminar-ac/{id}', 'deleteAnexoCompra');
     });
 });
 
@@ -171,6 +182,30 @@ Route::controller(AnexoContribuyentesController::class)->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/add-anexo-contribuyente', 'addAnexoContribuyentes');
         Route::post('/update-anexo-contribuyente/{id}', 'updateAnexoContribuyentes');
+        Route::get('/eliminar-contribuyentes/{id}', 'deleteAnexoContribuyentes');
+        Route::get('/buscar-contribuyentes-usuario', 'busquedaUsuario');
+        Route::get('/buscar-contribuyentes-fechas', 'BusquedaFechaUsu');
+    });
+});
+
+Route::controller(LibroContribuyenteController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/libro-contribuyentes-agregar', 'crearLibroContribuyente');
+    });
+});
+
+Route::controller(LibroConsumidorFinalController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/libro-cf-agregar', 'crearLibroCF');
+    });
+});
+
+Route::controller(ContribuyenteController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/add-contribuyente', 'contribuyentesAdd');
+        Route::post('/update-contribuyente/{id}', 'contribuyentesUpdate');
+        Route::get('/delete-contribuyente/{id}', 'contribuyenteDelete');
+        Route::get('/search-contribuyente', 'searchContribuyente');
     });
 });
 

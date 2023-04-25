@@ -233,6 +233,9 @@
                                                     <div>
                                                         <input type="text" name="nit_nrc_proveedor" class="form-control" id="nit_nrc_proveedor">
                                                     </div>
+                                                    {{-- <select class="all-contribuyentes form-control">
+                                                        <option value="null" selected="selected">Seleccione</option>
+                                                    </select> --}}
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nombre_proveedor">Nombre del proveedor <span class="text-danger">*</span></label>
@@ -382,6 +385,27 @@
             });
             return this;
         });
+
+        // $(document).ready(function() {
+        //     $(".all-contribuyentes").select2({
+        //         ajax: {
+        //             url: '{{ url("search-contribuyente") }}',
+        //             dataType: 'json',
+        //             data: (term) => {
+        //                 return {
+        //                     term: term
+        //                 }
+        //             },
+        //             processResults: function (response) {
+        //                 alert(response.toString())
+        //                 // return {
+        //                 //     results:response
+        //                 // };
+        //             },
+        //             cache: true
+        //         },
+        //     });
+        // })
 
     </script>
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnexoContribuyente;
 use Exception;
 use Illuminate\Http\Request;
-use app\Models\LibroContribuyente;
 
 
 class LibroContribuyenteController extends Controller
@@ -19,21 +19,24 @@ class LibroContribuyenteController extends Controller
 
             if ( $usuario != 'null' && $dateD == null ) {
 
-                $compras = LibroContribuyente::where('user_id', '=', $usuario)->get();
+                $contribuyentes = AnexoContribuyente::where('user_id', '=', $usuario)->get();
 
-                return response()->json($compras, 200);
+                return response()->json($contribuyentes, 200);
             }elseif ( $usuario != 'null' && $dateD != null ) {
-                $compras = LibroContribuyente::where('user_id', '=', $usuario)
+                $contribuyentes = AnexoContribuyente::where('user_id', '=', $usuario)
                                     ->whereBetween('fecha_emision', [$dateD, $dateH])
                                     ->get();
 
-                return response()->json($compras, 200);
+                return response()->json($contribuyentes, 200);
             }elseif ( $usuario == 'null' && $dateD != null ) {
-                $compras = LibroContribuyente::whereBetween('fecha_emision', [$dateD, $dateH])->get();
+                $contribuyentes = DB::table('anexo_contribuyentes')
+                            ->join('users', 'users.id', '=', 'anexo_contribuyentes.user_id')
+                            ->where('users.estado', 1)
+                            ->whereBetween('anexo_contribuyentes.fecha_emision', [$dateD, $dateH])
+                            ->get();
 
-                return response()->json($compras, 200);
+                return response()->json($contribuyentes, 200);
             }
-
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 405);
         }

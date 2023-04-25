@@ -16,6 +16,7 @@ use App\Models\Casilla169;
 use App\Models\Casilla170;
 use App\Models\Casilla171;
 use App\Models\Casilla172;
+use App\Models\Contribuyente;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 
@@ -930,10 +931,11 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para agregar Anexos Compras';
         $page_description = 'Formulario para crear un registro en el anexo de compras.';
         $usuarios = User::where('estado', '1')->get();
+        $contribuyentes = Contribuyente::all();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.comprasForm', compact('page_title', 'page_description', 'usuarios', 'action'));
+        return view('julie_conta.anexos.comprasForm', compact('page_title', 'page_description', 'usuarios', 'contribuyentes', 'action'));
     }
 
     public function form_anexo_compras_edit($id)
@@ -1171,6 +1173,88 @@ class MediquadminController extends Controller
         $action = __FUNCTION__;
 
         return view('julie_conta.usuarios.login', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function viewAnexoContribuyentes()
+    {
+        $page_title = 'Anexo de contribuyentes';
+        $page_description = 'Todos los registros de anexo de contribuyentes.';
+        $contribuyentes = DB::table('anexo_contribuyentes')
+                        ->join('users', 'users.id', '=', 'anexo_contribuyentes.user_id')
+                        ->select('users.*', 'anexo_contribuyentes.*')
+                        ->where('users.estado', 1)->get();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allAnexoContribuyentes', compact('page_title', 'page_description', 'contribuyentes', 'usuarios', 'action'));
+    }
+
+    public function viewLibroContribuyentes()
+    {
+        $page_title = 'Libro de ventas a contribuyentes';
+        $page_description = 'Genera los registros del libro de ventas a contribuyentes.';
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.libroVentasContribuyentes', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
+    public function viewLibroCF()
+    {
+        $page_title = 'Libro de ventas a consumidores';
+        $page_description = 'Genera los registros del libro de ventas a consumidores.';
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.libroVentasConsumidores', compact('page_title', 'page_description', 'usuarios', 'action'));
+    }
+
+    public function form_contribuyentes()
+    {
+        $page_title = 'Agregar Contribuyentes';
+        $page_description = 'Formulario para agregar nuevos contribuyentes.';
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.contribuyentes.formContribuyentes', compact('page_title', 'page_description', 'action'));
+    }
+
+    public function form_contribuyentes_edit($id)
+    {
+        $page_title = 'Agregar Contribuyentes';
+        $page_description = 'Formulario para agregar nuevos contribuyentes.';
+        $contribuyentes = Contribuyente::where('id', $id)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.contribuyentes.formContribuyentes', compact('page_title', 'page_description', 'contribuyentes', 'action'));
+    }
+
+    public function viewContribuyentes()
+    {
+        $page_title = 'Contribuyentes';
+        $page_description = 'Listado de los contribuyentes.';
+        $contribuyentes = Contribuyente::all();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.contribuyentes.allContribuyentes', compact('page_title', 'page_description', 'contribuyentes', 'action'));
+    }
+
+    public function inicio()
+    {
+
+
+        $page_title = 'Inicio';
+        $page_description = 'Pagina de inicio del sistema';
+        $logo = "images/logo.png";
+        $logoText = "images/banner.png";
+        $action = __FUNCTION__;
+
+        return view('dashboard.inicio', compact('page_title', 'page_description','action','logo','logoText'));
     }
 
 
