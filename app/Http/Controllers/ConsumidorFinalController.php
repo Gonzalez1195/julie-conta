@@ -36,8 +36,13 @@ class ConsumidorFinalController extends Controller
             $consumidorFinal->ventas_cuenta_terc_no_domiciliados = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
             $consumidorFinal->total_ventas = isset($request->total_ventas) ? $request->total_ventas : 0.00;
             $consumidorFinal->numero_anexo = $request->numero_anexo;
-            // $consumidorFinal->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $consumidorFinal->user_id = 3;
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $consumidorFinal->user_id = $request->user_id;
+            }else {
+                $consumidorFinal->user_id = auth()->id();
+            }
+
             $result = $consumidorFinal->save();
 
             return response()->json($result, 200);
@@ -72,8 +77,13 @@ class ConsumidorFinalController extends Controller
             $consumidorFinal->ventas_cuenta_terc_no_domiciliados = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
             $consumidorFinal->total_ventas = isset($request->total_ventas) ? $request->total_ventas : 0.00;
             $consumidorFinal->numero_anexo = $request->numero_anexo;
-            // $consumidorFinal->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
-            $consumidorFinal->user_id = 1;
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $consumidorFinal->user_id = $request->user_id;
+            }else {
+                $consumidorFinal->user_id = auth()->id();
+            }
+
             $result = $consumidorFinal->save();
 
             return response()->json($result, 200);

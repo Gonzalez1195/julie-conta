@@ -10,13 +10,13 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Usuarios</h4>
+                            <h4>Contribuyentes</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Usuarios</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Usuarios</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Listado</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Contribuyentes</a></li>
                         </ol>
                     </div>
                 </div>
@@ -27,33 +27,31 @@
 					<div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Listado de Usuarios</h4>
+                                <h4 class="card-title">Listado de Contribuyentes</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example3" class="display" style="min-width: 845px; font-size: 13px;">
                                         <thead>
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Rol</th>
-                                                <th>Telefono</th>
+                                                <th>Nombre del contribuyente</th>
+                                                <th>NRC o NIT</th>
+                                                <th>DUI</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($usuarios as $usuario)
+                                            @foreach ($contribuyentes as $contribuyente)
 
                                                 <tr>
-                                                    <td>{{ $usuario->name }}</td>
-                                                    <td>{{ $usuario->email }}</td>
-                                                    <td>{{ $usuario->roles()->first()->name }}</td>
-                                                    <td>{{ $usuario->telefono }}</td>
+                                                    <td>{{ $contribuyente->nombre }}</td>
+                                                    <td>{{ $contribuyente->nrc_nit }}</td>
+                                                    <td>{{ $contribuyente->dui }}</td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a href="{{ url('/editar-usuario/'.$usuario->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                            <a href="#" onclick="eliminar({{ $usuario->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                            <a href="{{ url('/contribuyentes-editar/'.$contribuyente->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                            <a href="#" onclick="eliminar({{ $contribuyente->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -86,7 +84,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: 'GET',
-                        url: "{{ url('eliminar-usuario') }}/"+id,
+                        url: "{{ url('delete-contribuyente') }}/"+id,
                     }).done(function(data) {
                         if (data === true) {
                             Swal.fire({
@@ -95,7 +93,7 @@
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location = "usuarios";
+                                    window.location = "contribuyentes";
                                 }
                             })
                         }

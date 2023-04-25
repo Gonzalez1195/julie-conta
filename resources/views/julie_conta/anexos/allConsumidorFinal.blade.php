@@ -60,7 +60,7 @@
 
 
                                 <div class="table-responsive">
-                                    <table id="example3" class="display" style="min-width: 845px">
+                                    <table id="example3" class="display" style="min-width: 845px; font-size: 13px;">
                                         <thead>
                                             <tr>
                                                 <th>Fecha de Emisión</th>
@@ -91,7 +91,6 @@
 
                                             @if (isset($consumidores))
                                                 @foreach ($consumidores as $consumidor)
-
                                                     <tr>
                                                         <td>{{ $consumidor->fecha_emision }}</td>
                                                         <td>{{ $consumidor->clase_documento }}</td>

@@ -1,9 +1,16 @@
 <?php
 
+use App\Http\Controllers\AnexoCompraController;
+use App\Http\Controllers\AnexoContribuyentesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediquadminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ConsumidorFinalController;
+use App\Http\Controllers\ContribuyenteController;
+use App\Http\Controllers\LibroCompraController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LibroContribuyenteController;
+use App\Http\Controllers\LibroConsumidorFinalController;
 use Illuminate\Routing\Router;
 
 /*
@@ -20,9 +27,10 @@ use Illuminate\Routing\Router;
 /* Route::get('/', function () {
     return view('welcome');
 });
+
  */
-Route::get('/', 'App\Http\Controllers\MediquadminController@dashboard_1');
-Route::get('/index', 'App\Http\Controllers\MediquadminController@dashboard_1');
+// Route::get('/', 'App\Http\Controllers\MediquadminController@dashboard_1');
+// Route::get('/index', 'App\Http\Controllers\MediquadminController@dashboard_1');
 Route::get('/doctors', 'App\Http\Controllers\MediquadminController@doctor_index');
 Route::get('/doctors-details', 'App\Http\Controllers\MediquadminController@doctors_details');
 Route::get('/doctors-review', 'App\Http\Controllers\MediquadminController@doctors_review');
@@ -92,49 +100,114 @@ Route::get('/widget-basic', 'App\Http\Controllers\MediquadminController@widget_b
 // Rutas de Julie-conta
 
 Route::controller(MediquadminController::class)->group(function() {
-    Route::get('/usuarios', 'view_usuarios');
-    Route::get('/agregar-usuario', 'form_usuarios');
-    Route::get('/editar-usuario/{id}', 'editar_usuarios');
-    Route::get('/agregar-consumidor-final', 'form_consumidor_final');
-    Route::get('/consumidor-final', 'view_consumidorFinal');
-    Route::get('/editar-cf/{id}', 'form_consumidor_final_edit');
-    Route::get('/anexo-contribuyentes', 'form_anexo_contribuyentes');
-    Route::get('/anexo-contribuyentes_editar/{id}', 'form_anexo_contribuyentes_edit');
-    Route::get('/anexo-compras', 'form_anexo_compras');
-    Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
-    Route::get('/anexo-ventas-gctd', 'form_casilla_108');
-    Route::get('/anexo-ventas-gctd-editar/{id}', 'form_casilla_108_edit');
-    Route::get('/anexo-compras-se', 'form_casilla_66');
-    Route::get('/anexo-compras-se-editar/{id}', 'form_casilla_66_edit');
-    Route::get('/anexo-anticipo-ed', 'form_casilla_161');
-    Route::get('/anexo-anticipo-ed-editar/{id}', 'form_casilla_161_edit');
-    Route::get('/anexo-retencion-iva-ed', 'form_casilla_162');
-    Route::get('/anexo-retencion-iva-ed-editar/{id}', 'form_casilla_162_edit');
-    Route::get('/anexo-percepcion-iva-ed', 'form_casilla_163');
-    Route::get('/anexo-percepcion-iva-ed-editar/{id}', 'form_casilla_163_edit');
-    Route::get('/anexo-casilla-169', 'form_casilla_169');
-    Route::get('/anexo-casilla-169-editar/{id}', 'form_casilla_169_edit');
-    Route::get('/anexo-casilla-170', 'form_casilla_170');
-    Route::get('/anexo-casilla-170-editar/{id}', 'form_casilla_170_edit');
-    Route::get('/anexo-casilla-171', 'form_casilla_171');
-    Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
-    Route::get('/anexo-casilla-172', 'form_casilla_172');
-    Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
-    Route::get('/anexo-compras-mostrar', 'viewAnexoCompras');
+    Route::middleware(['auth', 'prevent'])->group(function () {
+        Route::get('/usuarios', 'view_usuarios');
+        Route::get('/agregar-usuario', 'form_usuarios');
+        Route::get('/editar-usuario/{id}', 'editar_usuarios');
+        Route::get('/agregar-consumidor-final', 'form_consumidor_final');
+        Route::get('/consumidor-final', 'view_consumidorFinal');
+        Route::get('/editar-cf/{id}', 'form_consumidor_final_edit');
+        Route::get('/anexo-contribuyentes_editar/{id}', 'form_anexo_contribuyentes_edit');
+        Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
+        Route::get('/anexo-ventas-gctd', 'form_casilla_108');
+        Route::get('/anexo-ventas-gctd-editar/{id}', 'form_casilla_108_edit');
+        Route::get('/anexo-compras-se', 'form_casilla_66');
+        Route::get('/anexo-compras-se-editar/{id}', 'form_casilla_66_edit');
+        Route::get('/anexo-anticipo-ed', 'form_casilla_161');
+        Route::get('/anexo-anticipo-ed-editar/{id}', 'form_casilla_161_edit');
+        Route::get('/anexo-retencion-iva-ed', 'form_casilla_162');
+        Route::get('/anexo-retencion-iva-ed-editar/{id}', 'form_casilla_162_edit');
+        Route::get('/anexo-percepcion-iva-ed', 'form_casilla_163');
+        Route::get('/anexo-percepcion-iva-ed-editar/{id}', 'form_casilla_163_edit');
+        Route::get('/anexo-casilla-169', 'form_casilla_169');
+        Route::get('/anexo-casilla-169-editar/{id}', 'form_casilla_169_edit');
+        Route::get('/anexo-casilla-170', 'form_casilla_170');
+        Route::get('/anexo-casilla-170-editar/{id}', 'form_casilla_170_edit');
+        Route::get('/anexo-casilla-171', 'form_casilla_171');
+        Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
+        Route::get('/anexo-casilla-172', 'form_casilla_172');
+        Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
+        Route::get('/anexo-compras-editar/{id}', 'form_anexo_compras_edit');
+        Route::get('/libro-compra', 'viewLibroCompras');
 
+        Route::get('/anexo-contribuyentes-agregar', 'form_anexo_contribuyentes');
+        Route::get('/anexo-compras-agregar', 'form_anexo_compras');
+        Route::get('/anexo-compras', 'viewAnexoCompras');
+        Route::get('/anexo-contribuyentes', 'viewAnexoContribuyentes');
+        Route::get('/libro-ventas-contribuyentes', 'viewLibroContribuyentes');
+        Route::get('/libro-ventas-consumidores', 'viewLibroCF');
+        Route::get('/contribuyentes-agregar', 'form_contribuyentes');
+        Route::get('/contribuyentes-editar/{id}', 'form_contribuyentes_edit');
+        Route::get('/contribuyentes', 'viewContribuyentes');
+        Route::get('/inicio', 'inicio');
+    });
+    Route::get('/index', 'Login')->name('index');
 });
 
 Route::controller(UserController::class)->group(function() {
-    Route::post('/crear-usuario', 'addUser');
-    Route::post('/update-usuario/{id}', 'updateUser');
-    Route::get('/eliminar-usuario/{id}', 'eliminarUser');
+    Route::middleware('auth')->group(function () {
+        Route::post('/crear-usuario', 'addUser');
+        Route::post('/update-usuario/{id}', 'updateUser');
+        Route::get('/eliminar-usuario/{id}', 'eliminarUser');
+    });
 });
 
 Route::controller(ConsumidorFinalController::class)->group(function() {
-    Route::post('/crear-consumidor-final', 'addConsumidorFinal');
-    Route::post('/edit-consumidor-final/{id}', 'updateConsumidorFinal');
-    Route::get('/eliminar-cf/{id}', 'deleteConsumidorFinal');
-    Route::get('/buscar-cf-usuario', 'busquedaUsuarioCf');
-    Route::get('/buscar-cf-fecha', 'BusquedaFechaUsu');
+    Route::middleware('auth')->group(function () {
+        Route::post('/crear-consumidor-final', 'addConsumidorFinal');
+        Route::post('/edit-consumidor-final/{id}', 'updateConsumidorFinal');
+        Route::get('/eliminar-cf/{id}', 'deleteConsumidorFinal');
+        Route::get('/buscar-cf-usuario', 'busquedaUsuarioCf');
+        Route::get('/buscar-cf-fecha', 'BusquedaFechaUsu');
+    });
 });
 
+Route::controller(AnexoCompraController::class)->group(function(){
+    Route::middleware('auth')->group(function () {
+        Route::post('/crear-anexo-compras', 'addAnexoCompra');
+        Route::post('edit-anexo-compras/{id}', 'updateAnexoCompra');
+        Route::get('/buscar-ac-usuario', 'busquedaUsuario');
+        Route::get('/buscar-ac-fechas', 'BusquedaFechaUsu');
+        Route::get('/eliminar-ac/{id}', 'deleteAnexoCompra');
+    });
+});
+
+Route::controller(LibroCompraController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/libro-compra-agregar', 'generarRegistros');
+    });
+});
+
+Route::controller(AnexoContribuyentesController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/add-anexo-contribuyente', 'addAnexoContribuyentes');
+        Route::post('/update-anexo-contribuyente/{id}', 'updateAnexoContribuyentes');
+        Route::get('/eliminar-contribuyentes/{id}', 'deleteAnexoContribuyentes');
+        Route::get('/buscar-contribuyentes-usuario', 'busquedaUsuario');
+        Route::get('/buscar-contribuyentes-fechas', 'BusquedaFechaUsu');
+    });
+});
+
+Route::controller(LibroContribuyenteController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/libro-contribuyentes-agregar', 'crearLibroContribuyente');
+    });
+});
+
+Route::controller(LibroConsumidorFinalController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/libro-cf-agregar', 'crearLibroCF');
+    });
+});
+
+Route::controller(ContribuyenteController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/add-contribuyente', 'contribuyentesAdd');
+        Route::post('/update-contribuyente/{id}', 'contribuyentesUpdate');
+        Route::get('/delete-contribuyente/{id}', 'contribuyenteDelete');
+        Route::get('/search-contribuyente', 'searchContribuyente');
+    });
+});
+
+Route::post('/autenticacion', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use DB;
 
 class UserController extends Controller
 {
@@ -21,6 +24,9 @@ class UserController extends Controller
             $user->telefono = $request->telefono;
             $user->estado = '1';
             $result = $user->save();
+
+            // Asignando rol
+            $user->assignRole($request->tipoUsu);
 
             return response()->json($result, 200);
 
@@ -42,6 +48,10 @@ class UserController extends Controller
             $user->telefono = $request->telefono;
             $result = $user->save();
 
+            // Asignando rol
+            DB::table('model_has_roles')->where('model_id',$id)->delete();
+            $user->assignRole($request->tipoUsu);
+
             return response()->json($result, 200);
 
         } catch (Exception $e) {
@@ -59,6 +69,21 @@ class UserController extends Controller
             return response()->json($result, 200);
         } catch (Exception $e) {
             return response()->json(false, 403);
+        }
+    }
+
+    public function createTypeUsuario(Request $request)
+    {
+        try {
+            $type = $request->tipo;
+
+            $role = Role::create([
+                'name' => $type
+            ]);
+
+            return response()->json($role, 200);
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
         }
     }
 
