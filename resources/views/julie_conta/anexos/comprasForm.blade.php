@@ -70,14 +70,17 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="nit_nrc_proveedor">NIT o NRC del proveedor </label>
-                                                        <div>
+                                                        {{-- <div>
                                                             <input type="text" name="nit_nrc_proveedor" class="form-control" id="nit_nrc_proveedor" value="{{ $compras->nit_nrc_proveedor }}">
-                                                        </div>
+                                                        </div> --}}
+                                                        <select class="nrc-contribuyentes form-control" name="nit_nrc_proveedor" id="nit_nrc_proveedor">
+                                                            <option value="{{ $compras->nit_nrc_proveedor }}" selected="selected">{{ $compras->nit_nrc_proveedor }}</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="nombre_proveedor">Nombre del proveedor </label>
                                                         <div>
-                                                            <input type="text" name="nombre_proveedor" class="form-control" id="nombre_proveedor" value="{{ $compras->nombre_proveedor }}">
+                                                            <input type="text" name="nombre_proveedor" class="form-control" id="nombre_proveedor" value="{{ $compras->nombre_proveedor }}" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
@@ -136,9 +139,12 @@
                                                     </div> --}}
                                                     <div class="form-group col-md-6">
                                                         <label for="dui_proveedor">DUI del proveedor </label>
-                                                        <div>
+                                                        {{-- <div>
                                                             <input type="text" name="dui_proveedor" class="form-control" id="dui_proveedor" value="{{ $compras->dui_proveedor }}">
-                                                        </div>
+                                                        </div> --}}
+                                                        <select class="dui-contribuyentes form-control" name="dui_proveedor" id="dui_proveedor">
+                                                            <option value="{{ $compras->dui_proveedor }}" selected="selected">{{ $compras->dui_proveedor }}</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Número del Anexo <span class="text-danger">*</span></label>
@@ -230,12 +236,12 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nit_nrc_proveedor">NIT o NRC del proveedor <span class="text-danger">*</span></label>
-                                                    <div>
+                                                    {{-- <div>
                                                         <input type="text" name="nit_nrc_proveedor" class="form-control" id="nit_nrc_proveedor">
-                                                    </div>
-                                                    {{-- <select class="all-contribuyentes form-control">
-                                                        <option value="null" selected="selected">Seleccione</option>
-                                                    </select> --}}
+                                                    </div> --}}
+                                                    <select class="nrc-contribuyentes form-control" name="nit_nrc_proveedor" id="nit_nrc_proveedor">
+                                                        <option value="null" selected="selected">NRC o NIT del Proveedor</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nombre_proveedor">Nombre del proveedor <span class="text-danger">*</span></label>
@@ -300,9 +306,12 @@
 
                                                 <div class="form-group col-md-6">
                                                     <label for="dui_proveedor">DUI del proveedor </label>
-                                                    <div>
+                                                    {{-- <div>
                                                         <input type="text" name="dui_proveedor" class="form-control" id="dui_proveedor">
-                                                    </div>
+                                                    </div> --}}
+                                                    <select class="dui-contribuyentes form-control" name="dui_proveedor" id="dui_proveedor">
+                                                        <option value="null" selected="selected">DUI del Proveedor</option>
+                                                    </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Número del anexo <span class="text-danger">*</span></label>
@@ -380,32 +389,96 @@
                     })
 
                 }
-                }).fail(function(data) {
-                    sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+            }).fail(function(data) {
+                sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });
 
-        // $(document).ready(function() {
-        //     $(".all-contribuyentes").select2({
-        //         ajax: {
-        //             url: '{{ url("search-contribuyente") }}',
-        //             dataType: 'json',
-        //             data: (term) => {
-        //                 return {
-        //                     term: term
-        //                 }
-        //             },
-        //             processResults: function (response) {
-        //                 alert(response.toString())
-        //                 // return {
-        //                 //     results:response
-        //                 // };
-        //             },
-        //             cache: true
-        //         },
-        //     });
-        // })
+        $(document).ready(function() {
+            $(".nrc-contribuyentes").select2({
+                ajax: {
+                    url: '{{ url("nrc-contribuyente") }}',
+                    dataType: 'json',
+                    data: (term) => {
+                        return {
+                            term: term
+                        }
+                    },
+                    processResults: function (data) {
+                        return {
+                            results:  $.map(data, function (item) {
+                                return {
+                                    text: item.nrc_nit,
+                                    id: item.nrc_nit
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                },
+            });
+
+            $( ".nrc-contribuyentes" ).on( "change", function() {
+                let id = $("#nit_nrc_proveedor").val();
+                let proveedor = $("#nombre_proveedor");
+                let dui = $("#dui_proveedor");
+
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ url('search-contribuyente') }}/"+id,
+                }).done(function(data) {
+                    dui.attr("disabled", "disabled");
+                    proveedor.val(data.nombre);
+                }).fail(function(data) {
+                    Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+                });
+                return this;
+
+            } );
+
+            $(".dui-contribuyentes").select2({
+                ajax: {
+                    url: '{{ url("dui-contribuyente") }}',
+                    dataType: 'json',
+                    data: (term) => {
+                        return {
+                            term: term
+                        }
+                    },
+                    processResults: function (data) {
+                        return {
+                            results:  $.map(data, function (item) {
+                                return {
+                                    text: item.dui,
+                                    id: item.dui
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                },
+            });
+
+            $( ".dui-contribuyentes" ).on( "change", function() {
+                let id = $("#nit_nrc_proveedor").val();
+                let proveedor = $("#nombre_proveedor");
+                let nrc = $("#nit_nrc_proveedor");
+
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ url('search-contribuyente') }}/"+id,
+                }).done(function(data) {
+                    nrc.attr("disabled", "disabled");
+                    proveedor.val(data.nombre);
+                }).fail(function(data) {
+                    Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+                });
+                return this;
+
+            } );
+
+        })
 
     </script>
 

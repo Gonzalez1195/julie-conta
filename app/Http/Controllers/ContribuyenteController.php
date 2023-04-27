@@ -55,22 +55,60 @@ class ContribuyenteController extends Controller
         }
     }
 
-    public function searchContribuyente(Request $request)
+    public function searchContribuyenteNrc(Request $request)
     {
-        // return response()->json($request->term, 200);
         try {
-            $contribuyentes = DB::table('contribuyentes')
-                            ->where('nrc_nit', 'like', $request->term .'%')
-                            ->get();
+            if ( is_array($request->term) ) {
+                foreach ($request->term as $name) {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->where('nrc_nit', 'like', '%' .$name. '%')
+                                ->get();
 
-            $response = [];
-            foreach ($contribuyentes as $key => $contribuyente) {
-                $response['nombre'] = $contribuyente->nombre;
-                $response['nrc_nit'] = $contribuyente->nrc_nit;
-                $response['dui'] = $contribuyente->dui;
+                    return response()->json($contribuyentes, 200);
+                }
+            }else {
+                $contribuyentes = DB::table('contribuyentes')
+                                ->where('nrc_nit', 'like', $request->term. '%')
+                                ->get();
+
+                return response()->json($contribuyentes, 200);
             }
+        } catch (Exception $e) {
+            return response()->json($e->getMessage(), 405);
+        }
+    }
 
-            return response()->json($$response, 200);
+    public function ContribuyenteId($num)
+    {
+        try {
+            $contribuyente = Contribuyente::where('nrc_nit', '=', $num)
+                                            ->orWhere('dui', '=', $num)
+                                            ->get();
+
+            return response()->json($contribuyente, 200);
+        } catch (Exception $e) {
+            return response()->json($e->getMessage(), 405);
+        }
+    }
+
+    public function searchContribuyenteDui(Request $request)
+    {
+        try {
+            if ( is_array($request->term) ) {
+                foreach ($request->term as $name) {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->where('dui', 'like', '%' .$name. '%')
+                                ->get();
+
+                    return response()->json($contribuyentes, 200);
+                }
+            }else {
+                $contribuyentes = DB::table('contribuyentes')
+                                ->where('dui', 'like', '%' .$request->term. '%')
+                                ->get();
+
+                return response()->json($contribuyentes, 200);
+            }
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 405);
         }

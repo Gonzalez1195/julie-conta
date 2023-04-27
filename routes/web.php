@@ -205,7 +205,9 @@ Route::controller(ContribuyenteController::class)->group(function () {
         Route::post('/add-contribuyente', 'contribuyentesAdd');
         Route::post('/update-contribuyente/{id}', 'contribuyentesUpdate');
         Route::get('/delete-contribuyente/{id}', 'contribuyenteDelete');
-        Route::get('/search-contribuyente', 'searchContribuyente');
+        Route::get('/nrc-contribuyente', 'searchContribuyenteNrc');
+        Route::get('search-contribuyente/{num}', 'ContribuyenteId');
+        Route::get('/dui-contribuyente', 'searchContribuyenteDui');
     });
 });
 
