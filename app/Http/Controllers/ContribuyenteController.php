@@ -78,12 +78,10 @@ class ContribuyenteController extends Controller
         }
     }
 
-    public function ContribuyenteId($num)
+    public function ContribuyenteId($id)
     {
         try {
-            $contribuyente = Contribuyente::where('nrc_nit', '=', $num)
-                                            ->orWhere('dui', '=', $num)
-                                            ->get();
+            $contribuyente = Contribuyente::find($id);
 
             return response()->json($contribuyente, 200);
         } catch (Exception $e) {

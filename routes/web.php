@@ -30,7 +30,7 @@ use Illuminate\Routing\Router;
 
  */
 // Route::get('/', 'App\Http\Controllers\MediquadminController@dashboard_1');
-// Route::get('/index', 'App\Http\Controllers\MediquadminController@dashboard_1');
+Route::get('/index_v1', 'App\Http\Controllers\MediquadminController@dashboard_1');
 Route::get('/doctors', 'App\Http\Controllers\MediquadminController@doctor_index');
 Route::get('/doctors-details', 'App\Http\Controllers\MediquadminController@doctors_details');
 Route::get('/doctors-review', 'App\Http\Controllers\MediquadminController@doctors_review');
@@ -206,7 +206,7 @@ Route::controller(ContribuyenteController::class)->group(function () {
         Route::post('/update-contribuyente/{id}', 'contribuyentesUpdate');
         Route::get('/delete-contribuyente/{id}', 'contribuyenteDelete');
         Route::get('/nrc-contribuyente', 'searchContribuyenteNrc');
-        Route::get('search-contribuyente/{num}', 'ContribuyenteId');
+        Route::get('search-contribuyente/{id}', 'ContribuyenteId');
         Route::get('/dui-contribuyente', 'searchContribuyenteDui');
     });
 });

@@ -236,17 +236,14 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nit_nrc_proveedor">NIT o NRC del proveedor <span class="text-danger">*</span></label>
-                                                    {{-- <div>
-                                                        <input type="text" name="nit_nrc_proveedor" class="form-control" id="nit_nrc_proveedor">
-                                                    </div> --}}
-                                                    <select class="nrc-contribuyentes form-control" name="nit_nrc_proveedor" id="nit_nrc_proveedor">
-                                                        <option value="null" selected="selected">NRC o NIT del Proveedor</option>
+                                                    <select class="nrc-contribuyentes form-control" id="nit_nrc_proveedor">
+                                                        <option value="null" selected="selected">Digite...</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nombre_proveedor">Nombre del proveedor <span class="text-danger">*</span></label>
                                                     <div>
-                                                        <input type="text" name="nombre_proveedor" class="form-control" id="nombre_proveedor">
+                                                        <input type="text" class="form-control" id="nombre_proveedor" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -291,26 +288,10 @@
                                                         <input type="text" name="importaciones_gravadas_servicios" class="form-control" id="importaciones_gravadas_servicios">
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group col-md-6">
-                                                    <label for="credito_fiscal">Crédito fiscal</label>
-                                                    <div>
-                                                        <input type="text" name="credito_fiscal" class="form-control" id="credito_fiscal">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="total_compras">Total de compras </label>
-                                                    <div>
-                                                        <input type="text" name="total_compras" class="form-control" id="total_compras">
-                                                    </div>
-                                                </div> --}}
-
                                                 <div class="form-group col-md-6">
                                                     <label for="dui_proveedor">DUI del proveedor </label>
-                                                    {{-- <div>
-                                                        <input type="text" name="dui_proveedor" class="form-control" id="dui_proveedor">
-                                                    </div> --}}
-                                                    <select class="dui-contribuyentes form-control" name="dui_proveedor" id="dui_proveedor">
-                                                        <option value="null" selected="selected">DUI del Proveedor</option>
+                                                    <select class="dui-contribuyentes form-control" id="dui_proveedor">
+                                                        <option value="null" selected="selected">Digite...</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -328,6 +309,9 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <input type="hidden" name="nit_nrc_proveedor" id="nit_nrc_value">
+                                                <input type="hidden" name="dui_proveedor" id="dui_value">
+                                                <input type="hidden" name="nombre_proveedor" id="nombre_value">
 
 
                                             </div>
@@ -382,7 +366,6 @@
                         icon: 'success',
                         confirmButtonText: 'OK',
                     }).then((result) => {
-                        console.log(result);
                         if (result.isConfirmed) {
                             window.location = "../anexo-compras-mostrar";
                         }
@@ -410,7 +393,7 @@
                             results:  $.map(data, function (item) {
                                 return {
                                     text: item.nrc_nit,
-                                    id: item.nrc_nit
+                                    id: item.id
                                 }
                             })
                         };
@@ -423,6 +406,8 @@
                 let id = $("#nit_nrc_proveedor").val();
                 let proveedor = $("#nombre_proveedor");
                 let dui = $("#dui_proveedor");
+                let valueProveedor = $("#nombre_value");
+                let valueNitNrc = $("#nit_nrc_value");
 
                 $.ajax({
                     type: 'GET',
@@ -430,6 +415,8 @@
                 }).done(function(data) {
                     dui.attr("disabled", "disabled");
                     proveedor.val(data.nombre);
+                    valueProveedor.val(data.nombre);
+                    valueNitNrc.val(data.nrc_nit);
                 }).fail(function(data) {
                     Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
                 });
@@ -451,7 +438,7 @@
                             results:  $.map(data, function (item) {
                                 return {
                                     text: item.dui,
-                                    id: item.dui
+                                    id: item.id
                                 }
                             })
                         };
@@ -461,9 +448,11 @@
             });
 
             $( ".dui-contribuyentes" ).on( "change", function() {
-                let id = $("#nit_nrc_proveedor").val();
+                let id = $("#dui_proveedor").val();
                 let proveedor = $("#nombre_proveedor");
                 let nrc = $("#nit_nrc_proveedor");
+                let valueProveedor = $("#nombre_value");
+                let valueDui = $("#dui_value");
 
                 $.ajax({
                     type: 'GET',
@@ -471,6 +460,8 @@
                 }).done(function(data) {
                     nrc.attr("disabled", "disabled");
                     proveedor.val(data.nombre);
+                    valueProveedor.val(data.nombre);
+                    valueDui.val(data.dui);
                 }).fail(function(data) {
                     Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
                 });
