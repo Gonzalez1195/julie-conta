@@ -12,14 +12,6 @@ class AnexoContribuyentesController extends Controller
     public function addAnexoContribuyentes(Request $request)
     {
         try {
-            $ventasExentas = isset($request->ventas_exentas) ? $request->ventas_exentas : 0.00;
-            $ventasNoSujetas = isset($request->ventas_no_sujetas) ? $request->ventas_no_sujetas : 0.00;
-            $ventasGravLocales = isset($request->ventas_gravadas_locales) ? $request->ventas_gravadas_locales : 0.00;
-            $debitoFiscal = ($ventasGravLocales * 0.13);
-            $ventasCuentTercNoDom = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
-            $debitoFisVentasCuentTerc = ($ventasCuentTercNoDom * 0.13);
-            $totalVentas = ($ventasExentas + $ventasNoSujetas + $ventasGravLocales + $debitoFiscal + $ventasCuentTercNoDom + $debitoFisVentasCuentTerc);
-
             $anexo_contribuyentes = new AnexoContribuyente();
             $anexo_contribuyentes->fecha_emision = $request->fecha_emision;
             $anexo_contribuyentes->clase_documento = $request->clase_documento;
@@ -30,13 +22,13 @@ class AnexoContribuyentesController extends Controller
             $anexo_contribuyentes->num_cont_int_al = $request->num_cont_int_al;
             $anexo_contribuyentes->nit_nrc_cliente = $request->nit_nrc_cliente;
             $anexo_contribuyentes->nombre_razonsocial_denominacion = $request->nombre_razonsocial_denominacion;
-            $anexo_contribuyentes->ventas_exentas = $ventasExentas;
-            $anexo_contribuyentes->ventas_no_sujetas = $ventasNoSujetas;
-            $anexo_contribuyentes->ventas_gravadas_locales = $ventasGravLocales;
-            $anexo_contribuyentes->debito_fiscal = $debitoFiscal;
-            $anexo_contribuyentes->ventas_cuenta_terc_no_domiciliados = $ventasCuentTercNoDom;
-            $anexo_contribuyentes->debito_fiscal_ventas_a_cuenta_terceros = $debitoFisVentasCuentTerc;
-            $anexo_contribuyentes->total_ventas = $totalVentas;
+            $anexo_contribuyentes->ventas_exentas = $request->ventas_exentas;
+            $anexo_contribuyentes->ventas_no_sujetas = $request->ventas_no_sujetas;
+            $anexo_contribuyentes->ventas_gravadas_locales = $request->ventas_gravadas_locales;
+            $anexo_contribuyentes->debito_fiscal = $request->debito_fiscal;
+            $anexo_contribuyentes->ventas_cuenta_terc_no_domiciliados = $request->ventas_cuenta_terc_no_domiciliados;
+            $anexo_contribuyentes->debito_fiscal_ventas_a_cuenta_terceros = $request->debito_fiscal_ventas_a_cuenta_terceros;
+            $anexo_contribuyentes->total_ventas = $request->total_ventas;
             $anexo_contribuyentes->dui_cliente = $request->dui_cliente;
             $anexo_contribuyentes->numero_anexo = $request->numero_anexo;
 
@@ -58,14 +50,6 @@ class AnexoContribuyentesController extends Controller
     public function updateAnexoContribuyentes(Request $request, $id)
     {
         try {
-            $ventasExentas = isset($request->ventas_exentas) ? $request->ventas_exentas : 0.00;
-            $ventasNoSujetas = isset($request->ventas_no_sujetas) ? $request->ventas_no_sujetas : 0.00;
-            $ventasGravLocales = isset($request->ventas_gravadas_locales) ? $request->ventas_gravadas_locales : 0.00;
-            $debitoFiscal = ($ventasGravLocales * 0.13);
-            $ventasCuentTercNoDom = isset($request->ventas_cuenta_terc_no_domiciliados) ? $request->ventas_cuenta_terc_no_domiciliados : 0.00;
-            $debitoFisVentasCuentTerc = ($ventasCuentTercNoDom * 0.13);
-            $totalVentas = ($ventasExentas + $ventasNoSujetas + $ventasGravLocales + $debitoFiscal + $ventasCuentTercNoDom + $debitoFisVentasCuentTerc);
-
             $anexo_contribuyentes = AnexoContribuyente::find($id);
             $anexo_contribuyentes->fecha_emision = $request->fecha_emision;
             $anexo_contribuyentes->clase_documento = $request->clase_documento;
@@ -76,13 +60,13 @@ class AnexoContribuyentesController extends Controller
             $anexo_contribuyentes->num_cont_int_al = $request->num_cont_int_al;
             $anexo_contribuyentes->nit_nrc_cliente = $request->nit_nrc_cliente;
             $anexo_contribuyentes->nombre_razonsocial_denominacion = $request->nombre_razonsocial_denominacion;
-            $anexo_contribuyentes->ventas_exentas = $ventasExentas;
-            $anexo_contribuyentes->ventas_no_sujetas = $ventasNoSujetas;
-            $anexo_contribuyentes->ventas_gravadas_locales = $ventasGravLocales;
-            $anexo_contribuyentes->debito_fiscal = $debitoFiscal;
-            $anexo_contribuyentes->ventas_cuenta_terc_no_domiciliados = $ventasCuentTercNoDom;
-            $anexo_contribuyentes->debito_fiscal_ventas_a_cuenta_terceros = $debitoFisVentasCuentTerc;
-            $anexo_contribuyentes->total_ventas = $totalVentas;
+            $anexo_contribuyentes->ventas_exentas = $request->ventas_exentas;
+            $anexo_contribuyentes->ventas_no_sujetas = $request->ventas_no_sujetas;
+            $anexo_contribuyentes->ventas_gravadas_locales = $request->ventas_gravadas_locales;
+            $anexo_contribuyentes->debito_fiscal = $request->debito_fiscal;
+            $anexo_contribuyentes->ventas_cuenta_terc_no_domiciliados = $request->ventas_cuenta_terc_no_domiciliados;
+            $anexo_contribuyentes->debito_fiscal_ventas_a_cuenta_terceros = $request->debito_fiscal_ventas_a_cuenta_terceros;
+            $anexo_contribuyentes->total_ventas = $request->total_ventas;
             $anexo_contribuyentes->dui_cliente = $request->dui_cliente;
             $anexo_contribuyentes->numero_anexo = $request->numero_anexo;
             $result = $anexo_contribuyentes->save();

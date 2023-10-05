@@ -59,7 +59,7 @@ class UserController extends Controller
         }
     }
 
-    public function eliminarUser($id)
+    public function deleteUser($id)
     {
         try {
             $user = User::find($id);

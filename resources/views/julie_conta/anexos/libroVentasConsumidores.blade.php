@@ -164,9 +164,9 @@
                             conten += "<td>"+element.num_documento_al+"</td>"
                             conten += "<td>"+num_registradora+"</td>"
                             conten += "<td>"+Number(element.ventas_exentas).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_int_exentas_no_suj_proporcionalidad).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(exportaciones).toFixed(2)+"</td>"
                             conten += "<td>"+Number(element.ventas_gravadas_locales).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(exportaciones).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.total_ventas).toFixed(2)+"</td>"
                             conten += "<td>"+Number(element.ventas_cuenta_terc_no_domiciliados).toFixed(2)+"</td>"
 
                             conten += "</tr>"

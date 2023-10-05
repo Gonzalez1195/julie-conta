@@ -381,10 +381,35 @@ return [
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
+                'viewCasilla108' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
                 'inicio' => [
                     'vendor/jqvmap/css/jqvmap.min.css',
                     'vendor/chartist/css/chartist.min.css',
                     'https://cdn.lineicons.com/2.0/LineIcons.css',
+                ],
+
+                'viewCasilla66' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla161' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla162' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla163' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
 
@@ -852,6 +877,7 @@ return [
                         'js/plugins-init/jquery.validate-init.js',
                         'vendor/select2/js/select2.full.min.js',
                         'js/plugins-init/select2-init.js',
+                        'vendor/mask/imask.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -864,6 +890,7 @@ return [
                         'js/plugins-init/jquery.validate-init.js',
                         'vendor/select2/js/select2.full.min.js',
                         'js/plugins-init/select2-init.js',
+                        'vendor/mask/imask.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],
@@ -1237,9 +1264,59 @@ return [
                         'js/deznav-init.js',
                     ],
 
+                    'viewCasilla108' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
                     'inicio' => [
                         'vendor/apexchart/apexchart.js',
                         'js/dashboard/dashboard-1.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla66' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla161' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla162' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla163' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
                         'js/custom.min.js',
                         'js/deznav-init.js',
                     ],

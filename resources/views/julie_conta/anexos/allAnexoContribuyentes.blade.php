@@ -10,7 +10,7 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Anexo de contribuyentes </h4>
+                            <h4>Anexo</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -27,7 +27,7 @@
 					<div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Anexo de Contribuyentes</h4>
+                                <h4 class="card-title">Anexo de Ventas a Contribuyentes</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -111,7 +111,7 @@
 
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ url('/anexo-contribuyentes_editar/'.$contribuyente->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                                <a href="{{ url('/anexo-contribuyentes-editar/'.$contribuyente->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                                 <a href="#" onclick="eliminar({{ $contribuyente->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                             </div>
                                                         </td>
@@ -150,7 +150,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: 'GET',
-                            url: "{{ url('eliminar-contribuyentes') }}/"+id,
+                            url: "{{ url('delete-contribuyentes') }}/"+id,
                         }).done(function(data) {
                             if (data === true) {
                                 Swal.fire({
@@ -191,11 +191,11 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '{{ url("buscar-contribuyentes-usuario") }}',
+                    url: '{{ url("search-usuario-contribuyentes") }}',
                     data: { 'id': idUsu },
                 }).done(function(data) {
 
-                    const url = "<?php echo url('/anexo-contribuyentes_editar/'); ?>";
+                    const url = "<?php echo url('/anexo-contribuyentes-editar/'); ?>";
                     table.innerHTML = "";
                     if (data.length > 0) {
                         data.forEach(element => {
@@ -272,11 +272,11 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: '{{ url("buscar-contribuyentes-fechas") }}',
+                        url: '{{ url("search-date-contribuyentes") }}',
                         data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
                     }).done(function(data) {
 
-                        const url = "<?php echo url('/anexo-contribuyentes_editar/'); ?>";
+                        const url = "<?php echo url('/anexo-contribuyentes-editar/'); ?>";
                     table.innerHTML = "";
                     if (data.length > 0) {
                         data.forEach(element => {

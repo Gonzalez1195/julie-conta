@@ -86,7 +86,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: 'GET',
-                        url: "{{ url('eliminar-usuario') }}/"+id,
+                        url: "{{ url('delete-usuario') }}/"+id,
                     }).done(function(data) {
                         if (data === true) {
                             Swal.fire({

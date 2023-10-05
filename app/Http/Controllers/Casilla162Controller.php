@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Casilla162;
 use Exception;
 use Illuminate\Http\Request;
+use DB;
 
-class Casilla162sController extends Controller
+class Casilla162Controller extends Controller
 {
     //
     public function addCasilla162s(Request $request)
@@ -22,7 +23,13 @@ class Casilla162sController extends Controller
             $casilla162s->monto_retencion = $request->monto_retencion;
             $casilla162s->dui_agente = $request->dui_agente;
             $casilla162s->numero_anexo = $request->numero_anexo;
-            $casilla162s->user_id = $request->user_id; // Datos de la sesion del usuario logeado.
+
+            if ( $request->user_id != "null" && $request->user_id != "" ) {
+                $casilla162s->user_id = $request->user_id;
+            }else {
+                $casilla162s->user_id = auth()->id();
+            }
+
             $result = $casilla162s->save();
 
             return response()->json($result, 200);
@@ -66,5 +73,44 @@ class Casilla162sController extends Controller
         }
     }
 
+    public function busquedaUsuario(Request $request)
+    {
+        try{
+            if($request->id != 'null'){
+                $result = Casilla162::where("user_id", "=", $request->id)->get();
+            }else{
+                $result = Casilla162::all();
+            }
+
+            return response()->json($result, 200);
+        }catch (Exception $e) {
+            return response()->json($e->getMessage(), 403);
+        }
+    }
+
+    public function BusquedaFechaUsu(Request $request)
+    {
+        try{
+            $usu = $request->usuario;
+
+            if( $usu != 'null'){
+                $result = DB::table('casilla162s')
+                    ->whereBetween('fecha_emision', [$request->fecha1, $request->fecha2])
+                    ->where('user_id', '=', $usu)
+                    ->get();
+            }else{
+                $result = DB::table('casilla162s')
+                        ->join('users', 'users.id', '=', 'casilla162s.user_id')
+                        ->where('users.estado', 1)
+                        ->whereBetween('casilla162s.fecha_emision', [$request->fecha1, $request->fecha2])
+                        ->get();
+            }
+
+            return response()->json($result, 200);
+
+        }catch(Exception $e){
+            return response()->json($e->getMessage(), 403);
+        }
+    }
 
 }

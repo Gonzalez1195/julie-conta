@@ -10,7 +10,7 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Anexo de compras </h4>
+                            <h4>Anexo </h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -148,7 +148,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: 'GET',
-                            url: "{{ url('eliminar-ac') }}/"+id,
+                            url: "{{ url('delete-compras') }}/"+id,
                         }).done(function(data) {
                             if (data === true) {
                                 Swal.fire({
@@ -189,7 +189,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '{{ url("buscar-ac-usuario") }}',
+                    url: '{{ url("search-usuario-compras") }}',
                     data: { 'id': idUsu },
                 }).done(function(data) {
 
@@ -269,7 +269,7 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: '{{ url("buscar-ac-fechas") }}',
+                        url: '{{ url("search-date-compras") }}',
                         data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
                     }).done(function(data) {
 

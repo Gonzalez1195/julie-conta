@@ -83,57 +83,59 @@
                                                     <div class="form-group col-md-6">
                                                         <label for="compras_internas_exentas">Compras internas exentas </label>
                                                         <div>
-                                                            <input type="text" name="compras_internas_exentas" class="form-control" id="compras_internas_exentas" value="{{ $compras->compras_internas_exentas }}">
+                                                            <input type="text" name="compras_internas_exentas" class="form-control sum_comp" id="compras_internas_exentas" value="{{ $compras->compras_internas_exentas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="internaciones_exentas_no_sujetas">Internaciones exentas y/o no sujetas </label>
                                                         <div>
-                                                            <input type="text" name="internaciones_exentas_no_sujetas" class="form-control" id="internaciones_exentas_no_sujetas" value="{{ $compras->internaciones_exentas_no_sujetas }}">
+                                                            <input type="text" name="internaciones_exentas_no_sujetas" class="form-control sum_comp" id="internaciones_exentas_no_sujetas" value="{{ $compras->internaciones_exentas_no_sujetas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="importaciones_exentas_no_sujetas">Importaciones exentas y/o no sujestas </label>
                                                         <div>
-                                                            <input type="text" name="importaciones_exentas_no_sujetas" class="form-control" id="importaciones_exentas_no_sujetas" value="{{ $compras->importaciones_exentas_no_sujetas }}">
+                                                            <input type="text" name="importaciones_exentas_no_sujetas" class="form-control sum_comp" id="importaciones_exentas_no_sujetas" value="{{ $compras->importaciones_exentas_no_sujetas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="compras_internas_gravadas">Compras internas gravadas </label>
                                                         <div>
-                                                            <input type="text" name="compras_internas_gravadas" class="form-control" id="compras_internas_gravadas" value="{{ $compras->compras_internas_gravadas }}">
+                                                            <input type="text" name="compras_internas_gravadas" class="form-control sum_iva sum_comp" id="compras_internas_gravadas" value="{{ $compras->compras_internas_gravadas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="internaciones_gravadas_bienes">Internacioes gravadas de bienes </label>
                                                         <div>
-                                                            <input type="text" name="internaciones_gravadas_bienes" class="form-control" id="internaciones_gravadas_bienes" value="{{ $compras->internaciones_gravadas_bienes }}">
+                                                            <input type="text" name="internaciones_gravadas_bienes" class="form-control sum_iva sum_comp" id="internaciones_gravadas_bienes" value="{{ $compras->internaciones_gravadas_bienes }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="importaciones_gravadas_bienes">Importaciones gravadas de bienes </label>
                                                         <div>
-                                                            <input type="text" name="importaciones_gravadas_bienes" class="form-control" id="importaciones_gravadas_bienes" value="{{ $compras->importaciones_gravadas_bienes }}">
+                                                            <input type="text" name="importaciones_gravadas_bienes" class="form-control sum_iva sum_comp" id="importaciones_gravadas_bienes" value="{{ $compras->importaciones_gravadas_bienes }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="importaciones_gravadas_servicios">Importaciones gravadas de servicios </label>
                                                         <div>
-                                                            <input type="text" name="importaciones_gravadas_servicios" class="form-control" id="importaciones_gravadas_servicios" value="{{ $compras->importaciones_gravadas_servicioscredito_fiscal }}">
+                                                            <input type="text" name="importaciones_gravadas_servicios" class="form-control sum_iva sum_comp" id="importaciones_gravadas_servicios" value="{{ $compras->importaciones_gravadas_servicioscredito_fiscal }}">
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="form-group col-md-6">
+                                                    <div class="form-group col-md-6">
                                                         <label for="credito_fiscal">Crédito fiscal </label>
                                                         <div>
-                                                            <input type="text" name="credito_fiscal" class="form-control" id="credito_fiscal" value="{{ $compras->credito_fiscal }}">
+                                                            <input type="text" name="" class="form-control sum_comp credito_fiscal" value="{{ $compras->credito_fiscal }}" disabled>
+                                                            <input type="hidden" name="credito_fiscal" class="form-control sum_comp credito_fiscal_hidden" value="{{ $compras->credito_fiscal }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="total_compras">Total de compras </label>
                                                         <div>
-                                                            <input type="text" name="total_compras" class="form-control" id="total_compras" value="{{ $compras->total_compras }}">
+                                                            <input type="text" name="" class="form-control total_compras" value="{{ $compras->total_compras }}" disabled>
+                                                            <input type="hidden" name="total_compras" class="form-control total_compras_hidden" value="{{ $compras->total_compras }}">
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="dui_proveedor">DUI del proveedor </label>
                                                         <div>
@@ -233,9 +235,6 @@
                                                     <div>
                                                         <input type="text" name="nit_nrc_proveedor" class="form-control" id="nit_nrc_proveedor">
                                                     </div>
-                                                    {{-- <select class="all-contribuyentes form-control">
-                                                        <option value="null" selected="selected">Seleccione</option>
-                                                    </select> --}}
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="nombre_proveedor">Nombre del proveedor <span class="text-danger">*</span></label>
@@ -246,57 +245,59 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="compras_internas_exentas">Compras internas exentas </label>
                                                     <div>
-                                                        <input type="text" name="compras_internas_exentas" class="form-control" id="compras_internas_exentas">
+                                                        <input type="text" name="compras_internas_exentas" class="form-control sum_comp" id="compras_internas_exentas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="internaciones_exentas_no_sujetas">Internaciones exentas y/o no sujetas </label>
                                                     <div>
-                                                        <input type="text" name="internaciones_exentas_no_sujetas" class="form-control" id="internaciones_exentas_no_sujetas">
+                                                        <input type="text" name="internaciones_exentas_no_sujetas" class="form-control sum_comp" id="internaciones_exentas_no_sujetas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="importaciones_exentas_no_sujetas">Importaciones exentas y/o no sujetas </label>
                                                     <div>
-                                                        <input type="text" name="importaciones_exentas_no_sujetas" class="form-control" id="importaciones_exentas_no_sujetas">
+                                                        <input type="text" name="importaciones_exentas_no_sujetas" class="form-control sum_comp" id="importaciones_exentas_no_sujetas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="compras_internas_gravadas">Compras internas gravadas </label>
                                                     <div>
-                                                        <input type="text" name="compras_internas_gravadas" class="form-control" id="compras_internas_gravadas">
+                                                        <input type="text" name="compras_internas_gravadas" class="form-control sum_iva sum_comp" id="compras_internas_gravadas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="internaciones_gravadas_bienes">Internaciones gravadas de bienes </label>
                                                     <div>
-                                                        <input type="text" name="internaciones_gravadas_bienes" class="form-control" id="internaciones_gravadas_bienes">
+                                                        <input type="text" name="internaciones_gravadas_bienes" class="form-control sum_iva sum_comp" id="internaciones_gravadas_bienes">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="importaciones_gravadas_bienes">Importaciones gravadas de bienes </label>
                                                     <div>
-                                                        <input type="text" name="importaciones_gravadas_bienes" class="form-control" id="importaciones_gravadas_bienes">
+                                                        <input type="text" name="importaciones_gravadas_bienes" class="form-control sum_iva sum_comp" id="importaciones_gravadas_bienes">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="importaciones_gravadas_servicios">Importaciones gravadas de servicios </label>
                                                     <div>
-                                                        <input type="text" name="importaciones_gravadas_servicios" class="form-control" id="importaciones_gravadas_servicios">
+                                                        <input type="text" name="importaciones_gravadas_servicios" class="form-control sum_iva sum_comp" id="importaciones_gravadas_servicios">
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group col-md-6">
+                                                <div class="form-group col-md-6">
                                                     <label for="credito_fiscal">Crédito fiscal</label>
                                                     <div>
-                                                        <input type="text" name="credito_fiscal" class="form-control" id="credito_fiscal">
+                                                        <input type="text" name="" class="form-control credito_fiscal" disabled>
+                                                        <input type="hidden" name="credito_fiscal" class="form-control credito_fiscal_hidden sum_comp">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="total_compras">Total de compras </label>
                                                     <div>
-                                                        <input type="text" name="total_compras" class="form-control" id="total_compras">
+                                                        <input type="text" name="" class="form-control total_compras" disabled>
+                                                        <input type="hidden" name="total_compras" class="form-control total_compras_hidden">
                                                     </div>
-                                                </div> --}}
+                                                </div>
 
                                                 <div class="form-group col-md-6">
                                                     <label for="dui_proveedor">DUI del proveedor </label>
@@ -342,7 +343,7 @@
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('crear-anexo-compras') }}",
+                url: "{{ url('add-compras') }}",
                 data: form.serialize()
             }).done(function(data) {
 
@@ -363,7 +364,7 @@
             let id = $("#id_anexo_compra").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ url('edit-anexo-compras') }}/"+id,
+                url: "{{ url('edit-compras') }}/"+id,
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -375,7 +376,7 @@
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-                            window.location = "../anexo-compras-mostrar";
+                            window.location = "../anexo-compras";
                         }
                     })
 
@@ -386,26 +387,31 @@
             return this;
         });
 
-        // $(document).ready(function() {
-        //     $(".all-contribuyentes").select2({
-        //         ajax: {
-        //             url: '{{ url("search-contribuyente") }}',
-        //             dataType: 'json',
-        //             data: (term) => {
-        //                 return {
-        //                     term: term
-        //                 }
-        //             },
-        //             processResults: function (response) {
-        //                 alert(response.toString())
-        //                 // return {
-        //                 //     results:response
-        //                 // };
-        //             },
-        //             cache: true
-        //         },
-        //     });
-        // })
+        $('.sum_iva').on( "blur", function() {
+            let suma = 0;
+            $('.sum_iva').each(function( index, element ){
+                let num = parseFloat($( element ).val());
+                if (!isNaN(num)) {
+                    suma += num*0.13;
+                }
+            });
+
+            $('.credito_fiscal').val(suma.toFixed(2));
+            $('.credito_fiscal_hidden').val(suma.toFixed(2));
+        });
+
+        $('.sum_comp').on( "blur", function() {
+            let suma = 0;
+            $('.sum_comp').each(function( index, element ){
+                let num = parseFloat($( element ).val());
+                if (!isNaN(num)) {
+                    suma += num;
+                }
+            });
+
+            $('.total_compras').val(suma.toFixed(2));
+            $('.total_compras_hidden').val(suma.toFixed(2));
+        });
 
     </script>
 

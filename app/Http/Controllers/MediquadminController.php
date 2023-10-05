@@ -859,10 +859,11 @@ class MediquadminController extends Controller
         $page_title = 'Formulario Usuarios Editar';
         $page_description = 'Formulario para editar un usuario.';
         $usuarios = User::where('id', '=', $id)->get();
+        $roles = Role::all();
 
 		$action = __FUNCTION__;
 
-        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description', 'usuarios', 'action'));
+        return view('julie_conta.usuarios.registroUser', compact('page_title', 'page_description', 'roles', 'usuarios', 'action'));
     }
 
     public function form_consumidor_final()
@@ -954,10 +955,11 @@ class MediquadminController extends Controller
     {
         $page_title = 'Formulario para agregar Ventas gravadas por cuenta de terceros domiciliados.';
         $page_description = 'Formulario para crear un registro de Ventas gravadas por cuenta de terceros domiciliados.';
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function form_casilla_108_edit($id)
@@ -965,20 +967,22 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para editar Ventas gravadas por cuenta de terceros domiciliados.';
         $page_description = 'Formulario para editar un registro de Ventas gravadas por cuenta de terceros domiciliados.';
         $ventas = Casilla108::where("id", "=", $id)->get();
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'ventas', 'action'));
+        return view('julie_conta.anexos.casilla108', compact('page_title', 'page_description', 'ventas', 'usuarios', 'action'));
     }
 
     public function form_casilla_66()
     {
         $page_title = 'Formulario para agregar Compras a Sujetos Excluidos.';
         $page_description = 'Formulario para crear un registro de Compras a Sujetos Excluidos.';
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla66', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.casilla66', compact('usuarios', 'page_title', 'page_description', 'action'));
     }
 
     public function form_casilla_66_edit($id)
@@ -986,20 +990,22 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para editar Compras a Sujetos Excluidos.';
         $page_description = 'Formulario para editar un registro de Compras a Sujetos Excluidos.';
         $compras = Casilla66::where("id", "=", $id)->get();
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla66', compact('page_title', 'page_description', 'compras', 'action'));
+        return view('julie_conta.anexos.casilla66', compact('usuarios', 'page_title', 'page_description', 'compras', 'action'));
     }
 
     public function form_casilla_161()
     {
         $page_title = 'Formulario para agregar Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
         $page_description = 'Formulario para crear un registro de Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function form_casilla_161_edit($id)
@@ -1007,20 +1013,22 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para editar Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
         $page_description = 'Formulario para editar un registro de Anticipo a Cuenta de IVA 2% Efectuada al Declarante.';
         $anticipos = Casilla161::where("id", "=", $id)->get();
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'anticipos', 'action'));
+        return view('julie_conta.anexos.casilla161', compact('page_title', 'page_description', 'anticipos', 'usuarios', 'action'));
     }
 
     public function form_casilla_162()
     {
         $page_title = 'Formulario para agregar Retención de IVA 1% Efectuada al Declarante';
         $page_description = 'Formulario para crear un registro de Retención de IVA 1% Efectuada al Declarante';
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function form_casilla_162_edit($id)
@@ -1028,20 +1036,22 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para editar Retención de IVA 1% Efectuada al Declarante';
         $page_description = 'Formulario para editar un registro de Retención de IVA 1% Efectuada al Declarante';
         $retenciones = Casilla162::where('id', '=', $id)->get();
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'retenciones', 'action'));
+        return view('julie_conta.anexos.casilla162', compact('page_title', 'page_description', 'usuarios', 'retenciones', 'action'));
     }
 
     public function form_casilla_163()
     {
         $page_title = 'Formulario para agregar Percepción de IVA 1% Efectuada al Declarante.';
         $page_description = 'Formulario para crear un registro de Percepción de IVA 1% Efectuada al Declarante.';
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'action'));
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'usuarios', 'action'));
     }
 
     public function form_casilla_163_edit($id)
@@ -1049,10 +1059,11 @@ class MediquadminController extends Controller
         $page_title = 'Formulario para editar Percepción de IVA 1% Efectuada al Declarante.';
         $page_description = 'Formulario para editar un registro de Percepción de IVA 1% Efectuada al Declarante.';
         $percepciones = Casilla163::where('id', '=', $id)->get();
+        $usuarios = User::where('estado', '1')->get();
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'percepciones', 'action'));
+        return view('julie_conta.anexos.casilla163', compact('page_title', 'page_description', 'usuarios', 'percepciones', 'action'));
     }
 
     public function form_casilla_169()
@@ -1244,10 +1255,20 @@ class MediquadminController extends Controller
         return view('julie_conta.contribuyentes.allContribuyentes', compact('page_title', 'page_description', 'contribuyentes', 'action'));
     }
 
+    public function viewCasilla108()
+    {
+        $page_title = 'Anexo Casilla 108';
+        $page_description = 'Ventas Gravadas por Cuenta de Terceros Domiciliados.';
+        $ventas = Casilla108::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla108', compact('page_title', 'page_description', 'ventas', 'usuarios', 'action'));
+    }
+
     public function inicio()
     {
-
-
         $page_title = 'Inicio';
         $page_description = 'Pagina de inicio del sistema';
         $logo = "images/logo.png";
@@ -1255,6 +1276,54 @@ class MediquadminController extends Controller
         $action = __FUNCTION__;
 
         return view('dashboard.inicio', compact('page_title', 'page_description','action','logo','logoText'));
+    }
+
+    public function viewCasilla66()
+    {
+        $page_title = 'Anexo Casilla 66';
+        $page_description = 'Compras a Sujetos Excluídos';
+        $compras = Casilla66::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla66', compact('page_title', 'page_description', 'compras', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla161()
+    {
+        $page_title = 'Anexo Casilla 161';
+        $page_description = 'Anticipo a cuenta de IVA del 2% efectuada al declarante';
+        $anticipos = Casilla161::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla161', compact('page_title', 'page_description', 'anticipos', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla162()
+    {
+        $page_title = 'Anexo Casilla 162';
+        $page_description = 'Retención de IVA del 1% efectuada al declarante';
+        $retenciones = Casilla162::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla162', compact('page_title', 'page_description', 'retenciones', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla163()
+    {
+        $page_title = 'Anexo Casilla 162';
+        $page_description = 'Retención de IVA del 1% efectuada al declarante';
+        $percepciones = Casilla163::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'percepciones', 'usuarios', 'action'));
     }
 
 

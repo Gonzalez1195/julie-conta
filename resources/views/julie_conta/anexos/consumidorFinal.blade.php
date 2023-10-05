@@ -51,7 +51,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label>Clase de documento <span class="text-danger">*</span></label>
+                                                        <label>Tipo de documento <span class="text-danger">*</span></label>
                                                         <select id="tipo_documento" class="form-control" name="tipo_documento">
                                                             <option {{ ($consu->tipo_documento) == "" ? "selected" : "" }} >Seleccione...</option>
                                                             <option value="Factura" {{ ($consu->tipo_documento) == "Factura" ? "selected" : "" }} >01. FACTURA</option>
@@ -105,61 +105,62 @@
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_exentas">Ventas exentas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas" value="{{ $consu->ventas_exentas }}">
+                                                            <input type="text" name="ventas_exentas" class="form-control ventas_sum" id="ventas_exentas" value="{{ $consu->ventas_exentas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_int_exentas_no_suj_proporcionalidad">Ventas internas exentas no sujetas a proporcionalidad </label>
                                                         <div>
-                                                            <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control" id="ventas_int_exentas_no_suj_proporcionalidad" value="{{ $consu->ventas_int_exentas_no_suj_proporcionalidad }}">
+                                                            <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control ventas_sum" id="ventas_int_exentas_no_suj_proporcionalidad" value="{{ $consu->ventas_int_exentas_no_suj_proporcionalidad }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_no_sujetas">Ventas no sujetas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas" value="{{ $consu->ventas_no_sujetas }}">
+                                                            <input type="text" name="ventas_no_sujetas" class="form-control ventas_sum" id="ventas_no_sujetas" value="{{ $consu->ventas_no_sujetas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_gravadas_locales">Ventas gravadas locales </label>
                                                         <div>
-                                                            <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales" value="{{ $consu->ventas_gravadas_locales }}">
+                                                            <input type="text" name="ventas_gravadas_locales" class="form-control ventas_sum" id="ventas_gravadas_locales" value="{{ $consu->ventas_gravadas_locales }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="exp_adentro_area_ca">Exportaciones dentro del área de Centroamérica </label>
                                                         <div>
-                                                            <input type="text" name="exp_adentro_area_ca" class="form-control" id="exp_adentro_area_ca" value="{{ $consu->exp_adentro_area_ca }}">
+                                                            <input type="text" name="exp_adentro_area_ca" class="form-control ventas_sum" id="exp_adentro_area_ca" value="{{ $consu->exp_adentro_area_ca }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="exp_fuera_area_ca">Exportaciones fuera del área de Centroamérica </label>
                                                         <div>
-                                                            <input type="text" name="exp_fuera_area_ca" class="form-control" id="exp_fuera_area_ca" value="{{ $consu->exp_fuera_area_ca }}">
+                                                            <input type="text" name="exp_fuera_area_ca" class="form-control ventas_sum" id="exp_fuera_area_ca" value="{{ $consu->exp_fuera_area_ca }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="exp_servicio">Exportaciones de servicio </label>
                                                         <div>
-                                                            <input type="text" name="exp_servicio" class="form-control" id="exp_servicio" value="{{ $consu->exp_servicio }}">
+                                                            <input type="text" name="exp_servicio" class="form-control ventas_sum" id="exp_servicio" value="{{ $consu->exp_servicio }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_zonas_francas_dpa">Ventas a zonas francas y DPA (Tasa Cero) </label>
                                                         <div>
-                                                            <input type="text" name="ventas_zonas_francas_dpa" class="form-control" id="ventas_zonas_francas_dpa" value="{{ $consu->ventas_zonas_francas_dpa }}">
+                                                            <input type="text" name="ventas_zonas_francas_dpa" class="form-control ventas_sum" id="ventas_zonas_francas_dpa" value="{{ $consu->ventas_zonas_francas_dpa }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                         <div>
-                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados" value="{{ $consu->ventas_cuenta_terc_no_domiciliados }}">
+                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control ventas_sum" id="ventas_cuenta_terc_no_domiciliados" value="{{ $consu->ventas_cuenta_terc_no_domiciliados }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="total_ventas">Total de ventas </label>
                                                         <div>
-                                                            <input type="text" name="total_ventas" class="form-control" id="total_ventas" value="{{ $consu->total_ventas }}">
+                                                            <input type="text" name="" class="form-control total_ventas" value="{{ $consu->total_ventas }}" disabled>
+                                                            <input type="hidden" name="total_ventas" class="form-control total_ventas_hidden" value="{{ $consu->total_ventas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
@@ -232,7 +233,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label>Clase de documento <span class="text-danger">*</span></label>
+                                                    <label>Tipo de documento <span class="text-danger">*</span></label>
                                                     <select id="tipo_documento" class="form-control" name="tipo_documento">
                                                         <option selected>Seleccione...</option>
                                                         <option value="Factura">01. FACTURA</option>
@@ -286,61 +287,62 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_exentas">Ventas exentas </label>
                                                     <div>
-                                                        <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas">
+                                                        <input type="text" name="ventas_exentas" class="form-control ventas_sum" id="ventas_exentas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_int_exentas_no_suj_proporcionalidad">Ventas internas exentas no sujetas a proporcionalidad </label>
                                                     <div>
-                                                        <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control" id="ventas_int_exentas_no_suj_proporcionalidad">
+                                                        <input type="text" name="ventas_int_exentas_no_suj_proporcionalidad" class="form-control ventas_sum" id="ventas_int_exentas_no_suj_proporcionalidad">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_no_sujetas">Ventas no sujetas </label>
                                                     <div>
-                                                        <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas">
+                                                        <input type="text" name="ventas_no_sujetas" class="form-control ventas_sum" id="ventas_no_sujetas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_gravadas_locales">Ventas gravadas locales </label>
                                                     <div>
-                                                        <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales">
+                                                        <input type="text" name="ventas_gravadas_locales" class="form-control ventas_sum" id="ventas_gravadas_locales">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="exp_adentro_area_ca">Exportaciones dentro del área de Centroamérica </label>
                                                     <div>
-                                                        <input type="text" name="exp_adentro_area_ca" class="form-control" id="exp_adentro_area_ca">
+                                                        <input type="text" name="exp_adentro_area_ca" class="form-control ventas_sum" id="exp_adentro_area_ca">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="exp_fuera_area_ca">Exportaciones fuera del área de Centroamérica </label>
                                                     <div>
-                                                        <input type="text" name="exp_fuera_area_ca" class="form-control" id="exp_fuera_area_ca">
+                                                        <input type="text" name="exp_fuera_area_ca" class="form-control ventas_sum" id="exp_fuera_area_ca">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="exp_servicio">Exportaciones de servicio </label>
                                                     <div>
-                                                        <input type="text" name="exp_servicio" class="form-control" id="exp_servicio">
+                                                        <input type="text" name="exp_servicio" class="form-control ventas_sum" id="exp_servicio">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_zonas_francas_dpa">Ventas a zonas francas y DPA (Tasa Cero) </label>
                                                     <div>
-                                                        <input type="text" name="ventas_zonas_francas_dpa" class="form-control" id="ventas_zonas_francas_dpa">
+                                                        <input type="text" name="ventas_zonas_francas_dpa" class="form-control ventas_sum" id="ventas_zonas_francas_dpa">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                     <div>
-                                                        <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados">
+                                                        <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control ventas_sum" id="ventas_cuenta_terc_no_domiciliados">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="total_ventas">Total de ventas </label>
                                                     <div>
-                                                        <input type="text" name="total_ventas" class="form-control" id="total_ventas">
+                                                        <input type="text" name="" class="form-control total_ventas" disabled>
+                                                        <input type="hidden" name="total_ventas" class="form-control total_ventas_hidden">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -377,7 +379,6 @@
 @section('scripts')
 
     <script>
-
         $( ".form-consumidor-final" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
@@ -416,7 +417,7 @@
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-                            window.location = "../consumidor-final";
+                            window.location = "../anexo-consumidor-final";
                         }
                     })
 
@@ -425,6 +426,19 @@
                     sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
+        });
+
+        $('.ventas_sum').on( "blur", function() {
+            let suma = 0;
+            $('.ventas_sum').each(function( index, element ){
+                let num = parseFloat($( element ).val());
+                if (!isNaN(num)) {
+                    suma += num;
+                }
+            });
+
+            $('.total_ventas').val(suma.toFixed(2));
+            $('.total_ventas_hidden').val(suma.toFixed(2));
         });
 
     </script>

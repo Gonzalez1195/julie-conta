@@ -10,13 +10,13 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Anexo</h4>
+                            <h4>Anexo </h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Anexo</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Consumidor Final</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Casilla 162</a></li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
 					<div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Consumidor Final</h4>
+                                <h4 class="card-title">Retención de IVA del 1% efectuada al declarante</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -63,68 +63,47 @@
                                     <table id="example3" class="display" style="min-width: 845px; font-size: 13px;">
                                         <thead>
                                             <tr>
-                                                <th>Fecha de Emisión</th>
-                                                <th>Clase de documento</th>
+                                                <th>NIT agente</th>
+                                                <th>Fecha de emisión</th>
                                                 <th>Tipo de documento</th>
-                                                <th>Número de resolución</th>
-                                                <th>Serie del documento</th>
-                                                <th>Número de control interno DEL</th>
-                                                <th>Número de control interno AL</th>
-                                                <th>Número de documento (DEL)</th>
-                                                <th>Número de documento (AL)</th>
-                                                <th>Número de maquina registradora</th>
-                                                <th>Ventas exentas</th>
-                                                <th>Ventas internas exentas no sujetas a proporcionalidad</th>
-                                                <th>Ventas no sujetas</th>
-                                                <th>Ventas gravadas locales</th>
-                                                <th>Exportaciones dentro del área de Centroamérica</th>
-                                                <th>Exportaciones fuera del área de Centroamérica</th>
-                                                <th>Exportaciones de servicio</th>
-                                                <th>Ventas a zonas francas y DPA (Tasa cero)</th>
-                                                <th>Ventas a cuenta de terceros no domiciliados</th>
-                                                <th>Total de ventas</th>
-                                                <th>Numero del anexo</th>
+                                                <th>Serie de documento</th>
+                                                <th>Número de documento</th>
+                                                <th>Monto sujero</th>
+                                                <th>Monto de la retención 1%</th>
+                                                <th>DUI del agente</th>
+                                                <th>Número del anexo</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody class="cf-table">
 
-                                            @if (isset($consumidores))
-                                                @foreach ($consumidores as $consumidor)
+                                            @if (isset($retenciones))
+                                                @foreach ($retenciones as $retencion)
+
                                                     <tr>
-                                                        <td>{{ $consumidor->fecha_emision }}</td>
-                                                        <td>{{ $consumidor->clase_documento }}</td>
-                                                        <td>{{ $consumidor->tipo_documento }}</td>
-                                                        <td>{{ $consumidor->numero_resolucion }}</td>
-                                                        <td>{{ $consumidor->serie_documento }}</td>
-                                                        <td>{{ $consumidor->num_cont_int_del }}</td>
-                                                        <td>{{ $consumidor->num_cont_int_al }}</td>
-                                                        <td>{{ $consumidor->num_documento_del }}</td>
-                                                        <td>{{ $consumidor->num_documento_al }}</td>
-                                                        <td>{{ $consumidor->num_maquina_registradora }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_exentas, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_int_exentas_no_suj_proporcionalidad, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_no_sujetas, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_gravadas_locales, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_adentro_area_ca, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_fuera_area_ca, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->exp_servicio, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_zonas_francas_dpa, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->ventas_cuenta_terc_no_domiciliados, 2, '.', ',') }}</td>
-                                                        <td>{{ number_format($consumidor->total_ventas, 2, '.', ',') }}</td>
-                                                        <td>{{ $consumidor->numero_anexo }}</td>
+                                                        <td>{{ $retencion->nit_agente }}</td>
+                                                        <td>{{ $retencion->fecha_emision }}</td>
+                                                        <td>{{ $retencion->tipo_documento }}</td>
+                                                        <td>{{ $retencion->serie_documento }}</td>
+                                                        <td>{{ $retencion->numero_documento }}</td>
+                                                        <td>{{ number_format($retencion->monto_sujeto, 2, '.', ',') }}</td>
+                                                        <td>{{ number_format($retencion->monto_retencion, 2, '.', ',') }}</td>
+                                                        <td>{{ $retencion->dui_agente }}</td>
+                                                        <td>{{ $retencion->numero_anexo }}</td>
 
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ url('/anexo-consumidor-final-editar/'.$consumidor->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                                <a href="#" onclick="eliminar({{ $consumidor->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                                <a href="{{ url('/anexo-casilla-162-editar/'.$retencion->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                                <a href="#" onclick="eliminar({{ $retencion->id }})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                             </div>
                                                         </td>
                                                     </tr>
 
                                                 @endforeach
                                             @else
-                                                <td colspan='22' class='text-center'>No se encontraron registros...<td>
+                                                <tr>
+                                                    <td colspan='22' class='text-center'>No se encontraron registros...<td>
+                                                </tr>
                                             @endif
 
                                         </tbody>
@@ -153,7 +132,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: 'GET',
-                            url: "{{ url('delete-consumidor-final') }}/"+id,
+                            url: "{{ url('delete-casilla162') }}/"+id,
                         }).done(function(data) {
                             if (data === true) {
                                 Swal.fire({
@@ -162,7 +141,7 @@
                                     confirmButtonText: 'OK',
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location = "anexo-consumidor-final";
+                                        window.location = "../anexo-casilla-162";
                                     }
                                 })
                             }
@@ -194,35 +173,29 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '{{ url("search-usuario-consumidor-final") }}',
+                    url: '{{ url("search-usuario-casillla162") }}',
                     data: { 'id': idUsu },
                 }).done(function(data) {
 
-                    const url = "<?php echo url('/anexo-consumidor-final-editar/'); ?>";
+                    const url = "<?php echo url('/anexo-casilla-162-editar/'); ?>";
                     table.innerHTML = "";
                     if (data.length > 0) {
                         data.forEach(element => {
+
+                            let nitAgente = "";
+                            if ( element.nit_agente != null && element.nit_agente != "" ) {
+                                nitAgente = element.nit_agente;
+                            }
+
                             conten += "<tr>"
+                            conten += "<td>"+nitAgente+"</td>"
                             conten += "<td>"+element.fecha_emision+"</td>"
-                            conten += "<td>"+element.clase_documento+"</td>"
                             conten += "<td>"+element.tipo_documento+"</td>"
-                            conten += "<td>"+element.numero_resolucion+"</td>"
                             conten += "<td>"+element.serie_documento+"</td>"
-                            conten += "<td>"+element.num_cont_int_del+"</td>"
-                            conten += "<td>"+element.num_cont_int_al+"</td>"
-                            conten += "<td>"+element.num_documento_del+"</td>"
-                            conten += "<td>"+element.num_documento_al+"</td>"
-                            conten += "<td>"+element.num_maquina_registradora+"</td>"
-                            conten += "<td>"+Number(element.ventas_exentas).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_int_exentas_no_suj_proporcionalidad).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_no_sujetas).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_gravadas_locales).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_adentro_area_ca).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_fuera_area_ca).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.exp_servicio).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_zonas_francas_dpa).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.ventas_cuenta_terc_no_domiciliados).toFixed(2)+"</td>"
-                            conten += "<td>"+Number(element.total_ventas).toFixed(2)+"</td>"
+                            conten += "<td>"+element.numero_documento+"</td>"
+                            conten += "<td>"+Number(element.monto_sujeto).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.monto_retencion).toFixed(2)+"</td>"
+                            conten += "<td>"+element.dui_agente+"</td>"
                             conten += "<td>"+element.numero_anexo+"</td>"
                             conten += `<td><div class='d-flex'>
                                             <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
@@ -267,42 +240,36 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: '{{ url("search-date-consumidor-final") }}',
+                        url: '{{ url("search-date-casillla162") }}',
                         data: { 'fecha1': dateDesde, 'fecha2': dateHasta, 'usuario': usuario },
                     }).done(function(data) {
 
-                        const url = "<?php echo url('/anexo-consumidor-final-editar/'); ?>";
-                        table.innerHTML = "";
-                        if (data.length > 0) {
-                            data.forEach(element => {
-                                conten += "<tr>"
-                                conten += "<td>"+element.fecha_emision+"</td>"
-                                conten += "<td>"+element.clase_documento+"</td>"
-                                conten += "<td>"+element.tipo_documento+"</td>"
-                                conten += "<td>"+element.numero_resolucion+"</td>"
-                                conten += "<td>"+element.serie_documento+"</td>"
-                                conten += "<td>"+element.num_cont_int_del+"</td>"
-                                conten += "<td>"+element.num_cont_int_al+"</td>"
-                                conten += "<td>"+element.num_documento_del+"</td>"
-                                conten += "<td>"+element.num_documento_al+"</td>"
-                                conten += "<td>"+element.num_maquina_registradora+"</td>"
-                                conten += "<td>"+Number(element.ventas_exentas).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_int_exentas_no_suj_proporcionalidad).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_no_sujetas).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_gravadas_locales).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_adentro_area_ca).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_fuera_area_ca).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.exp_servicio).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_zonas_francas_dpa).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.ventas_cuenta_terc_no_domiciliados).toFixed(2)+"</td>"
-                                conten += "<td>"+Number(element.total_ventas).toFixed(2)+"</td>"
-                                conten += "<td>"+element.numero_anexo+"</td>"
-                                conten += `<td><div class='d-flex'>
+                        const url = "<?php echo url('/anexo-casilla-162-editar/'); ?>";
+                    table.innerHTML = "";
+                    if (data.length > 0) {
+                        data.forEach(element => {
+
+                            let nitAgente = "";
+                            if ( element.nit_agente != null && element.nit_agente != "" ) {
+                                nitAgente = element.nit_agente;
+                            }
+
+                            conten += "<tr>"
+                            conten += "<td>"+nitAgente+"</td>"
+                            conten += "<td>"+element.fecha_emision+"</td>"
+                            conten += "<td>"+element.tipo_documento+"</td>"
+                            conten += "<td>"+element.serie_documento+"</td>"
+                            conten += "<td>"+element.numero_documento+"</td>"
+                            conten += "<td>"+Number(element.monto_sujeto).toFixed(2)+"</td>"
+                            conten += "<td>"+Number(element.monto_retencion).toFixed(2)+"</td>"
+                            conten += "<td>"+element.dui_agente+"</td>"
+                            conten += "<td>"+element.numero_anexo+"</td>"
+                            conten += `<td><div class='d-flex'>
                                             <a href="${url+"/"+element.id}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                             <a href="#" onclick="eliminar(${element.id})" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                            </div></td>`
-                                conten += "</tr>"
-                            });
+                                        </div></td>`
+                            conten += "</tr>"
+                        });
 
                         }else{
                             conten += "<tr>"

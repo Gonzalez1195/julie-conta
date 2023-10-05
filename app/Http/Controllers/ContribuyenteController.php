@@ -57,20 +57,36 @@ class ContribuyenteController extends Controller
 
     public function searchContribuyente(Request $request)
     {
-        // return response()->json($request->term, 200);
         try {
-            $contribuyentes = DB::table('contribuyentes')
-                            ->where('nrc_nit', 'like', $request->term .'%')
-                            ->get();
-
-            $response = [];
-            foreach ($contribuyentes as $key => $contribuyente) {
-                $response['nombre'] = $contribuyente->nombre;
-                $response['nrc_nit'] = $contribuyente->nrc_nit;
-                $response['dui'] = $contribuyente->dui;
+            if ( $request->type == "nit" ) {
+                if ($request->num != '' && isset($request->num)) {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->where('nrc_nit', 'like', '%'. $request->num .'%')
+                                ->whereNotNull('nrc_nit')
+                                ->limit(100)
+                                ->get();
+                } else {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->whereNotNull('nrc_nit')
+                                ->limit(100)
+                                ->get();
+                }
+            }else {
+                if ($request->num != '' && isset($request->num)) {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->where('dui', 'like', '%'. $request->num .'%')
+                                ->whereNotNull('dui')
+                                ->limit(100)
+                                ->get();
+                } else {
+                    $contribuyentes = DB::table('contribuyentes')
+                                ->whereNotNull('dui')
+                                ->limit(100)
+                                ->get();
+                }
             }
 
-            return response()->json($$response, 200);
+            return response()->json($contribuyentes, 200);
         } catch (Exception $e) {
             return response()->json($e->getMessage(), 405);
         }

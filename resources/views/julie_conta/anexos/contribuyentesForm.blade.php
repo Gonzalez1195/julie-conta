@@ -85,61 +85,67 @@
                                                     <div class="form-group col-md-6">
                                                         <label for="nit_nrc_cliente">NIT o NRC del cliente </label>
                                                         <div>
-                                                            <input type="text" name="nit_nrc_cliente" class="form-control" id="nit_nrc_cliente" value="{{ $contri->nit_nrc_cliente }}">
+                                                            <input type="text" name="" class="form-control" value="{{ $contri->nit_nrc_cliente }}" disabled>
+                                                            <input type="hidden" name="nit_nrc_cliente" class="form-control" id="nit_nrc_cliente" value="{{ $contri->nit_nrc_cliente }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="nombre_razonsocial_denominacion">Nombre razón social o denominación </label>
                                                         <div>
-                                                            <input type="text" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion" value="{{ $contri->nombre_razonsocial_denominacion }}">
+                                                            <input type="text" name="" class="form-control" value="{{ $contri->nombre_razonsocial_denominacion }}" disabled>
+                                                            <input type="hidden" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion" value="{{ $contri->nombre_razonsocial_denominacion }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_exentas">Ventas exentas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas" value="{{ $contri->ventas_exentas }}">
+                                                            <input type="text" name="ventas_exentas" class="form-control ventas_sum" id="ventas_exentas" value="{{ $contri->ventas_exentas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_no_sujetas">Ventas no sujetas </label>
                                                         <div>
-                                                            <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas" value="{{ $contri->ventas_no_sujetas }}">
+                                                            <input type="text" name="ventas_no_sujetas" class="form-control ventas_sum" id="ventas_no_sujetas" value="{{ $contri->ventas_no_sujetas }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_gravadas_locales">Ventas gravadas locales </label>
                                                         <div>
-                                                            <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales" value="{{ $contri->ventas_gravadas_locales }}">
+                                                            <input type="text" name="ventas_gravadas_locales" class="form-control ventas_sum" id="ventas_gravadas_locales" value="{{ $contri->ventas_gravadas_locales }}">
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="form-group col-md-6">
+                                                    <div class="form-group col-md-6">
                                                         <label for="debito_fiscal">Débito fiscal </label>
                                                         <div>
-                                                            <input type="text" name="debito_fiscal" class="form-control" id="debito_fiscal" value="{{ $contri->debito_fiscal }}">
+                                                            <input type="text" name="debito_fiscal" class="form-control" id="debito_fiscal" value="{{ $contri->debito_fiscal }}" disabled>
+                                                            <input type="hidden" name="debito_fiscal" class="form-control ventas_sum" id="debito_fiscal2" value="{{ $contri->debito_fiscal }}">
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                         <div>
-                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados" value="{{ $contri->ventas_cuenta_terc_no_domiciliados }}">
+                                                            <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control ventas_sum" id="ventas_cuenta_terc_no_domiciliados" value="{{ $contri->ventas_cuenta_terc_no_domiciliados }}">
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="form-group col-md-6">
+                                                    <div class="form-group col-md-6">
                                                         <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuentas de terceros </label>
                                                         <div>
-                                                            <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros" value="{{ $contri->debito_fiscal_ventas_a_cuenta_terceros }}">
+                                                            <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros" value="{{ $contri->debito_fiscal_ventas_a_cuenta_terceros }}" disabled>
+                                                            <input type="hidden" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control ventas_sum" id="debito_fiscal_ventas_a_cuenta_terceros2" value="{{ $contri->debito_fiscal_ventas_a_cuenta_terceros }}">
                                                         </div>
-                                                    </div> --}}
-                                                    {{-- <div class="form-group col-md-6">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
                                                         <label for="total_ventas">Total de ventas </label>
                                                         <div>
-                                                            <input type="text" name="total_ventas" class="form-control" id="total_ventas" value="{{ $contri->total_ventas }}">
+                                                            <input type="text" name="" class="form-control total_ventas" value="{{ $contri->total_ventas }}" disabled>
+                                                            <input type="hidden" name="total_ventas" class="form-control total_ventas_hidden">
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="dui_cliente">Número de DUI del cliente </label>
                                                         <div>
-                                                            <input type="text" name="dui_cliente" class="form-control" id="dui_cliente" value="{{ $contri->dui_cliente }}">
+                                                            <input type="text" name="" class="form-control" value="{{ $contri->dui_cliente }}" disabled>
+                                                            <input type="hidden" name="dui_cliente" class="form-control" id="dui_cliente" value="{{ $contri->dui_cliente }}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
@@ -248,62 +254,66 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="nit_nrc_cliente">NIT o NRC del cliente </label>
                                                     <div>
-                                                        <input type="text" name="nit_nrc_cliente" class="form-control" id="nit_nrc_cliente">
+                                                        <select class="data_contribuyente form-control" name="nit_nrc_cliente" id="nit_nrc_cliente"></select>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     <label for="nombre_razonsocial_denominacion">Nombre razón social o denominación </label>
                                                     <div>
-                                                        <input type="text" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion">
+                                                        <input type="text" name="" class="form-control" id="nombre_razonsocial_denominacion" disabled>
+                                                        <input type="hidden" name="nombre_razonsocial_denominacion" class="form-control" id="nombre_razonsocial_denominacion_hidden">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_exentas">Ventas exentas </label>
                                                     <div>
-                                                        <input type="text" name="ventas_exentas" class="form-control" id="ventas_exentas">
+                                                        <input type="text" name="ventas_exentas" class="form-control ventas_sum" id="ventas_exentas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_no_sujetas">Ventas no sujetas </label>
                                                     <div>
-                                                        <input type="text" name="ventas_no_sujetas" class="form-control" id="ventas_no_sujetas">
+                                                        <input type="text" name="ventas_no_sujetas" class="form-control ventas_sum" id="ventas_no_sujetas">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_gravadas_locales">Ventas gravadas locales </label>
                                                     <div>
-                                                        <input type="text" name="ventas_gravadas_locales" class="form-control" id="ventas_gravadas_locales">
+                                                        <input type="text" name="ventas_gravadas_locales" class="form-control ventas_sum" id="ventas_gravadas_locales">
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group col-md-6">
+                                                <div class="form-group col-md-6">
                                                     <label for="debito_fiscal">Débito fiscal </label>
                                                     <div>
-                                                        <input type="text" name="debito_fiscal" class="form-control" id="debito_fiscal">
+                                                        <input type="text" name="" class="form-control" id="debito_fiscal" disabled>
+                                                        <input type="hidden" name="debito_fiscal" class="form-control ventas_sum" id="debito_fiscal2">
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="ventas_cuenta_terc_no_domiciliados">Ventas a cuenta de terceros no domiciliados </label>
                                                     <div>
-                                                        <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control" id="ventas_cuenta_terc_no_domiciliados">
+                                                        <input type="text" name="ventas_cuenta_terc_no_domiciliados" class="form-control ventas_sum" id="ventas_cuenta_terc_no_domiciliados">
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group col-md-6">
+                                                <div class="form-group col-md-6">
                                                     <label for="debito_fiscal_ventas_a_cuenta_terceros">Débito fiscal por ventas a cuenta de terceros </label>
                                                     <div>
-                                                        <input type="text" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros">
+                                                        <input type="text" name="" class="form-control" id="debito_fiscal_ventas_a_cuenta_terceros" disabled>
+                                                        <input type="hidden" name="debito_fiscal_ventas_a_cuenta_terceros" class="form-control ventas_sum" id="debito_fiscal_ventas_a_cuenta_terceros2">
                                                     </div>
-                                                </div> --}}
-                                                {{-- <div class="form-group col-md-6">
+                                                </div>
+                                                <div class="form-group col-md-6">
                                                     <label for="total_ventas">Total de ventas </label>
                                                     <div>
-                                                        <input type="text" name="total_ventas" class="form-control" id="total_ventas">
+                                                        <input type="text" name="" class="form-control total_ventas" disabled>
+                                                        <input type="hidden" name="total_ventas" class="form-control total_ventas_hidden">
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="dui_cliente">Número de DUI del cliente </label>
                                                     <div>
-                                                        <input type="text" name="dui_cliente" class="form-control" id="dui_cliente">
+                                                        <select class="dui_contribuyente form-control" name="dui_cliente" id="dui_cliente"></select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -339,12 +349,30 @@
 
     <script>
 
+        $("#ventas_gravadas_locales").keyup(function(){
+            let venta = $(this).val();
+            let campoIva = $("#debito_fiscal");
+            let campoIvaH = $("#debito_fiscal2");
+            let iva = venta * 0.13;
+            campoIva.val(iva.toFixed(2));
+            campoIvaH.val(iva.toFixed(2));
+        });
+
+        $("#ventas_cuenta_terc_no_domiciliados").keyup(function(){
+            let venta = $(this).val();
+            let campoIva = $("#debito_fiscal_ventas_a_cuenta_terceros");
+            let campoIvaH = $("#debito_fiscal_ventas_a_cuenta_terceros2");
+            let iva = venta * 0.13;
+            campoIva.val(iva.toFixed(2));
+            campoIvaH.val(iva.toFixed(2));
+        });
+
         $( ".form-contribuyente" ).submit(function( event ) {
             event.preventDefault();
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('add-anexo-contribuyente') }}",
+                url: "{{ url('add-anexo-contribuyentes') }}",
                 data: form.serialize()
             }).done(function(data) {
                 console.log(data);
@@ -365,7 +393,7 @@
             let id = $("#id_contri").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ url('update-anexo-contribuyente') }}/"+id,
+                url: "{{ url('edit-anexo-contribuyentes') }}/"+id,
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -377,7 +405,7 @@
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-                            window.location = "../";
+                            window.location = "../anexo-contribuyentes";
                         }
                     })
 
@@ -388,6 +416,89 @@
             return this;
         });
 
+        $('.ventas_sum').on( "blur", function() {
+            let suma = 0;
+            $('.ventas_sum').each(function( index, element ){
+                let num = parseFloat($( element ).val());
+                if (!isNaN(num)) {
+                    suma += num;
+                }
+            });
+
+            $('.total_ventas').val(suma.toFixed(2));
+            $('.total_ventas_hidden').val(suma.toFixed(2));
+        });
+
+        $('.data_contribuyente').select2({
+            ajax: {
+                url: "{{ url('search-contribuyente') }}",
+                dataType: 'json',
+                data: function (params) {
+                    return {
+                        num: params.term,
+                        type: "nit"
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.nrc_nit + ' '+ item.nombre,
+                                name: item.nombre,
+                                number: item.nrc_nit,
+                                id: item.nrc_nit
+                            }
+                        })
+                    };
+                },
+                cache: true
+            },
+            minimumInputLength: 1,
+            templateSelection: accionCon
+        });
+
+        function accionCon(obj) {
+            $("#nombre_razonsocial_denominacion").val(obj.name);
+            $("#nombre_razonsocial_denominacion_hidden").val(obj.name);
+            $('.dui_contribuyente').attr("disabled", "disabled");
+            return obj.number;
+        }
+
+        $('.dui_contribuyente').select2({
+            width: "100%",
+            ajax: {
+                url: "{{ url('search-contribuyente') }}",
+                dataType: 'json',
+                data: function (params) {
+                    return {
+                        num: params.term,
+                        type: "dui"
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.dui + ' '+ item.nombre,
+                                name: item.nombre,
+                                number: item.dui,
+                                id: item.dui
+                            }
+                        })
+                    };
+                },
+                cache: true
+            },
+            minimumInputLength: 1,
+            templateSelection: accionConDui
+        });
+
+        function accionConDui(obj) {
+            $("#nombre_razonsocial_denominacion").val(obj.name);
+            $("#nombre_razonsocial_denominacion_hidden").val(obj.name);
+            $('.data_contribuyente').attr("disabled", "disabled");
+            return obj.number;
+        }
     </script>
 
 @endsection

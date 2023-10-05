@@ -63,15 +63,23 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Telefono</label>
-                                                        <input type="text" class="form-control" name="telefono" id="tel" placeholder="00000000" value="{{ $usu->telefono }}">
+                                                        <input type="text" class="form-control" name="telefono" id="tel_edit" placeholder="0000-0000" value="{{ $usu->telefono }}">
                                                     </div>
 
                                                     <div class="form-group col-md-4">
                                                         <label>Tipo de usuario</label>
                                                         <select id="inputState" class="form-control" name="tipoUsu">
                                                             <option selected>Seleccione...</option>
+                                                            @php
+                                                                $search  = array('[', '"', ']');
+                                                                $rolSelect = str_replace($search, '', $usu->getRoleNames());
+                                                            @endphp
                                                             @foreach ($roles as $rol)
-                                                                <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                                                                @if ($rol->name == $rolSelect)
+                                                                    <option value="{{ $rol->name }}" selected>{{ $rol->name }}</option>
+                                                                @else
+                                                                    <option value="{{ $rol->name }}">{{ $rol->name }}</option>
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -138,7 +146,7 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Telefono</label>
-                                                    <input type="text" class="form-control" name="telefono" id="tel" placeholder="00000000">
+                                                    <input type="text" class="form-control" name="telefono" id="tel" placeholder="0000-0000">
                                                 </div>
 
                                                 <div class="form-group col-md-4">
@@ -173,7 +181,7 @@
             var form = $(this);
             $.ajax({
                 type: 'POST',
-                url: "{{ url('crear-usuario') }}",
+                url: "{{ url('add-usuario') }}",
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -181,7 +189,7 @@
                     form[0].reset();
                 }
             }).fail(function(data) {
-                sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+                Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });
@@ -192,7 +200,7 @@
             let id = $("#id-usu").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ url('update-usuario') }}/"+id,
+                url: "{{ url('edit-usuario') }}/"+id,
                 data: form.serialize()
             }).done(function(data) {
                 if (data === true) {
@@ -209,10 +217,30 @@
 
                 }
                 }).fail(function(data) {
-                    sweetAlert("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
+                    Swal.fire("Oops...", "Ocurrio un error intentelo de nuevo!!", "error")
             });
             return this;
         });
+
+        $(document).ready(function() {
+            const element = document.getElementById('tel');
+            const maskOptions = {
+                mask: '0000-0000'
+            };
+
+            // Verifica si el elemento 'tel' existe antes de intentar usar IMask
+            if (element !== null) {
+                const mask = IMask(element, maskOptions);
+            }
+
+            const element_edit = document.getElementById('tel_edit');
+
+            if (element_edit !== null) {
+                const mask = IMask(element_edit, maskOptions);
+            }
+        });
+
+
 
     </script>
 
