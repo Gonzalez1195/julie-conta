@@ -166,9 +166,18 @@
 							<span class="nav-text">Anexos</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{!! url('./agregar-consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
-                            <li><a href="{!! url('./anexo-contribuyentes-agregar'); !!}">Anexo de Ventas a Contribuyentes</a></li>
-                            <li><a href="{!! url('./anexo-compras-agregar'); !!}">Anexo de Compras</a></li>
+                            <li><a href="{!! url('./anexo-consumidor-final-agregar'); !!}">Consumidor Final</a></li>
+                            <li><a href="{!! url('./anexo-contribuyentes-agregar'); !!}">Contribuyentes</a></li>
+                            <li><a href="{!! url('./anexo-compras-agregar'); !!}">Compras</a></li>
+                            <li><a href="{!! url('./anexo-casilla-108-agregar'); !!}">Casilla 108</a></li>
+                            <li><a href="{!! url('./anexo-casilla-66-agregar'); !!}">Casilla 66</a></li>
+                            <li><a href="{!! url('./anexo-casilla-161-agregar'); !!}">Casilla 161</a></li>
+                            <li><a href="{!! url('./anexo-casilla-162-agregar'); !!}">Casilla 162</a></li>
+                            <li><a href="{!! url('./anexo-casilla-163-agregar'); !!}">Casilla 163</a></li>
+                            <li><a href="{!! url('./anexo-casilla-169-agregar'); !!}">Casilla 169</a></li>
+                            <li><a href="{!! url('./anexo-casilla-170-agregar'); !!}">Casilla 170</a></li>
+                            <li><a href="{!! url('./anexo-casilla-171-agregar'); !!}">Casilla 171</a></li>
+                            <li><a href="{!! url('./anexo-casilla-172-agregar'); !!}">Casilla 172</a></li>
 
                             {{-- <li><a href="{!! url('./anexo-ventas-gctd'); !!}">Ventas Gravadas por Cuenta de Terceros Domiciliados</a></li>
                             <li><a href="{!! url('./anexo-compras-se'); !!}">Compra a Sujetos Excluídos</a></li>
@@ -187,11 +196,20 @@
 							<span class="nav-text">Listados y Libros</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Listados</a>
+                            <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Anexos</a>
                                 <ul aria-expanded="false">
-                                    <li><a href="{!! url('./consumidor-final'); !!}">Anexo de Ventas a Consumidor Final</a></li>
-                                    <li><a href="{!! url('./anexo-contribuyentes'); !!}">Anexo de Ventas a Contribuyentes</a></li>
-                                    <li><a href="{!! url('./anexo-compras'); !!}">Anexo de Compras</a></li>
+                                    <li><a href="{!! url('./anexo-consumidor-final'); !!}">Consumidor Final</a></li>
+                                    <li><a href="{!! url('./anexo-contribuyentes'); !!}">Contribuyentes</a></li>
+                                    <li><a href="{!! url('./anexo-compras'); !!}">Compras</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-108'); !!}">Casilla 108</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-66'); !!}">Casilla 66</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-161'); !!}">Casilla 161</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-162'); !!}">Casilla 162</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-163'); !!}">Casilla 163</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-169'); !!}">Casilla 169</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-170'); !!}">Casilla 170</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-171'); !!}">Casilla 170</a></li>
+                                    <li><a href="{!! url('./anexo-casilla-172'); !!}">Casilla 170</a></li>
                                 </ul>
                             </li>
                             <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Libros</a>

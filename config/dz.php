@@ -412,6 +412,26 @@ return [
                     'vendor/sweetalert2/dist/sweetalert2.min.css',
                 ],
 
+                'viewCasilla169' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla170' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla171' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
+                'viewCasilla172' => [
+                    'vendor/datatables/css/jquery.dataTables.min.css',
+                    'vendor/sweetalert2/dist/sweetalert2.min.css',
+                ],
+
 
 
 
@@ -1312,6 +1332,46 @@ return [
                     ],
 
                     'viewCasilla163' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla169' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla170' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla171' => [
+                        'vendor/chart.js/Chart.bundle.min.js',
+                        'vendor/apexchart/apexchart.js',
+                        'vendor/datatables/js/jquery.dataTables.min.js',
+                        'js/plugins-init/datatables.init.js',
+                        'vendor/sweetalert2/dist/sweetalert2.all.min.js',
+                        'js/custom.min.js',
+                        'js/deznav-init.js',
+                    ],
+
+                    'viewCasilla172' => [
                         'vendor/chart.js/Chart.bundle.min.js',
                         'vendor/apexchart/apexchart.js',
                         'vendor/datatables/js/jquery.dataTables.min.js',

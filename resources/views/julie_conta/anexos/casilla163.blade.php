@@ -276,7 +276,7 @@
                         confirmButtonText: 'OK',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location = "../";
+                            window.location = "anexo-casilla-163";
                         }
                     })
 

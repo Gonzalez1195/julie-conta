@@ -16,6 +16,10 @@ use App\Http\Controllers\Casilla66Controller;
 use App\Http\Controllers\Casilla161Controller;
 use App\Http\Controllers\Casilla162Controller;
 use App\Http\Controllers\Casilla163Controller;
+use App\Http\Controllers\Casilla169Controller;
+use App\Http\Controllers\Casilla170Controller;
+use App\Http\Controllers\Casilla171Controller;
+use App\Http\Controllers\Casilla172Controller;
 use Illuminate\Routing\Router;
 
 /*
@@ -134,21 +138,26 @@ Route::controller(MediquadminController::class)->group(function() {
         Route::get('/anexo-casilla-163-agregar', 'form_casilla_163');
         Route::get('/anexo-casilla-163-editar/{id}', 'form_casilla_163_edit');
 
+        Route::get('/anexo-casilla-169', 'viewCasilla169');
         Route::get('/anexo-casilla-169-agregar', 'form_casilla_169');
         Route::get('/anexo-casilla-169-editar/{id}', 'form_casilla_169_edit');
 
+        Route::get('/anexo-casilla-170', 'viewCasilla170');
         Route::get('/anexo-casilla-170-agregar', 'form_casilla_170');
         Route::get('/anexo-casilla-170-editar/{id}', 'form_casilla_170_edit');
 
+        Route::get('/anexo-casilla-171', 'viewCasilla171');
         Route::get('/anexo-casilla-171-agregar', 'form_casilla_171');
         Route::get('/anexo-casilla-171-editar/{id}', 'form_casilla_171_edit');
 
+        Route::get('/anexo-casilla-172', 'viewCasilla172');
         Route::get('/anexo-casilla-172-agregar', 'form_casilla_172');
         Route::get('/anexo-casilla-172-editar/{id}', 'form_casilla_172_edit');
 
         Route::get('/libro-compra', 'viewLibroCompras');
         Route::get('/libro-ventas-contribuyentes', 'viewLibroContribuyentes');
         Route::get('/libro-ventas-consumidores', 'viewLibroCF');
+
         Route::get('/contribuyentes-agregar', 'form_contribuyentes');
         Route::get('/contribuyentes-editar/{id}', 'form_contribuyentes_edit');
         Route::get('/contribuyentes', 'viewContribuyentes');

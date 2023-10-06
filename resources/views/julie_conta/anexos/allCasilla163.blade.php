@@ -66,6 +66,7 @@
                                                 <th>NIT agente</th>
                                                 <th>Fecha de emisión</th>
                                                 <th>Tipo de documento</th>
+                                                <th>Serie de documento</th>
                                                 <th>Número de documento</th>
                                                 <th>Monto sujeto</th>
                                                 <th>Monto de la percepción 1%</th>

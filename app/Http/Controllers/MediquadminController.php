@@ -1326,5 +1326,53 @@ class MediquadminController extends Controller
         return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'percepciones', 'usuarios', 'action'));
     }
 
+    public function viewCasilla169()
+    {
+        $page_title = 'Anexo Casilla 169';
+        $page_description = 'Percepción del IVA del 1% efectuada por el declarante';
+        $percepciones = Casilla169::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'percepciones', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla170()
+    {
+        $page_title = 'Anexo Casilla 170';
+        $page_description = 'Retención 1% IVA a terceros domniciliados efectuadas por el declarante';
+        $retenciones = Casilla170::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'retenciones', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla171()
+    {
+        $page_title = 'Anexo Casilla 171';
+        $page_description = 'Anticipo a cuenta del 2% efectuada por el declarante';
+        $anticipos = Casilla171::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'anticipos', 'usuarios', 'action'));
+    }
+
+    public function viewCasilla172()
+    {
+        $page_title = 'Anexo Casilla 172';
+        $page_description = 'Retención 13% IVA a terceros domiciliados efectuadas por el declarante';
+        $retenciones = Casilla172::all();
+        $usuarios = User::where('estado', 1)->get();
+
+        $action = __FUNCTION__;
+
+        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'retenciones', 'usuarios', 'action'));
+    }
+
 
 }
