@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpresasTable extends Migration
+class CreatePatronosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        Schema::create('empresas', function (Blueprint $table) {
+        Schema::create('patronos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 250);
+            $table->string('NIT/DUI_patrono', 15);
+            $table->string('ISSS_empleador', 10);
+            $table->string('centro_trabajo', 10);
+            $table->foreignId('empresa_id')->constrained('empresas');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresas');
+        Schema::dropIfExists('patronos');
     }
 }
