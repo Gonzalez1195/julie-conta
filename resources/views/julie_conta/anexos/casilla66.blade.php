@@ -10,13 +10,13 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Editar Anexo Casilla 66</h4>
+                        <h4>Editar casilla 66</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Editar</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Anexo Casilla 66</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Casilla 66</a></li>
                     </ol>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Editar Casilla 66</h4>
+                            <h4 class="card-title">Editar casilla 66</h4>
                         </div>
                         <div class="card-body">
                             <div class="basic-form form-validation">
@@ -123,13 +123,13 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Compras a Sujetos Excluídos</h4>
+                        <h4>Compras a sujetos excluídos</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Anexos</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Compras a Sujetos Excluídos</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Compras a sujetos excluídos</a></li>
                     </ol>
                 </div>
             </div>
