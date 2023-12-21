@@ -10,13 +10,13 @@
                     <div class="row page-titles mx-0">
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
-                                <h4>Editar Anexo Compras</h4>
+                                <h4>Editar anexo compras</h4>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Editar</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Anexo Compras</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Anexo de compras</a></li>
                             </ol>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Editar Usuario</h4>
+                                    <h4 class="card-title">Editar anexo de compras</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
@@ -180,7 +180,7 @@
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Anexos</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar anexo de compra</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar anexo de compras</a></li>
                             </ol>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Crear anexo de compra</h4>
+                                    <h4 class="card-title">Crear anexo de compras</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">

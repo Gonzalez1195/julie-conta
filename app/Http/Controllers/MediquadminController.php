@@ -1316,7 +1316,7 @@ class MediquadminController extends Controller
 
     public function viewCasilla163()
     {
-        $page_title = 'Anexo Casilla 162';
+        $page_title = 'Anexo Casilla 163';
         $page_description = 'Retención de IVA del 1% efectuada al declarante';
         $percepciones = Casilla163::all();
         $usuarios = User::where('estado', 1)->get();
@@ -1335,7 +1335,7 @@ class MediquadminController extends Controller
 
         $action = __FUNCTION__;
 
-        return view('julie_conta.anexos.allCasilla163', compact('page_title', 'page_description', 'percepciones', 'usuarios', 'action'));
+        return view('julie_conta.anexos.allCasilla169', compact('page_title', 'page_description', 'percepciones', 'usuarios', 'action'));
     }
 
     public function viewCasilla170()
