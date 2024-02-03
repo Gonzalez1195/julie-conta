@@ -7,7 +7,6 @@
 @section('content')
 
             @if (isset($consumidor))
-
                 <div class="container-fluid">
                     <div class="row page-titles mx-0">
                         <div class="col-sm-6 p-md-0">

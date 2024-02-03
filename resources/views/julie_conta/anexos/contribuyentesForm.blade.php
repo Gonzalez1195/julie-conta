@@ -25,7 +25,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Editar Usuario</h4>
+                                    <h4 class="card-title">Editar Contribuyente Registro</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">
@@ -59,7 +59,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="numero_resolucion">Número de Resolución <span class="text-danger">*</span></label>
+                                                        <label for="numero_resolucion">Número de resolución <span class="text-danger">*</span></label>
                                                         <div>
                                                             <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion" value="{{ $contri->numero_resolucion }}">
                                                         </div>
@@ -149,7 +149,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label>Número del Anexo <span class="text-danger">*</span></label>
+                                                        <label>Número del anexo <span class="text-danger">*</span></label>
                                                         <select id="numero_anexo" class="form-control" name="numero_anexo">
                                                             <option value="1" selected>1</option>
                                                         </select>
@@ -180,13 +180,13 @@
                     <div class="row page-titles mx-0">
                         <div class="col-sm-6 p-md-0">
                             <div class="welcome-text">
-                                <h4>Nuevo Contribuyente registro</h4>
+                                <h4>Nuevo Contribuyente Registro</h4>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Anexos</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar Contribuyente</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar Contribuyente Registro</a></li>
                             </ol>
                         </div>
                     </div>
@@ -195,7 +195,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Crear Contribuyente</h4>
+                                    <h4 class="card-title">Crear Contribuyente Registro</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form form-validation">

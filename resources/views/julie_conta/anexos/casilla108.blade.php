@@ -10,13 +10,13 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Editar Anexo Compras</h4>
+                        <h4>Ventas gravadas por cuenta de terceros domiciliados</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Editar</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Anexo Compras</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Casilla 108</a></li>
                     </ol>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Editar Usuario</h4>
+                            <h4 class="card-title">Editar anexo casilla 108</h4>
                         </div>
                         <div class="card-body">
                             <div class="basic-form form-validation">
@@ -41,7 +41,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="nombre_razon_social_denominacion">Nombre, Razón Social o Denominación <span class="text-danger">*</span></label>
+                                                <label for="nombre_razon_social_denominacion">Nombre, Razón social o Denominación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="nombre_razon_social_denominacion" class="form-control" id="nombre_razon_social_denominacion" value="{{ $venta->nombre_razon_social_denominacion }}">
                                                 </div>
@@ -61,62 +61,62 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="serie_documento">Serie de Documento <span class="text-danger">*</span></label>
+                                                <label for="serie_documento">Serie de documento <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="serie_documento" class="form-control" id="serie_documento" value="{{ $venta->serie_documento }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="numero_resolucion">Número de Resolución <span class="text-danger">*</span></label>
+                                                <label for="numero_resolucion">Número de resolución <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion" value="{{ $venta->numero_resolucion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="numero_documento">Número de Documento <span class="text-danger">*</span></label>
+                                                <label for="numero_documento">Número de documento <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="numero_documento" class="form-control" id="numero_documento" value="{{ $venta->numero_documento }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="monto_operacion">Monto de la Operación <span class="text-danger">*</span></label>
+                                                <label for="monto_operacion">Monto de la operación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="monto_operacion" class="form-control monto_operacion" value="{{ $venta->monto_operacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="iva_operacion">IVA de la Operación <span class="text-danger">*</span></label>
+                                                <label for="iva_operacion">IVA de la operación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="" class="form-control iva_operacion" value="{{ $venta->iva_operacion }}" disabled>
                                                     <input type="hidden" name="iva_operacion" class="form-control iva_operacion_hidden" value="{{ $venta->iva_operacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="num_serie_comprobante_liquidacion">Numero de Serie del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                                <label for="num_serie_comprobante_liquidacion">Numero de serie del comprobante de liquidación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="num_serie_comprobante_liquidacion" class="form-control" id="num_serie_comprobante_liquidacion" value="{{ $venta->num_serie_comprobante_liquidacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="num_resolucion_comprobante_liquidacion">Numero de Resolución del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                                <label for="num_resolucion_comprobante_liquidacion">Numero de resolución del comprobante de liquidación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="num_resolucion_comprobante_liquidacion" class="form-control" id="num_resolucion_comprobante_liquidacion" value="{{ $venta->num_resolucion_comprobante_liquidacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="num_comprobante_liquidacion">Numero del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                                <label for="num_comprobante_liquidacion">Numero del comprobante de liquidación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="num_comprobante_liquidacion" class="form-control" id="num_comprobante_liquidacion" value="{{ $venta->num_comprobante_liquidacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="fecha_emision_comprobante_liquidacion">Fecha de emisión del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                                <label for="fecha_emision_comprobante_liquidacion">Fecha de emisión del comprobante de liquidación <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="date" name="fecha_emision_comprobante_liquidacion" class="form-control" id="fecha_emision_comprobante_liquidacion" value="{{ $venta->fecha_emision_comprobante_liquidacion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="dui_cliente">DUI del Mandante <span class="text-danger">*</span></label>
+                                                <label for="dui_cliente">DUI del mandante <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="dui_cliente" class="form-control" id="dui_cliente" value="{{ $venta->dui_cliente }}">
                                                 </div>
@@ -155,7 +155,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Ventas Gravadas por Cuenta de Terceros Domiciliados</h4>
+                        <h4>Ventas gravadas por cuenta de terceros domiciliados</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -170,7 +170,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Crear anexo Casilla 108</h4>
+                            <h4 class="card-title">Crear anexo casilla 108</h4>
                         </div>
                         <div class="card-body">
                             <div class="basic-form form-validation">
@@ -184,7 +184,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="nombre_razon_social_denominacion">Nombre, Razón Social o Denominación <span class="text-danger">*</span></label>
+                                            <label for="nombre_razon_social_denominacion">Nombre, Razón social o Denominación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="nombre_razon_social_denominacion" class="form-control" id="nombre_razon_social_denominacion">
                                             </div>
@@ -204,62 +204,62 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="serie_documento">Serie de Documento <span class="text-danger">*</span></label>
+                                            <label for="serie_documento">Serie de documento <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="serie_documento" class="form-control" id="serie_documento">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="numero_resolucion">Número de Resolución <span class="text-danger">*</span></label>
+                                            <label for="numero_resolucion">Número de resolución <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="numero_resolucion" class="form-control" id="numero_resolucion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="numero_documento">Número de Documento <span class="text-danger">*</span></label>
+                                            <label for="numero_documento">Número de documento <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="numero_documento" class="form-control" id="numero_documento">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="monto_operacion">Monto de la Operación <span class="text-danger">*</span></label>
+                                            <label for="monto_operacion">Monto de la operación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="monto_operacion" class="form-control monto_operacion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="iva_operacion">IVA de la Operación <span class="text-danger">*</span></label>
+                                            <label for="iva_operacion">IVA de la operación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="" class="form-control iva_operacion" disabled>
                                                 <input type="hidden" name="iva_operacion" class="form-control iva_operacion_hidden">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="num_serie_comprobante_liquidacion">Numero de Serie del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                            <label for="num_serie_comprobante_liquidacion">Número de serie del comprobante de liquidación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="num_serie_comprobante_liquidacion" class="form-control" id="num_serie_comprobante_liquidacion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="num_resolucion_comprobante_liquidacion">Numero de Resolución del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                            <label for="num_resolucion_comprobante_liquidacion">Número de resolución del comprobante de liquidación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="num_resolucion_comprobante_liquidacion" class="form-control" id="num_resolucion_comprobante_liquidacion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="num_comprobante_liquidacion">Numero del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                            <label for="num_comprobante_liquidacion">Número del comprobante de liquidación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="num_comprobante_liquidacion" class="form-control" id="num_comprobante_liquidacion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="fecha_emision_comprobante_liquidacion">Fecha de emisión del Comprobante de Liquidación <span class="text-danger">*</span></label>
+                                            <label for="fecha_emision_comprobante_liquidacion">Fecha de emisión del comprobante de liquidación <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="date" name="fecha_emision_comprobante_liquidacion" class="form-control" id="fecha_emision_comprobante_liquidacion">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="dui_cliente">DUI del Mandante <span class="text-danger">*</span></label>
+                                            <label for="dui_cliente">DUI del mandante <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="dui_cliente" class="form-control" id="dui_cliente">
                                             </div>

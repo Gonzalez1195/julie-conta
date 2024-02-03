@@ -10,13 +10,13 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Editar Retención de IVA del 1% efectuada al declarante</h4>
+                        <h4>Retención de IVA del 1% efectuada al declarante</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Editar</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Anexo Casilla 162</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Anexos</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Casilla 162</a></li>
                     </ol>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Editar Anexo Casilla 162</h4>
+                            <h4 class="card-title">Editar anexo casilla 162</h4>
                         </div>
                         <div class="card-body">
                             <div class="basic-form form-validation">
@@ -35,13 +35,13 @@
                                         <input type="hidden" name="id_casilla162" id="id_casilla162" value="{{ $retencion->id }}">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label for="nit_agente">NIT Agente <span class="text-danger">*</span></label>
+                                                <label for="nit_agente">NIT agente <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="nit_agente" class="form-control" value="{{ $retencion->nit_agente }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="fecha_emision">Fecha de Emisión <span class="text-danger">*</span></label>
+                                                <label for="fecha_emision">Fecha de emisión <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="date" name="fecha_emision" class="form-control" value="{{ $retencion->fecha_emision }}">
                                                 </div>
@@ -57,32 +57,32 @@
                                             </div>
 
                                             <div class="form-group col-md-6">
-                                                <label for="serie_documento">Serie de Documento <span class="text-danger">*</span></label>
+                                                <label for="serie_documento">Serie de documento <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="serie_documento" class="form-control" value="{{ $retencion->serie_documento }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="numero_documento">Número de Documento <span class="text-danger">*</span></label>
+                                                <label for="numero_documento">Número de documento <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="numero_documento" class="form-control" value="{{ $retencion->numero_documento }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="monto_sujeto">Monto Sujeto <span class="text-danger">*</span></label>
+                                                <label for="monto_sujeto">Monto sujeto <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="monto_sujeto" class="form-control monto_sujeto" value="{{ $retencion->monto_sujeto }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="monto_retencion">Monto de la Retención 1%<span class="text-danger">*</span></label>
+                                                <label for="monto_retencion">Monto de la retención 1%<span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="" class="form-control monto_retencion" value="{{ $retencion->monto_retencion }}" disabled>
                                                     <input type="hidden" name="monto_retencion" class="form-control monto_retencion_hidden" value="{{ $retencion->monto_retencion }}">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="dui_agente">DUI del Agente <span class="text-danger">*</span></label>
+                                                <label for="dui_agente">DUI del agente <span class="text-danger">*</span></label>
                                                 <div>
                                                     <input type="text" name="dui_agente" class="form-control" value="{{ $retencion->dui_agente }}">
                                                 </div>
@@ -137,7 +137,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Crear anexo Casilla 162</h4>
+                            <h4 class="card-title">Crear anexo casilla 162</h4>
                         </div>
                         <div class="card-body">
                             <div class="basic-form form-validation">
@@ -145,13 +145,13 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="nit_agente">NIT Agente <span class="text-danger">*</span></label>
+                                            <label for="nit_agente">NIT agente <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="nit_agente" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="fecha_emision">Fecha de Emisión <span class="text-danger">*</span></label>
+                                            <label for="fecha_emision">Fecha de emisión <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="date" name="fecha_emision" class="form-control">
                                             </div>
@@ -167,32 +167,32 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label for="serie_documento">Serie de Documento <span class="text-danger">*</span></label>
+                                            <label for="serie_documento">Serie de documento <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="serie_documento" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="numero_documento">Número de Documento <span class="text-danger">*</span></label>
+                                            <label for="numero_documento">Número de documento <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="numero_documento" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="monto_sujeto">Monto Sujeto <span class="text-danger">*</span></label>
+                                            <label for="monto_sujeto">Monto sujeto <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="monto_sujeto" class="form-control monto_sujeto">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="monto_retencion">Monto de la Retención 1%<span class="text-danger">*</span></label>
+                                            <label for="monto_retencion">Monto de la retención 1%<span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="" class="form-control monto_retencion" disabled>
                                                 <input type="hidden" name="monto_retencion" class="form-control monto_retencion_hidden">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="dui_agente">DUI del Agente <span class="text-danger">*</span></label>
+                                            <label for="dui_agente">DUI del agente <span class="text-danger">*</span></label>
                                             <div>
                                                 <input type="text" name="dui_agente" class="form-control">
                                             </div>
