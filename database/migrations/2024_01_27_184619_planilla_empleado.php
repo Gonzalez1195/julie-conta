@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpresasTable extends Migration
+class PlanillaEmpleado extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('empresas')) {
-            Schema::create('empresas', function (Blueprint $table) {
+        if (!Schema::hasTable('planilla_empleados')) {
+            Schema::create('planilla_empleados', function (Blueprint $table) {
                 $table->id();
-                $table->string('nombre', 250);
-                $table->string('NIT/DUI_patrono', 15);
-                $table->string('ISSS_empleador', 10);
-                $table->string('centro_trabajo', 10);
+                $table->foreignId('empleado_id')->constrained('empleados');
+                $table->foreignId('planilla_id')->constrained('planillas');
                 $table->timestamps();
             });
         }
@@ -32,6 +30,7 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresas');
+        //
+        Schema::dropIfExists('planilla_empleados');
     }
 }
