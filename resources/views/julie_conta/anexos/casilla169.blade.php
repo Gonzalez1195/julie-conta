@@ -87,9 +87,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="dui_agente">DUI sujeto <span class="text-danger">*</span></label>
+                                                <label for="dui_sujeto">DUI sujeto <span class="text-danger">*</span></label>
                                                 <div>
-                                                    <input type="text" name="dui_agente" class="form-control" value="{{ $percepcion->dui_agente }}">
+                                                    <input type="text" name="dui_sujeto" class="form-control" value="{{ $percepcion->dui_sujeto }}">
                                                 </div>
                                             </div>
 
@@ -201,12 +201,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="dui_agente">DUI sujeto <span class="text-danger">*</span></label>
+                                            <label for="dui_sujeto">DUI sujeto <span class="text-danger">*</span></label>
                                             <div>
-                                                <input type="text" name="dui_agente" class="form-control">
+                                                <input type="text" name="dui_sujeto" class="form-control dui_sujeto">
                                             </div>
                                         </div>
-
                                         <div class="form-group col-md-6">
                                             <label>Número del anexo <span class="text-danger">*</span></label>
                                             <select id="numero_anexo" class="form-control" name="numero_anexo">
@@ -217,9 +216,9 @@
                                             <label>Cliente</label>
                                             <select id="select-usuario" class="form-control" name="user_id">
                                                 <option value="null">Seleccione un usuario...</option>
-                                                @foreach ($usuario)
-                                                    <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
-                                                @endforeach
+                                                @foreach ($usuarios as $usuario)
+                                                            <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                                        @endforeach
                                             </select>
                                         </div>
                                     </div>
